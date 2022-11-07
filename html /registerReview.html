@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리뷰를 등록해주세요</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/registerReview.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Leave your review</h1>
+
+    <h3>가미분식에 대한 솔직한 리뷰를 등록해주세요</h3>
+
+    <form class="review">
+      <div class="review-top">
+        <div class="nickname">
+          <div class="label-wrap">
+            <label for="review__reviewer">닉네임</label>
+          </div>
+
+          <input
+            type="text"
+            id="review__reviewer"
+            placeholder="닉네임을 입력해주세요"
+          />
+        </div>
+
+        <div class="rating">
+          <div class="label-wrap">
+            <label for="review__rating">평점</label>
+          </div>
+
+          <input
+            type="text"
+            id="review__rating"
+            placeholder="평점을 입력해주세요"
+          />
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="label-wrap">
+          <label for="review_content">리뷰</label>
+        </div>
+        <input
+          type="text"
+          id="review_content"
+          placeholder="리뷰를 남겨주세요"
+        />
+      </div>
+
+      <!-- 이미지 클릭하면 파일 업로드 되도록 하는 부분 다시 작업하기 -->
+      <label src="./assets/attachImg.png"></label>
+      <input type="file" name="file1" style="display: none" />
+
+      <input type="button" value="리뷰 등록하기" />
+    </form>
+  </body>
+</html>

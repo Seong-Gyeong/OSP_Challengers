@@ -1,0 +1,70 @@
+@import "reset.css";
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin: 50px;
+}
+
+input {
+  border: 1px solid gray;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 90%;
+}
+
+.review-top {
+  display: flex;
+  justify-content: center;
+
+  width: 70vw;
+}
+
+.comment {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+}
+
+.nickname,
+.rating {
+  display: flex;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  margin-left: 50px;
+}
+
+.nickname input,
+.rating input {
+  width: 30vw;
+  height: 50px;
+
+  border-radius: 10px;
+
+  margin: 10px;
+}
+
+.comment input {
+  width: 100vw;
+  height: 200px;
+  border-radius: 10px;
+
+  margin: 10px;
+}
+
+.label-wrap {
+  width: 70px;
+
+  text-align: center;
+
+  line-height: 70px;
+}
