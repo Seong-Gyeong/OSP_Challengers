@@ -8,10 +8,16 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/42ed29bed1.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/addBestMenu.css" />
@@ -39,11 +45,9 @@
 
     <div class="subject">
       <br /><br /><br /><br /><br />
-      <h1>#category</h1>
+      <h1>#Best Menu</h1>
       <br /><br /><br /><br />
     </div>
-
-    <h1>Best Menu</h1>
 
     <h3>가미분식의 대표 메뉴를 등록해주세요</h3>
 
@@ -108,12 +112,33 @@
       </div>
 
       <!-- 이미지 클릭하면 파일 업로드 되도록 하는 부분 다시 작업하기 -->
-      <label src="./assets/attachImg.png"></label>
+      <!-- <label src="./assets/attachImg.png"></label>
       <input type="file" name="file1" style="display: none" />
     </form>
 
+   -->
+   
+<!-- 이미지 첨부할 부분, 차후 Js와 연결해서 이미지 클릭하면 사진 업로드 되게 할 예정 -->
+    <div class="img">
+      <input
+        class="upload_img_input"
+        type="file"
+        accept="image/*"
+        required
+        multiple
+        style="display: none"
+      />
+      <div class="img_section">
+        <div class="upload"></div>
+        <div class="img_preview"></div>
+      </div>
+    </div>
+ 
+
     <div class="register">
       <input class="register-btn" type="button" value="메뉴 등록하기" />
-    </div>
+    </div> 
+  </form>
+  </div>
   </body>
 </html>

@@ -8,10 +8,16 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/42ed29bed1.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/addRestaurant.css" />
@@ -148,17 +154,28 @@
         <li>20000원 이상</li>
       </ul> -->
 
-      <!-- 이미지 클릭하면 파일 업로드 되도록 하는 부분 다시 작업하기 -->
-      <label src="./assets/attachImg.png"></label>
-      <input type="file" name="file1" style="display: none" />
-    </form>
+      <div class="img">
+        <input
+          class="upload_img_input"
+          type="file"
+          accept="image/*"
+          required
+          multiple
+          style="display: none"
+        />
+        <div class="img_section">
+          <div class="upload"></div>
+          <div class="img_preview"></div>
+        </div>
+      </div>
 
-    <div class="step2">
-      <input
-        class="step2_btn"
-        type="button"
-        value="step2. 대표 메뉴 등록하러 가기"
-      />
-    </div>
+      <div class="step2">
+        <input
+          class="step2_btn"
+          type="button"
+          value="step2. 대표 메뉴 등록하러 가기"
+        />
+      </div>
+    </form>
   </body>
 </html>
