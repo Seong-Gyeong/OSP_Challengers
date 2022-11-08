@@ -16,21 +16,22 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: 90%;
 }
 
 .review-top {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
-  width: 70vw;
+  margin: 0;
+  padding: 0;
 }
 
 .comment {
-  width: 70vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+
+  margin: 0;
+  padding: 0;
 }
 
 .nickname,
@@ -40,12 +41,12 @@ input {
   font-size: 15px;
   font-weight: 500;
 
-  margin-left: 50px;
+  margin-left: 25px;
 }
 
 .nickname input,
 .rating input {
-  width: 30vw;
+  width: 32vw;
   height: 50px;
 
   border-radius: 10px;
@@ -54,7 +55,7 @@ input {
 }
 
 .comment input {
-  width: 100vw;
+  width: 70vw;
   height: 200px;
   border-radius: 10px;
 
@@ -67,4 +68,44 @@ input {
   text-align: center;
 
   line-height: 70px;
+}
+
+.add-btn {
+  width: 400px;
+  height: 40px;
+
+  background-color: rgb(0, 70, 22);
+  color: #fff;
+
+  border: none;
+  border-radius: 66px;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+
+  margin-left: 300px;
+
+  align-self: flex-start;
+}
+
+.upload_img_input {
+  display: none;
+}
+
+.upload {
+  width: 200px;
+  height: 200px;
+
+  padding: 0;
+  background-image: url("../assets/img/uploadImg.png");
+}
+
+.img_preview {
+  width: 550px;
+  height: 200px;
+  gap: 20px;
+
+  display: flex;
 }
