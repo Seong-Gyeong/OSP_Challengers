@@ -1,0 +1,128 @@
+@import "reset.css";
+
+:root {
+  --ewhaGreen: rgb(0, 70, 22);
+}
+
+.food-pic {
+  display: flex;
+  justify-content: center;
+}
+
+.food-pic img {
+  width: 300px;
+  height: 200px;
+
+  margin: 20px;
+}
+
+.title,
+.restaurant-name,
+.restaurant-desc {
+  display: flex;
+  justify-content: center;
+}
+
+.left-btn {
+  width: 100%;
+  display: flex;
+}
+
+.side-button {
+  width: 200px;
+  height: 40px;
+  margin: 15px;
+
+  border-radius: 66px;
+  background-color: var(--ewhaGreen);
+
+  font-size: 15px;
+  color: #fff;
+
+  border: none;
+}
+
+.restaurant-info {
+  display: flex;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.left-info {
+  width: 60vw;
+}
+
+.category,
+.address,
+.phoneNum,
+.openTime,
+.parking,
+.price {
+  margin: 30px;
+  font-weight: 700;
+
+  width: 100px;
+}
+
+.right-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 40vw;
+
+  margin: 10px 30px 10px 10px;
+}
+
+.right-info img {
+  width: 400px;
+  height: 150px;
+}
+
+.right-info .detail-info {
+  width: 400px;
+  height: 150px;
+
+  margin-top: 10px;
+
+  background-color: rgb(0, 70, 22);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  font-weight: 700;
+}
+
+.detail-addr,
+.detail-phone,
+.detail-web {
+  padding: 7px;
+}
+
+.hashtag_wrap {
+  margin-top: 10px;
+
+  width: 400px;
+  height: 60px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hashtag {
+  width: 170px;
+  height: 15px;
+  padding: 10px;
+
+  background-color: #d9d9d9;
+
+  text-align: center;
+  line-height: 15px;
+
+  margin: 3px;
+
+  border-radius: 60px;
+
+  font-size: 14px;
+}

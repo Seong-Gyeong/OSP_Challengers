@@ -1,0 +1,91 @@
+@import "reset.css";
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin: 50px;
+}
+
+form {
+  margin-left: 130px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+}
+
+label {
+  width: 100px;
+
+  font-size: 15px;
+}
+
+input {
+  width: 400px;
+  height: 40px;
+}
+
+.first,
+.second,
+.third {
+  width: 90vw;
+  margin: 0;
+}
+
+.menu__name {
+  width: 960px;
+}
+
+button {
+  width: 400px;
+  height: 40px;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+.register-btn {
+  background-color: rgb(0, 70, 22);
+  color: #fff;
+
+  border: none;
+  border-radius: 66px;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+
+  align-self: flex-start;
+}
+
+.upload_img_input {
+  display: none;
+}
+
+.upload {
+  width: 200px;
+  height: 200px;
+
+  padding: 0;
+  background-image: url("../static/image/uploadImg.png");
+}
+
+.img_preview {
+  width: 550px;
+  height: 200px;
+  gap: 20px;
+
+  display: flex;
+}

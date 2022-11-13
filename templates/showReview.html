@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='showReview.css') }}">
+    <title>Review</title>
+    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <i class="fa-solid fa-utensils"></i>
+            <a href="/">EAT-WHA</a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/showRestaurantList">Restaurants</a></li>
+            <li><a href="/addRestaurant">Register</a></li>
+            <li><a href="/showRecommendation">Recommendation</a></li>
+            <li><a href="/showAboutUs">About Us</a></li>
+        </ul>
+
+        <a href="#" class="navbar-togglebtn">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+    </nav>
+
+    <div class="subject">
+        <h1>#Reviews</h1>
+    </div>
+
+    <div class="main">
+        <h1>가미분식 ⭐<span id="totalstar">4.5</span><span id="return"><a href="./showRestaurantList.html">맛집 보러가기</a></span></h1><hr>
+        <h2>리뷰(<span id="totalreview">100</span>)</h2>
+        <div class="reivewboxlist">
+            <div class="reviewbox">
+                <div class="date" name="date">2022-02-01</div>
+                <img src="../static/image/slide2.jpeg">
+                <div class="reviewcontents">
+                <div id="star">{{data3.review__rating}}</div>
+                <h2>{{data3.review__reviewer}}</h2>
+                <div id="reviewtext">{{data3.review_content}}</div><br>
+                <span id="keyword">혼밥하기 좋아요</span>
+                <span id="keyword">친절해요</span>
+                </div>
+            </div>
+            <div class="reviewbox">
+                <div class="date" name="date">2022-02-01</div>
+                <img src="../static/image/slide2.jpeg">
+                <div class="reviewcontents">
+                <div id="star">☆☆☆☆☆</div>
+                <h2>닉네임</h2>
+                <div id="reviewtext">리뷰내용(친구가 맛집이라고해서~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 맛있어요!!)</div><br>
+                <span id="keyword">혼밥하기 좋아요</span>
+                <span id="keyword">친절해요</span>
+                </div>
+            </div>
+            <div class="reviewbox">
+                <div class="date" name="date">2022-02-01</div>
+                <img src="../static/image/slide2.jpeg">
+                <div class="reviewcontents">
+                <div id="star">☆☆☆☆☆</div>
+                <h2>닉네임</h2>
+                <div id="reviewtext">리뷰내용(친구가 맛집이라고해서~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 맛있어요!!)</div><br>
+                <span id="keyword">혼밥하기 좋아요</span>
+                <span id="keyword">친절해요</span>
+                </div>
+            </div>
+            <div class="reviewbox">
+                <div class="date" name="date">2022-02-01</div>
+                <img src="../static/image/slide2.jpeg">
+                <div class="reviewcontents">
+                <div id="star">☆☆☆☆☆</div>
+                <h2>닉네임</h2>
+                <div id="reviewtext">리뷰내용(친구가 맛집이라고해서~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 맛있어요!!)</div><br>
+                <span id="keyword">혼밥하기 좋아요</span>
+                <span id="keyword">친절해요</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

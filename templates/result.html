@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <meta charset="UTF-8">
+    <head> <title> Result Page </title> </head>
+    <body>
+     
+<section>
+    
+    <p>restaurant name is {{data.restaurant_name}} and address is {{data.restaurant_address}}
+    </p>
+    
+    <p>restaurant homepage is {{data.restaurant_homepage}}
+    </p>
+
+    <p>restaurant open time is {{data.restaurant_open_time}} and close time is {{data.restaurant_close_time}}
+    </p>
+    
+    <p>restaurant tel. is {{data.restaurant_contact}}
+    </p>
+    
+    <p><!-- Parking is 
+        
+        {% if data['park'] == "Y" %}
+        available
+        {% endif %}
+        {% if data['park'] == "N" %}
+        NOT available
+        {% endif %}
+        and Open/Close time is {{data.restaurant__time}}-->
+    </p>
+    
+    <p>    
+    </p>
+    
+    </section>
+    </body>
+    
+</html>
