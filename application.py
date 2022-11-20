@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
+from database import DBhandler
 import sys
+
 application = Flask(__name__)
 
+DB = DBhandler()
 
 @application.route("/")
 def hello():
@@ -24,9 +27,11 @@ def view_recomm_list():
 def view_info():
     return render_template("showAboutUs.html")
 
-@application.route("/addBestMenu")
+@application.route("/addBestMenu", methods=['POST'])
 def reg_bestmenu():
-    return render_template("addBestMenu.html")
+    data=request.form
+    print(list(data.values()))
+    return render_template("addBestMenu.html", data=data)
 
 
 @application.route("/showBestMenu")
@@ -35,9 +40,15 @@ def view_bestmenu():
 
 @application.route("/showBestMenu", methods=['POST'])
 def reg_bestmenu_submit():
-    data2=request.form
-    print(list(data2.values()))
-    return render_template("showBestMenu.html", data2=data2)
+    image_file=request.files["file"]
+    image_file.save("static/image/{}".format(image_file.filename))
+    data=request.form
+    print(list(data.values()))
+    
+    if DB.insert_menu(data['menu__name'], data, image_file.filename):
+        return render_template("showBestMenu.html", data=data, image_path="/static/image/"+image_file.filename) 
+    else:
+        return "menu name already exist!"
 
 @application.route("/addReview")
 def reg_review():
@@ -49,18 +60,26 @@ def view_review():
 
 @application.route("/showReview", methods=['POST']) 
 def reg_review_submit():
-    data3=request.form
-    print(list(data3.values()))
-    return render_template("showReview.html", data3=data3)
+    image_file=request.files["file"]
+    image_file.save("static/image/{}".format(image_file.filename))
+    data=request.form
+    print(list(data.values()))
+    
+    if DB.insert_review(data['review__reviewer'], data, image_file.filename):
+        return render_template("showReview.html", data=data, image_path="/static/image/"+image_file.filename) 
 
 @application.route("/result", methods=['POST']) 
 def reg_restaurant_submit():
-    #image_file=request.files["file"]
-    #image_file.save("static/image/{}".format(image_file.filename))]
+    image_file=request.files["file"]
+    image_file.save("static/image/{}".format(image_file.filename))
     data=request.form
     print(list(data.values()))
-    return render_template("result.html", data=data)
-
+    
+    if DB.insert_restaurant(data['restaurant_name'], data, image_file.filename):
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename) 
+    else:
+        return "Restaurant name already exist!"
     
 if __name__ == "__main__":
     application.run(host='0.0.0.0', debug=True)
+    
