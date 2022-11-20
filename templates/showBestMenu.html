@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "navbar.html" %}
+{% block head %}
+  {{ super() }}
+    <title>Best Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,40 +10,23 @@
     
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='showBestMenu.css') }}">
-    <title>Best Menu</title>
     <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <i class="fa-solid fa-utensils"></i>
-            <a href="/">EAT-WHA</a>
+{% endblock %}
+
+{% block section %}
+        <div class="subject">
+            <h1>#Best Menu</h1>
         </div>
-        <ul class="navbar-menu">
-            <li><a href="/showRestaurantList">Restaurants</a></li>
-            <li><a href="/addRestaurant">Register</a></li>
-            <li><a href="/showRecommendation">Recommendation</a></li>
-            <li><a href="/showAboutUs">About Us</a></li>
-        </ul>
 
-        <a href="#" class="navbar-togglebtn">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-    </nav>
-    
-    <div class="subject">
-        <h1>#Best Menu</h1>
-    </div>
-
-    <div class="main">
-        <h1>대표메뉴</h1>
-        <hr>
-        <h2><span id="name">가미분식</span>  |  <span id="location">서울 서대문구 이화여대8길 2 무궁화상가아파트</span></h2>
+        <div class="main">
+            <h1>대표메뉴</h1>
+            <hr>
+            <h2><span id="name">가미분식</span>  |  <span id="location">서울 서대문구 이화여대8길 2 무궁화상가아파트</span></h2>
         <div class="bestmenu">
             <div class="menu">
                 <div class="menugroup">
                     <div class="menuimg">
-                        <img src="../static/image/slide1.jpg" width="270px"></div>
+                        <img src="../static/image/slide2.jpeg" width="270px"></div>
                     <div class="content">
                         <div id="메뉴명"> </div>
                         <div id="가격"> </div>
@@ -54,10 +36,10 @@
             <div class="menu">
                 <div class="menugroup">
                     <div class="menuimg">
-                        <img src="../static/image/slide2.jpeg" width="270px"></div>
+                        <img src="{{image_path}}" alt="Menu Image" height="270px"></div>
                     <div class="content">
-                        <div id="메뉴명">{{data2.menu__name}}</div>
-                        <div id="가격">{{data2.menu__price}}</div>
+                        <div id="메뉴명">{{data.menu__name}}</div>
+                        <div id="가격">{{data.menu__price}}</div>
                     </div>
                 </div>
             </div>
@@ -68,11 +50,9 @@
                     <div class="content">
                         <div id="메뉴명">메뉴명</div>
                         <div id="가격">가격</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-        
-</body>
-</html>
+        </div>
+{% endblock section %} 

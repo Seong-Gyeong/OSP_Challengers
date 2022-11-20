@@ -1,841 +1,819 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "navbar.html" %}
+{% block head %}
+  {{ super() }}
+    <title>맛집 구경하기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='showRestaurantList.css') }}">
-    
-    <title>맛집 구경하기</title>
-    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <i class="fa-solid fa-utensils"></i>
-            <a href="/">EAT-WHA</a>
-        </div>
-        <ul class="navbar-menu">
-            <li><a href="/showRestaurantList">Restaurants</a></li>
-            <li><a href="/addRestaurant">Register</a></li>
-            <li><a href="/showRecommendation">Recommendation</a></li>
-            <li><a href="/showAboutUs">About Us</a></li>
-        </ul>
+{% endblock %}
 
-        <a href="#" class="navbar-togglebtn">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-    </nav>
-    
-    <div class="subject">
-        <h1>#Restaurants</h1>
-    </div>
+{% block section %}
+        <div class="subject">
+            <h1>#Restaurants</h1>
+        </div>
 
-    <div class="category">
-        <p class="btn">
-        <button id="한식btn" type="button">한식</button>
-        <button id="양식btn" type="button">양식</button>
-        <button id="일식btn" type="button">일식</button><br>
-        <button id="세계음식btn" type="button">세계음식</button>
-        <button id="주점btn" type="button">주점</button>
-        <button id="디저트btn" type="button">디저트</button>
-        </p>
-    </div>
-    <p class="clear"></p>
-    <div class="main">
-        <div class="box1">
-            <div class="top"></div>
-            <div class="list">한식 list</div>
-            <div class="section">
-                <input type="radio" name="slide" id="slide01"checked>
-                    <input type="radio" name="slide" id="slide02">
-                    <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-                  <ul class="slidelist">
-                    <li>
-                      <a>
-                        <label for="slide03" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게1</td>
-                                  <td>가게2</td>
-                                  <td>가게3</td>
-                              </tr>
-                              <tr>
-                                  <td>별점1</td>
-                                  <td>별점2</td>
-                                  <td>별점3</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게4</td>
-                                  <td>가게5</td>
-                                  <td>가게6</td>
-                              </tr>
-                              <tr>
-                                  <td>별점4</td>
-                                  <td>별점5</td>
-                                  <td>별점6</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide02" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide01" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게7</td>
-                                  <td>가게8</td>
-                                  <td>가게9</td>
-                              </tr>
-                              <tr>
-                                  <td>별점7</td>
-                                  <td>별점8</td>
-                                  <td>별점9</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게10</td>
-                                  <td>가게11</td>
-                                  <td>가게12</td>
-                              </tr>
-                              <tr>
-                                  <td>별점10</td>
-                                  <td>별점11</td>
-                                  <td>별점12</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide03" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide02" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게13</td>
-                                  <td>가게14</td>
-                                  <td>가게15</td>
-                              </tr>
-                              <tr>
-                                  <td>별점13</td>
-                                  <td>별점14</td>
-                                  <td>별점15</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게16</td>
-                                  <td>가게17</td>
-                                  <td>가게18</td>
-                              </tr>
-                              <tr>
-                                  <td>별점16</td>
-                                  <td>별점17</td>
-                                  <td>별점18</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide01" class="right"></label>
-                          </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+        <div class="category">
+            <p class="btn">
+            <button id="한식btn" type="button">한식</button>
+            <button id="양식btn" type="button">양식</button>
+            <button id="일식btn" type="button">일식</button><br>
+            <button id="세계음식btn" type="button">세계음식</button>
+            <button id="주점btn" type="button">주점</button>
+            <button id="디저트btn" type="button">디저트</button>
+            </p>
         </div>
         <p class="clear"></p>
-        <div class="box2">
-            <div class="top"></div>
-            <div class="list">양식 list</div>
-            <div class="section">
-                <input type="radio" name="slide" id="slide01"checked>
-                    <input type="radio" name="slide" id="slide02">
-                    <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-                  <ul class="slidelist">
-                    <li>
-                      <a>
-                        <label for="slide03" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게1</td>
-                                  <td>가게2</td>
-                                  <td>가게3</td>
-                              </tr>
-                              <tr>
-                                  <td>별점1</td>
-                                  <td>별점2</td>
-                                  <td>별점3</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게4</td>
-                                  <td>가게5</td>
-                                  <td>가게6</td>
-                              </tr>
-                              <tr>
-                                  <td>별점4</td>
-                                  <td>별점5</td>
-                                  <td>별점6</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide02" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide01" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게7</td>
-                                  <td>가게8</td>
-                                  <td>가게9</td>
-                              </tr>
-                              <tr>
-                                  <td>별점7</td>
-                                  <td>별점8</td>
-                                  <td>별점9</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src=".../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게10</td>
-                                  <td>가게11</td>
-                                  <td>가게12</td>
-                              </tr>
-                              <tr>
-                                  <td>별점10</td>
-                                  <td>별점11</td>
-                                  <td>별점12</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide03" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide02" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src=".../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게13</td>
-                                  <td>가게14</td>
-                                  <td>가게15</td>
-                              </tr>
-                              <tr>
-                                  <td>별점13</td>
-                                  <td>별점14</td>
-                                  <td>별점15</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게16</td>
-                                  <td>가게17</td>
-                                  <td>가게18</td>
-                              </tr>
-                              <tr>
-                                  <td>별점16</td>
-                                  <td>별점17</td>
-                                  <td>별점18</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide01" class="right"></label>
-                          </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-        </div>
-        <p class="clear"></p>
-        <div class="box3">
-            <div class="top"></div>
-            <div class="list">일식 list</div>
-            <div class="section">
-                <input type="radio" name="slide" id="slide01"checked>
-                    <input type="radio" name="slide" id="slide02">
-                    <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-                  <ul class="slidelist">
-                    <li>
-                      <a>
-                        <label for="slide03" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/lide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게1</td>
-                                  <td>가게2</td>
-                                  <td>가게3</td>
-                              </tr>
-                              <tr>
-                                  <td>별점1</td>
-                                  <td>별점2</td>
-                                  <td>별점3</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게4</td>
-                                  <td>가게5</td>
-                                  <td>가게6</td>
-                              </tr>
-                              <tr>
-                                  <td>별점4</td>
-                                  <td>별점5</td>
-                                  <td>별점6</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide02" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide01" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게7</td>
-                                  <td>가게8</td>
-                                  <td>가게9</td>
-                              </tr>
-                              <tr>
-                                  <td>별점7</td>
-                                  <td>별점8</td>
-                                  <td>별점9</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게10</td>
-                                  <td>가게11</td>
-                                  <td>가게12</td>
-                              </tr>
-                              <tr>
-                                  <td>별점10</td>
-                                  <td>별점11</td>
-                                  <td>별점12</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide03" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide02" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게13</td>
-                                  <td>가게14</td>
-                                  <td>가게15</td>
-                              </tr>
-                              <tr>
-                                  <td>별점13</td>
-                                  <td>별점14</td>
-                                  <td>별점15</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게16</td>
-                                  <td>가게17</td>
-                                  <td>가게18</td>
-                              </tr>
-                              <tr>
-                                  <td>별점16</td>
-                                  <td>별점17</td>
-                                  <td>별점18</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide01" class="right"></label>
-                          </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-        </div>
-        <p class="clear"></p>
-        <div class="box4">
-            <div class="top"></div>
-            <div class="list">세계음식 list</div>
-            <div class="section">
-                <input type="radio" name="slide" id="slide01"checked>
-                    <input type="radio" name="slide" id="slide02">
-                    <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-                  <ul class="slidelist">
-                    <li>
-                      <a>
-                        <label for="slide03" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게1</td>
-                                  <td>가게2</td>
-                                  <td>가게3</td>
-                              </tr>
-                              <tr>
-                                  <td>별점1</td>
-                                  <td>별점2</td>
-                                  <td>별점3</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게4</td>
-                                  <td>가게5</td>
-                                  <td>가게6</td>
-                              </tr>
-                              <tr>
-                                  <td>별점4</td>
-                                  <td>별점5</td>
-                                  <td>별점6</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide02" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide01" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게7</td>
-                                  <td>가게8</td>
-                                  <td>가게9</td>
-                              </tr>
-                              <tr>
-                                  <td>별점7</td>
-                                  <td>별점8</td>
-                                  <td>별점9</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게10</td>
-                                  <td>가게11</td>
-                                  <td>가게12</td>
-                              </tr>
-                              <tr>
-                                  <td>별점10</td>
-                                  <td>별점11</td>
-                                  <td>별점12</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide03" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide02" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게13</td>
-                                  <td>가게14</td>
-                                  <td>가게15</td>
-                              </tr>
-                              <tr>
-                                  <td>별점13</td>
-                                  <td>별점14</td>
-                                  <td>별점15</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게16</td>
-                                  <td>가게17</td>
-                                  <td>가게18</td>
-                              </tr>
-                              <tr>
-                                  <td>별점16</td>
-                                  <td>별점17</td>
-                                  <td>별점18</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide01" class="right"></label>
-                          </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-        </div>
-        <p class="clear"></p>
-        <div class="box5">
-            <div class="top"></div>
-            <div class="list">주점 list</div>
-            <div class="section">
-                <input type="radio" name="slide" id="slide01"checked>
-                    <input type="radio" name="slide" id="slide02">
-                    <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-                  <ul class="slidelist">
-                    <li>
-                      <a>
-                        <label for="slide03" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게1</td>
-                                  <td>가게2</td>
-                                  <td>가게3</td>
-                              </tr>
-                              <tr>
-                                  <td>별점1</td>
-                                  <td>별점2</td>
-                                  <td>별점3</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게4</td>
-                                  <td>가게5</td>
-                                  <td>가게6</td>
-                              </tr>
-                              <tr>
-                                  <td>별점4</td>
-                                  <td>별점5</td>
-                                  <td>별점6</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide02" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide01" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게7</td>
-                                  <td>가게8</td>
-                                  <td>가게9</td>
-                              </tr>
-                              <tr>
-                                  <td>별점7</td>
-                                  <td>별점8</td>
-                                  <td>별점9</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게10</td>
-                                  <td>가게11</td>
-                                  <td>가게12</td>
-                              </tr>
-                              <tr>
-                                  <td>별점10</td>
-                                  <td>별점11</td>
-                                  <td>별점12</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide03" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide02" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게13</td>
-                                  <td>가게14</td>
-                                  <td>가게15</td>
-                              </tr>
-                              <tr>
-                                  <td>별점13</td>
-                                  <td>별점14</td>
-                                  <td>별점15</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게16</td>
-                                  <td>가게17</td>
-                                  <td>가게18</td>
-                              </tr>
-                              <tr>
-                                  <td>별점16</td>
-                                  <td>별점17</td>
-                                  <td>별점18</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide01" class="right"></label>
-                          </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-        </div>
-        <p class="clear"></p>
-        <div class="box6">
-            <div class="top"></div>
-            <div class="list">디저트 list</div>
-            <div class="section">
-                <input type="radio" name="slide" id="slide01"checked>
-                    <input type="radio" name="slide" id="slide02">
-                    <input type="radio" name="slide" id="slide03">
-                <div class="slidewrap">
-                  <ul class="slidelist">
-                    <li>
-                      <a>
-                        <label for="slide03" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게1</td>
-                                  <td>가게2</td>
-                                  <td>가게3</td>
-                              </tr>
-                              <tr>
-                                  <td>별점1</td>
-                                  <td>별점2</td>
-                                  <td>별점3</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게4</td>
-                                  <td>가게5</td>
-                                  <td>가게6</td>
-                              </tr>
-                              <tr>
-                                  <td>별점4</td>
-                                  <td>별점5</td>
-                                  <td>별점6</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide02" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide01" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게7</td>
-                                  <td>가게8</td>
-                                  <td>가게9</td>
-                              </tr>
-                              <tr>
-                                  <td>별점7</td>
-                                  <td>별점8</td>
-                                  <td>별점9</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게10</td>
-                                  <td>가게11</td>
-                                  <td>가게12</td>
-                              </tr>
-                              <tr>
-                                  <td>별점10</td>
-                                  <td>별점11</td>
-                                  <td>별점12</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide03" class="right"></label>
-                          </a>
-                    </li>
-                    <li>
-                      <a>
-                        <label for="slide02" class="left"></label>
-                        <div class="listtable">
-                          <table>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게13</td>
-                                  <td>가게14</td>
-                                  <td>가게15</td>
-                              </tr>
-                              <tr>
-                                  <td>별점13</td>
-                                  <td>별점14</td>
-                                  <td>별점15</td>
-                              </tr>
-                              <tr>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
-                                  <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
-                              </tr>
-                              <tr>
-                                  <td>가게16</td>
-                                  <td>가게17</td>
-                                  <td>가게18</td>
-                              </tr>
-                              <tr>
-                                  <td>별점16</td>
-                                  <td>별점17</td>
-                                  <td>별점18</td>
-                              </tr>
-                          </table></div>
-                          <label for="slide01" class="right"></label>
-                          </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-        </div>
-        <p class="clear"></p>
+        <div class="main">
+            <div class="box1">
+                <div class="top"></div>
+                <div class="list">한식 list</div>
+                <div class="section">
+                    <input type="radio" name="slide" id="slide01"checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                    <div class="slidewrap">
+                      <ul class="slidelist">
+                        <li>
+                          <a>
+                            <label for="slide03" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게1</td>
+                                      <td>가게2</td>
+                                      <td>가게3</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점1</td>
+                                      <td>별점2</td>
+                                      <td>별점3</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게4</td>
+                                      <td>가게5</td>
+                                      <td>가게6</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점4</td>
+                                      <td>별점5</td>
+                                      <td>별점6</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide02" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide01" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게7</td>
+                                      <td>가게8</td>
+                                      <td>가게9</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점7</td>
+                                      <td>별점8</td>
+                                      <td>별점9</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게10</td>
+                                      <td>가게11</td>
+                                      <td>가게12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점10</td>
+                                      <td>별점11</td>
+                                      <td>별점12</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide03" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide02" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게13</td>
+                                      <td>가게14</td>
+                                      <td>가게15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점13</td>
+                                      <td>별점14</td>
+                                      <td>별점15</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게16</td>
+                                      <td>가게17</td>
+                                      <td>가게18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점16</td>
+                                      <td>별점17</td>
+                                      <td>별점18</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide01" class="right"></label>
+                              </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <p class="clear"></p>
+            <div class="box2">
+                <div class="top"></div>
+                <div class="list">양식 list</div>
+                <div class="section">
+                    <input type="radio" name="slide" id="slide01"checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                    <div class="slidewrap">
+                      <ul class="slidelist">
+                        <li>
+                          <a>
+                            <label for="slide03" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게1</td>
+                                      <td>가게2</td>
+                                      <td>가게3</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점1</td>
+                                      <td>별점2</td>
+                                      <td>별점3</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게4</td>
+                                      <td>가게5</td>
+                                      <td>가게6</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점4</td>
+                                      <td>별점5</td>
+                                      <td>별점6</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide02" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide01" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게7</td>
+                                      <td>가게8</td>
+                                      <td>가게9</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점7</td>
+                                      <td>별점8</td>
+                                      <td>별점9</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src=".../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게10</td>
+                                      <td>가게11</td>
+                                      <td>가게12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점10</td>
+                                      <td>별점11</td>
+                                      <td>별점12</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide03" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide02" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src=".../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게13</td>
+                                      <td>가게14</td>
+                                      <td>가게15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점13</td>
+                                      <td>별점14</td>
+                                      <td>별점15</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게16</td>
+                                      <td>가게17</td>
+                                      <td>가게18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점16</td>
+                                      <td>별점17</td>
+                                      <td>별점18</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide01" class="right"></label>
+                              </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <p class="clear"></p>
+            <div class="box3">
+                <div class="top"></div>
+                <div class="list">일식 list</div>
+                <div class="section">
+                    <input type="radio" name="slide" id="slide01"checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                    <div class="slidewrap">
+                      <ul class="slidelist">
+                        <li>
+                          <a>
+                            <label for="slide03" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/lide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게1</td>
+                                      <td>가게2</td>
+                                      <td>가게3</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점1</td>
+                                      <td>별점2</td>
+                                      <td>별점3</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게4</td>
+                                      <td>가게5</td>
+                                      <td>가게6</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점4</td>
+                                      <td>별점5</td>
+                                      <td>별점6</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide02" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide01" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게7</td>
+                                      <td>가게8</td>
+                                      <td>가게9</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점7</td>
+                                      <td>별점8</td>
+                                      <td>별점9</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게10</td>
+                                      <td>가게11</td>
+                                      <td>가게12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점10</td>
+                                      <td>별점11</td>
+                                      <td>별점12</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide03" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide02" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게13</td>
+                                      <td>가게14</td>
+                                      <td>가게15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점13</td>
+                                      <td>별점14</td>
+                                      <td>별점15</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게16</td>
+                                      <td>가게17</td>
+                                      <td>가게18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점16</td>
+                                      <td>별점17</td>
+                                      <td>별점18</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide01" class="right"></label>
+                              </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <p class="clear"></p>
+            <div class="box4">
+                <div class="top"></div>
+                <div class="list">세계음식 list</div>
+                <div class="section">
+                    <input type="radio" name="slide" id="slide01"checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                    <div class="slidewrap">
+                      <ul class="slidelist">
+                        <li>
+                          <a>
+                            <label for="slide03" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게1</td>
+                                      <td>가게2</td>
+                                      <td>가게3</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점1</td>
+                                      <td>별점2</td>
+                                      <td>별점3</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게4</td>
+                                      <td>가게5</td>
+                                      <td>가게6</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점4</td>
+                                      <td>별점5</td>
+                                      <td>별점6</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide02" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide01" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게7</td>
+                                      <td>가게8</td>
+                                      <td>가게9</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점7</td>
+                                      <td>별점8</td>
+                                      <td>별점9</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게10</td>
+                                      <td>가게11</td>
+                                      <td>가게12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점10</td>
+                                      <td>별점11</td>
+                                      <td>별점12</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide03" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide02" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게13</td>
+                                      <td>가게14</td>
+                                      <td>가게15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점13</td>
+                                      <td>별점14</td>
+                                      <td>별점15</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게16</td>
+                                      <td>가게17</td>
+                                      <td>가게18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점16</td>
+                                      <td>별점17</td>
+                                      <td>별점18</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide01" class="right"></label>
+                              </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <p class="clear"></p>
+            <div class="box5">
+                <div class="top"></div>
+                <div class="list">주점 list</div>
+                <div class="section">
+                    <input type="radio" name="slide" id="slide01"checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                    <div class="slidewrap">
+                      <ul class="slidelist">
+                        <li>
+                          <a>
+                            <label for="slide03" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게1</td>
+                                      <td>가게2</td>
+                                      <td>가게3</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점1</td>
+                                      <td>별점2</td>
+                                      <td>별점3</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게4</td>
+                                      <td>가게5</td>
+                                      <td>가게6</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점4</td>
+                                      <td>별점5</td>
+                                      <td>별점6</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide02" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide01" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게7</td>
+                                      <td>가게8</td>
+                                      <td>가게9</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점7</td>
+                                      <td>별점8</td>
+                                      <td>별점9</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게10</td>
+                                      <td>가게11</td>
+                                      <td>가게12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점10</td>
+                                      <td>별점11</td>
+                                      <td>별점12</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide03" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide02" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게13</td>
+                                      <td>가게14</td>
+                                      <td>가게15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점13</td>
+                                      <td>별점14</td>
+                                      <td>별점15</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게16</td>
+                                      <td>가게17</td>
+                                      <td>가게18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점16</td>
+                                      <td>별점17</td>
+                                      <td>별점18</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide01" class="right"></label>
+                              </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <p class="clear"></p>
+            <div class="box6">
+                <div class="top"></div>
+                <div class="list">디저트 list</div>
+                <div class="section">
+                    <input type="radio" name="slide" id="slide01"checked>
+                        <input type="radio" name="slide" id="slide02">
+                        <input type="radio" name="slide" id="slide03">
+                    <div class="slidewrap">
+                      <ul class="slidelist">
+                        <li>
+                          <a>
+                            <label for="slide03" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게1</td>
+                                      <td>가게2</td>
+                                      <td>가게3</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점1</td>
+                                      <td>별점2</td>
+                                      <td>별점3</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게4</td>
+                                      <td>가게5</td>
+                                      <td>가게6</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점4</td>
+                                      <td>별점5</td>
+                                      <td>별점6</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide02" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide01" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게7</td>
+                                      <td>가게8</td>
+                                      <td>가게9</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점7</td>
+                                      <td>별점8</td>
+                                      <td>별점9</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게10</td>
+                                      <td>가게11</td>
+                                      <td>가게12</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점10</td>
+                                      <td>별점11</td>
+                                      <td>별점12</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide03" class="right"></label>
+                              </a>
+                        </li>
+                        <li>
+                          <a>
+                            <label for="slide02" class="left"></label>
+                            <div class="listtable">
+                              <table>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진1" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진2" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진3" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게13</td>
+                                      <td>가게14</td>
+                                      <td>가게15</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점13</td>
+                                      <td>별점14</td>
+                                      <td>별점15</td>
+                                  </tr>
+                                  <tr>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진4" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진5" width="250px" height="250px"></td>
+                                      <td><img src="../static/image/slide1.jpg" alt="사진6" width="250px" height="250px"></td>
+                                  </tr>
+                                  <tr>
+                                      <td>가게16</td>
+                                      <td>가게17</td>
+                                      <td>가게18</td>
+                                  </tr>
+                                  <tr>
+                                      <td>별점16</td>
+                                      <td>별점17</td>
+                                      <td>별점18</td>
+                                  </tr>
+                              </table></div>
+                              <label for="slide01" class="right"></label>
+                              </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+            <p class="clear"></p>
 
-    <script src="../js/showRestaurantList.js"></script>
-    </div>
-</body>
-</html>
+        <script src="../js/showRestaurantList.js"></script>
+        </div>
+{% endblock section %}
