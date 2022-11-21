@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+{% extends "navbar.html" %}
+{% block head %}
+  {{ super() }}
+    <title>맛집을 등록해주세요</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
@@ -10,10 +9,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+
     <script
       src="https://kit.fontawesome.com/42ed29bed1.js"
       crossorigin="anonymous"
@@ -61,6 +57,13 @@
       </a>
     </nav>
 
+     
+    <link rel="stylesheet" href="{{ url_for('static', filename='addRestaurant.css') }}">
+
+{% endblock %}
+      
+{% block section %} 
+
     <div class="subject">
       <br /><br /><br /><br /><br />
       <h1>#Register your restaurant</h1>
@@ -71,7 +74,9 @@
 
     <h3>새로운 맛집을 등록해주세요</h3>
 
-    <form action="/result" method="post" id="restaurant">
+    <form action="/result" enctype="multipart/form-data" method="post" id="restaurant">
+
+
       <div>
         <label
           >이름
@@ -193,12 +198,18 @@
         <li>20000원 이상</li>
       </ul> -->
 
+
       <!--<div>
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
       </div>
         
-      <div class="img">
+      <div class="submit">
+        <input type="submit" value="Submit"><br><br>
+    </div>
+        
+
+        <div class="img">
         <input
           class="upload_img_input"
           type="file"
@@ -213,12 +224,12 @@
         </div>
       </div>-->
 
+
       <div class="submit">
         <input type="submit" value="Submit" /><br /><br />
       </div>
 
-      <!--
-      <div class="step2">
+      <!--<div class="step2">
         <input
           class="step2_btn"
           type="button"
@@ -229,5 +240,4 @@
 기능이 없어, 등록 이후 바로 결과를 확인할 수 없음.
 따라서 해당 버튼에 "submit"type을 추가하였음.-->
     </form>
-  </body>
-</html>
+{% endblock section %}

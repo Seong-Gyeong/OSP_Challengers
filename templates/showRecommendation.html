@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "navbar.html" %}
+{% block head %}
+  {{ super() }}
+    <title>테마별 맛집추천</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,27 +9,10 @@
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='showBestMenu.css') }}">
-    <title>테마별 맛집 추천</title>
     <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <i class="fa-solid fa-utensils"></i>
-            <a href="/">EAT-WHA</a>
-        </div>
-        <ul class="navbar-menu">
-            <li><a href="/showRestaurantList">Restaurants</a></li>
-            <li><a href="/addRestaurant">Register</a></li>
-            <li><a href="/showRecommendation">Recommendation</a></li>
-            <li><a href="/showAboutUs">About Us</a></li>
-        </ul>
+{% endblock %}
 
-        <a href="#" class="navbar-togglebtn">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-    </nav>
-    
+{% block section %}
     <div class="subject">
         <h1>#Recommendation</h1>
     </div>
@@ -72,5 +54,4 @@
             <img src="../static/image/slide1.jpg" alt="매운음식">
         </div>
     </div>
-</body>
-</html>
+{% endblock section %}
