@@ -6,6 +6,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="{{ url_for('static', filename='addReview.css') }}"/>
+
     <script
       src="https://kit.fontawesome.com/42ed29bed1.js"
       crossorigin="anonymous"
@@ -22,17 +24,31 @@
 
     <h1></h1>
 
-    <h3>가미분식에 대한 솔직한 리뷰를 등록해주세요</h3>
+    <h3>식당에 대한 솔직한 리뷰를 등록해주세요</h3>
 
-    <form action="/showReview" enctype="multipart/form-data" method="post" class="review">
+    <form action="/addReviewResult" enctype="multipart/form-data" method="post" class="review">
       <div class="review-top">
+          
+        <div class="comment">
+            <div class="label-wrap">
+            
+            <label>식당 이름
+                <input
+                       type="text"
+                       name="res_name"
+                       placeholder="식당 이름을 입력해주세요"
+                />
+            </label>
+            </div>
+          </div>
+          
         <div class="nickname">
           <div class="label-wrap">
               
             <label>닉네임
               <input
                 type="text"
-                name="review__reviewer"
+                name="review_reviewer"
                 placeholder="닉네임을 입력해주세요"
               />
             </label>
@@ -44,7 +60,7 @@
             <label>평점
               <input
                 type="text"
-                name="review__rating"
+                name="rating"
                 placeholder="평점을 입력해주세요"
               />
             </label>
@@ -62,21 +78,7 @@
           </label>
      </div></div>
 
-    <!-- 이미지 첨부할 부분, 차후 Js와 연결해서 이미지 클릭하면 사진 업로드 되게 할 예정 -->
-      <!--<div class="img">
-        <input
-          class="upload_img_input"
-          type="file"
-          accept="image/*"
-          required
-          multiple
-          style="display: none"
-        />
-        <div class="img_section">
-          <div class="upload"></div>
-          <div class="img_preview"></div>
-        </div>
-          </div>--></div>
+    </div>
           
         <div>
             <label for="img">Representative Image upload : </label>
