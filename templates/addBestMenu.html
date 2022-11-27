@@ -28,15 +28,28 @@
       <br /><br /><br /><br />
     </div>
 
-            <h3>{{data.restaurant__name}}의 대표 메뉴를 등록해주세요</h3>
+    <h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
+<br>
+    <h3>대표메뉴 1</h3>
             
-    <form action="/showBestMenu" method="post" enctype="multipart/form-data" id="menu">
+    <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
       <div class="first">
+         <div>
+          <label>식당 이름
+          <input
+            type="text"
+            name="res_name"
+            placeholder="식당 이름을 입력해주세요"
+            isrequired="true"
+          /></label>
+        </div>
+        <br>
+        <br>
         <div>
           <label>메뉴 이름
           <input
             type="text"
-            name="menu__name"
+            name="menu_name"
             placeholder="메뉴 이름을 입력해주세요"
             isrequired="true"
           /></label>
@@ -47,7 +60,7 @@
           <label>가격<br/>
           <input
             type="text"
-            name="menu__price"
+            name="menu_price"
             placeholder="가격을 입력해주세요"
             isrequired="true"
           /></label>
@@ -75,7 +88,7 @@
           <label>알러지 유발 가능 재료<br/>
           <input
             type="text"
-            name="menu__allergy"
+            name="menu_allergy"
             placeholder="알러지를 일으키는 성분을 적어주세요"
           /></label>
         </div>
@@ -86,8 +99,8 @@
           <label>한 줄 소개<br/>
           <input
             type="text"
-            class="menu__introduce"
-            name="menu__introduce"
+            class="menu_introduce"
+            name="menu_introduce"
             placeholder="메뉴에 대한 한 줄 소개를 적어주세요"
             isrequired="true"
           /></label>
@@ -120,8 +133,8 @@
     <div>
         <label for="img">사진 업로드 : </label>
         <input type="file" name="file" /><br><br>
-      </div>
-                
+    </div>
+        
     <div class="submit">
         <input type="submit" value="메뉴 등록하기"><br><br>
     </div>

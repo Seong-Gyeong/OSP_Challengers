@@ -1,0 +1,32 @@
+{% extends "navbar.html" %}<!--메뉴 등록 완료하면 보이는 "와 메뉴 다 넘어왔어요!! 잘햇다~~~" 화면-->
+{% block head %}
+  {{ super() }}
+    <title>대표메뉴 등록 완료!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='showBestMenu.css') }}">
+    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
+{% endblock %}
+
+{% block section %}
+
+        <div class="subject">
+            <h1>맛집 등록 완료!</h1>
+        </div>
+<div style="text-align:center"> 
+    <p><b> 맛집을 성공적으로 등록했어요! </b></p>
+    <br>
+    <br>
+    <img src="../static/image/addBestMenuCharacter.jpg" width=200px >
+    <br>
+    <br>
+    <p>이제 Greats와 함께 이대역 근처 맛집을 찾아 떠나볼까요?</p>
+    
+</div>
+
+{% endblock section %} 

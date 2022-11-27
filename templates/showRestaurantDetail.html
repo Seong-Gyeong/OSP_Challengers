@@ -1,7 +1,7 @@
 {% extends "navbar.html" %}
 {% block head %}
   {{ super() }}
-    <title>가미분식</title>
+    <title>{{data.name}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,10 +10,14 @@
       src="https://kit.fontawesome.com/42ed29bed1.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='showBestMenu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='showRestaurantDetail.css') }}">
+
 {% endblock %}
 
 {% block section %}
+    <form method="post" action="/list_foods">
+        <input type="hidden" name="restaurant_name" value="{{data.name}}">
+    
     <div class="subject">
       <br /><br /><br /><br /><br />
       <h1># Restaurant Info</h1>
@@ -23,60 +27,64 @@
     <h1 class="title"></h1>
 
     <h3 class="restaurant-name">
-      가미분식 <span>⭐️ <b>4.5</b></span>
+      {{data.name}} <span>⭐️ <b>{{avg_rate}}</b></span>
     </h3>
 
     <div class="food-pic">
-      <img src="../image/Gami_1.png" />
-      <img src="../image/Gami_2.png" />
-      <img src="../image/Gami_3.png" />
-      <img src="../image/Gami_4.png" />
+      <img src="/static/image/{{data.img_path}}" >
+        
+        <img src="" /> 
     </div>
 
-    <h4 class="restaurant-desc">40년 전통 계란 풀어진 얼큰한 우동!</h4>
+<!--    <h4 class="restaurant-desc">40년 전통 계란 풀어진 얼큰한 우동!</h4>-->
 
-    <hr />
+    <hr/>
 
     <div class="restaurant-info">
       <div class="left-info">
         <div class="left-btn">
-          <button class="side-button">리뷰 쓰러가기</button>
-
-          <button class="side-button">리뷰 보러가기</button>
-
-          <button class="side-button">대표메뉴 보러가기</button>
+          <!--리뷰 쓰러가기 버튼-->  
+          <a href="/addReview" color="black"><img class="side-button" src="/static/image/addreview_btn.PNG" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br> <!--addreview_btn.PNG-->
+          <!--리뷰 보러가기 버튼-->    
+          <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showreview_btn.PNG" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
+          <!--대표메뉴 보러가기 버튼-->   
+          <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showbestmenu_btn.PNG" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
+        
         </div>
 
         <div class="detail-info">
-          <div class="category">한식</div>
-          <div class="address">주소</div>
-          <div class="phoneNum">전화번호</div>
-          <div class="openTime">영업시간</div>
-          <div class="parking">주차</div>
-          <div class="price">가격대</div>
+        <!-- 카테고리, 주차, 가격대는 구현예정 -->
+          <!--<div class="category">한식</div>-->
+          <div class="address">{{data.addr}}</div>
+          <div class="phoneNum">{{data.tel}}</div>
+          <div class="openTime">{{data.open_time}}~{{data.close_time}}</div>
+          <!--<div class="parking">주차</div>-->
+          <!--<div class="price">가격대</div>-->
         </div>
       </div>
 
       <aside class="right-info">
         <!-- 지도 들어갈 자리 일단 이미지로 대체 -->
-        <img src="../image/map.png" />
+        <img alt="지도" src="/static/image/map.png" />
 
         <div class="detail-info">
           <div class="detail-addr">
             <p><b>Address</b></p>
-            <p><b>서울특별시 서대문구 이화여대8길 2</b></p>
+            <p><b>{{data.addr}}</b></p>
           </div>
 
           <div class="detail-phone">
             <p><b>Phone</b></p>
-            <p><b>02-394-3948</b></p>
+            <p><b>{{data.tel}}</b></p>
           </div>
 
           <div class="detail-web">
             <p><b>Website</b></p>
+            <p href="{{data.site}}"><b>{{data.site}}</b></p>
           </div>
         </div>
 
+        <!-- 해쉬태그 입력 구현예정 -->
         <div class="hashtag_wrap">
           <div class="hashtag">#혼밥하기좋은</div>
           <div class="hashtag">#편안한분위기</div>
@@ -85,5 +93,7 @@
         </div>
       </aside>
     </div>
+</form>
+        
 {% endblock section %}
 
