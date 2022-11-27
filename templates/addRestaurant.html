@@ -14,12 +14,59 @@
       src="https://kit.fontawesome.com/42ed29bed1.js"
       crossorigin="anonymous"
     ></script>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='addRestaurant.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='addRestaurant.css') }}"
+    />
+
+    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
+
+    <!--웹서버(과제)css, js 연결 위해 경로를 위와 같이 수정했습니다-->
+
+    <!--기존 코드-->
+    <!--<link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/addRestaurant.css" />
+    <script src="../js/nav.js" defer></script>-->
+
+    <title>맛집을 등록해주세요</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <i class="fa-solid fa-utensils"></i>
+        <a href="/">EAT-WHA</a>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="/showRestaurantList">Restaurants</a></li>
+        <li><a href="/addRestaurant">Register</a></li>
+        <li><a href="/showRecommendation">Recommendation</a></li>
+        <li><a href="/showAboutUs">About Us</a></li>
+      </ul>
+
+      <a href="#" class="navbar-togglebtn">
+        <i class="fa-solid fa-bars"></i>
+      </a>
+    </nav>
+
      
     <link rel="stylesheet" href="{{ url_for('static', filename='addRestaurant.css') }}">
 
 {% endblock %}
       
 {% block section %} 
+
     <div class="subject">
       <br /><br /><br /><br /><br />
       <h1>#Register your restaurant</h1>
@@ -32,46 +79,51 @@
 
     <form action="/result" enctype="multipart/form-data" method="post" id="restaurant">
 
-      <div>
-        <label>이름
 
-        <input
-          type="text"
-          name="restaurant_name"
-          placeholder="가게 이름을 입력해주세요"
-          isrequired="true"
-        />
+      <div>
+        <label
+          >이름
+
+          <input
+            type="text"
+            name="restaurant_name"
+            placeholder="가게 이름을 입력해주세요"
+            isrequired="true"
+          />
         </label>
       </div>
 
       <div>
-        <label>주소
-        <input
-          type="text"
-          name="restaurant_address"
-          placeholder="주소를 입력해주세요"
-          isrequired="true"
-        />
+        <label
+          >주소
+          <input
+            type="text"
+            name="restaurant_address"
+            placeholder="주소를 입력해주세요"
+            isrequired="true"
+          />
         </label>
       </div>
 
       <div>
-        <label>연락처
-        <input
-          type="text"
-          name="restaurant_contact"
-          placeholder="연락처를 입력해주세요"
-        />
+        <label
+          >연락처
+          <input
+            type="text"
+            name="restaurant_contact"
+            placeholder="연락처를 입력해주세요"
+          />
         </label>
       </div>
 
       <div>
-        <label>홈페이지
-        <input
-          type="text"
-          name="restaurant_homepage"
-          placeholder="홈페이지 주소를 입력해주세요"
-        />
+        <label
+          >홈페이지
+          <input
+            type="text"
+            name="restaurant_homepage"
+            placeholder="홈페이지 주소를 입력해주세요"
+          />
         </label>
       </div>
 
@@ -82,7 +134,7 @@
         <button id="restaurant__category">
           카테고리를 선택해주세요
           <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-        <!--</button>-->
+      <!--</button>-->
       <!--</div>-->
 
       <!-- 드롭다운 펼치면 보일 부분 -->
@@ -92,7 +144,7 @@
         <li>중식</li>
         <li>기타</li>
       </ul> -->
-        
+
       <!--주차 가능 여부 코드 작성중-->
 
       <!--<div>
@@ -100,7 +152,7 @@
         <button id="restaurant__parking">
           주차 가능 여부를 선택해주세요
           <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-        <!--</button>-->
+      <!--</button>-->
       <!--</div>-->
 
       <!-- 드롭다운 펼치면 보일 부분 -->
@@ -110,27 +162,25 @@
       </ul> -->
 
       <div>
-        <label>영업 시간
-        <input
-          type="text"
-          name="restaurant_open_time"
-          placeholder="오픈 시간을 입력해주세요"
-        />
-            
-        <input
-          type="text"
-          name="restaurant_close_time"
-          placeholder="마감 시간을 입력해주세요"
-        />
-            
-        </label>
-          <!--백: 오픈 시간과 마감 시간의 id가 restaurant__time으로 동일하여 수정하였습니다. -->
-        <p style="display: inline; margin: auto 10px"><b></b></p>
-        <br>
-        <br>
-        <br>
+        <label
+          >영업 시간
+          <input
+            type="text"
+            name="restaurant_open_time"
+            placeholder="오픈 시간을 입력해주세요"
+          />
 
-        
+          <input
+            type="text"
+            name="restaurant_close_time"
+            placeholder="마감 시간을 입력해주세요"
+          />
+        </label>
+        <!--백: 오픈 시간과 마감 시간의 id가 restaurant__time으로 동일하여 수정하였습니다. -->
+        <p style="display: inline; margin: auto 10px"><b></b></p>
+        <br />
+        <br />
+        <br />
       </div>
 
       <!--가격대 코드 작성중-->
@@ -140,7 +190,7 @@
         <button id="restaurant__price">
           가격대를 선택해주세요
           <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-        <!--</button>-->
+      <!--</button>-->
       <!--</div>-->
 
       <!-- 드롭다운 펼치면 보일 부분 -->
@@ -150,8 +200,9 @@
         <li>15000원 이상 ~ 20000원 미만</li>
         <li>20000원 이상</li>
       </ul> -->
-    
-      <div>
+
+
+      <!--<div>
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
       </div>
@@ -160,7 +211,8 @@
         <input type="submit" value="Submit"><br><br>
     </div>
         
-      <!--<div class="img">
+
+        <div class="img">
         <input
           class="upload_img_input"
           type="file"
@@ -174,17 +226,20 @@
           <div class="img_preview"></div>
         </div>
       </div>-->
-        
-    
-<!--
-      <div class="step2">
+
+
+      <div class="submit">
+        <input type="submit" value="Submit" /><br /><br />
+      </div>
+
+      <!--<div class="step2">
         <input
           class="step2_btn"
           type="button"
           value="step2. 대표 메뉴 등록하러 가기"
         />
       </div> -->
-        <!-- 백: 현재 구현된 "대표 메뉴 등록하러 가기" 버튼은 submit의 
+      <!-- 백: 현재 구현된 "대표 메뉴 등록하러 가기" 버튼은 submit의 
 기능이 없어, 등록 이후 바로 결과를 확인할 수 없음.
 따라서 해당 버튼에 "submit"type을 추가하였음.-->
     </form>
