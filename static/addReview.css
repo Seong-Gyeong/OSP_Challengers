@@ -90,7 +90,7 @@ input {
   align-self: flex-start;
 }
 
-.upload_img_input {
+.imgInput {
   display: none;
 }
 
@@ -99,7 +99,7 @@ input {
   height: 200px;
 
   padding: 0;
-  background-image: url("../assets/img/uploadImg.png");
+  cursor: pointer;
 }
 
 .img_preview {
