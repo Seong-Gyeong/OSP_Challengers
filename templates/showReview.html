@@ -14,54 +14,34 @@
         <h1>#Reviews</h1>
     </div>
 
+{% if total > 0 %}
+
+<p>리뷰 리스트 -- 현재까지 {{total}}개 등록됨</p>
+
     <div class="main">
-        <h1>가미분식 ⭐<span id="totalstar">4.5</span><span id="return"><a href="./showRestaurantList.html">맛집 보러가기</a></span></h1><hr>
-        <h2>리뷰(<span id="totalreview">100</span>)</h2>
-        <div class="reivewboxlist">
+        <h1><span id="rvname">{{data.name}}</span> ⭐<span id="totalstar">{{avg_rate}}</span><span id="return">
+            <a href="/view_detail/{{data.name}}/">맛집 보러가기</a></span></h1><hr>
+        <h2>리뷰(<span id="totalreview">{{total}}</span>)</h2>
+        
+{% for data in datas %}
+
+        <div class="reviewboxlist">
             <div class="reviewbox">
-                <div class="date" name="date">2022-02-01</div>
-                <img src="{{image_path}}">
+                <div class="date" name="date"></div>
+                <img src="/static/image/{{data.img_path}}/" width=300px> 
                 <div class="reviewcontents">
-                <div id="star">{{data.review__rating}}</div>
-                <h2>{{data.review__reviewer}}</h2>
-                <div id="reviewtext">{{data.review_content}}</div><br>
-                <span id="keyword">혼밥하기 좋아요</span>
-                <span id="keyword">친절해요</span>
-                </div>
-            </div>
-            <div class="reviewbox">
-                <div class="date" name="date">2022-02-01</div>
-                <img src="../static/image/slide2.jpeg">
-                <div class="reviewcontents">
-                <div id="star">☆☆☆☆☆</div>
-                <h2>닉네임</h2>
-                <div id="reviewtext">리뷰내용(친구가 맛집이라고해서~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 맛있어요!!)</div><br>
-                <span id="keyword">혼밥하기 좋아요</span>
-                <span id="keyword">친절해요</span>
-                </div>
-            </div>
-            <div class="reviewbox">
-                <div class="date" name="date">2022-02-01</div>
-                <img src="../static/image/slide2.jpeg">
-                <div class="reviewcontents">
-                <div id="star">☆☆☆☆☆</div>
-                <h2>닉네임</h2>
-                <div id="reviewtext">리뷰내용(친구가 맛집이라고해서~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 맛있어요!!)</div><br>
-                <span id="keyword">혼밥하기 좋아요</span>
-                <span id="keyword">친절해요</span>
-                </div>
-            </div>
-            <div class="reviewbox">
-                <div class="date" name="date">2022-02-01</div>
-                <img src="../static/image/slide2.jpeg">
-                <div class="reviewcontents">
-                <div id="star">☆☆☆☆☆</div>
-                <h2>닉네임</h2>
-                <div id="reviewtext">리뷰내용(친구가 맛집이라고해서~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 맛있어요!!)</div><br>
-                <span id="keyword">혼밥하기 좋아요</span>
-                <span id="keyword">친절해요</span>
+                <div id="star">{{data.rating}}</div>
+                <h2>{{data.nickname}}</h2>
+                <div id="reviewtext">{{data.comment}}</div><br>
+                <!--<span id="keyword">혼밥하기 좋아요</span>
+                <span id="keyword">친절해요</span>-->
                 </div>
             </div>
         </div>
     </div>
+{% endfor %}
+{% else %}
+<p>등록된 리뷰가 없습니다. </p>
+{% endif %}
+
 {% endblock section %}

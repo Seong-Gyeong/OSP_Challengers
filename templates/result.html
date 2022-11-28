@@ -18,11 +18,11 @@
     </p>
     
     {% if True %}
-    <img src="{{image_path}}" alt="Restaurantt Image" height="400px">
+    <img src="{{image_path}}" alt="Restaurant Image" height="400px">
     {% endif %}
 
     <form method="post" action="/addBestMenu">
-        <input type="hidden" name="restaurant__name" value="{{data.restaurant_name}}">
+        <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
         <div>
             <p>It's time to register the representative menu in {{data.restaurant_name}}
             </p>
