@@ -1,5 +1,9 @@
 @import "reset.css";
 
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 h1 {
   text-align: center;
 }
