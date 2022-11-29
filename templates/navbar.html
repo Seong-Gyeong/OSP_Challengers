@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% block head %}
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.7" />
-    <link rel="preconnect" href="{{url1}}" />
-    <link rel="preconnect" href="{{url2}}" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <link rel="preconnect" href={{url1}}>
+    <link rel="preconnect" href={{url2}} crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!--위의 링크는 변수 선언 시 문제생김-->
-    <script src="{{url3}}" crossorigin="anonymous"></script>
+    <script src={{url3}} crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='home.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='reset.css') }}"
-    />
-
+    
     <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
     {% endblock %}
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar">
-      <div class="navbar-logo">
-        <i class="fa-solid fa-utensils"></i>
-        <a href="/">GREATS</a>
-      </div>
-      <ul class="navbar-menu">
-        <li><a href="/showRestaurantList">Restaurants</a></li>
-        <li><a href="/addRestaurant">Register</a></li>
-        <li><a href="/showRecommendation">Recommendation</a></li>
-        <li><a href="/showAboutUs">About Us</a></li>
-      </ul>
+        <div class="navbar-logo">
+            <i class="fa-solid fa-utensils"></i>
+            <a href="/">GREATS</a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="/showRestaurantList">Restaurants</a></li>
+            <li><a href="/addRestaurant">Register</a></li>
+            <li><a href="/showRecommendation">Recommendation</a></li>
+            <li><a href="/showAboutUs">About Us</a></li>
+        </ul>
 
-      <a href="#" class="navbar-togglebtn">
-        <i class="fa-solid fa-bars"></i>
-      </a>
+        <a href="#" class="navbar-togglebtn">
+            <i class="fa-solid fa-bars"></i>
+        </a>
     </nav>
-    <section>{% block section %} {% endblock section %}</section>
-  </body>
+   <section>
+    {% block section %}
+    {% endblock section %}    
+    </section>
+</body>
 </html>
