@@ -31,8 +31,10 @@ class DBhandler:
             "name": name,
             "addr": data['restaurant_address'],
             "tel": data['restaurant_contact'],
+            "parking": data['restaurant_parking'],
             "open_time": data['restaurant_open_time'],
             "close_time": data['restaurant_close_time'],
+            "price_range": data['restaurant_price_range'],
             "site": data['restaurant_homepage'],
             "img_path": img_path 
         }   

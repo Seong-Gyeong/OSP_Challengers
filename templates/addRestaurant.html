@@ -75,7 +75,6 @@
         </label>
       </div>
 
-      <!--카테고리 코드 작성중-->
       <!-- 커스텀한 드롭박스는 isrequired js에서 따로 처리해야함 -->
       <!--<div>
         <label for="restaurant__category">카테고리</label>
@@ -92,34 +91,14 @@
         <li>중식</li>
         <li>기타</li>
       </ul> -->
-        
-      <!--주차 가능 여부 코드 작성중-->
 
       <div>
-        <label for="parking">주차</label>
-        <br />
-        주차 가능 여부를 선택해주세요
-        <select name="parking" id="parking">
-            <option value="possible">가능</option>
-        <option value="impossible">불가능</option>
+        <label for="restaurant_parking">주차 가능 여부를 선택해주세요</label>
+        <select name="restaurant_parking" id="restaurant_parking">
+            <option value="가능">가능</option>
+        <option value="불가능">불가능</option>
       </select>
       </div>
-        
-    
-    <!--<label for="cars">Choose a car:</label>
-
-<select name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>-->
-
-      <!-- 드롭다운 펼치면 보일 부분
-      <ul id="restaurant_parking_option">
-        <li>가능</li>
-        <li>불가능</li>
-      </ul>-->
 
       <div>
         <label>영업 시간
@@ -141,27 +120,18 @@
         <br>
         <br>
         <br>
-
         
       </div>
-
-      <!--가격대 코드 작성중-->
-
-      <!--<div>
-        <label for="restaurant__price">가격대</label>
-        <button id="restaurant__price">
-          가격대를 선택해주세요
-          <span class="material-symbols-rounded"></span>
-        </button>
-      </div>-->
-
-      <!-- 드롭다운 펼치면 보일 부분 -->
-      <!--<ul id="restaurant__price--option">
-        <li>10000원 미만</li>
-        <li>10000원 이상 ~15000원 미만</li>
-        <li>15000원 이상 ~ 20000원 미만</li>
-        <li>20000원 이상</li>
-      </ul>-->
+    
+        <div>
+        <label>가격대
+        <input
+          type="text"
+          name="restaurant_price_range"
+          placeholder="가격대를 입력해주세요"
+        />
+        </label>
+      </div>
     
       <div>
         <label for="img">Representative Image upload : </label>

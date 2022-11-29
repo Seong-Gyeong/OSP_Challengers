@@ -2,18 +2,27 @@
 <title>리뷰를 등록해주세요</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
+<!-- <link rel="stylesheet" href="../static/style.css" /> -->
 <link rel="stylesheet" href="../static/addReview.css" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
+<link rel="stylesheet" href="../static/reset.css" />
+<link rel="stylesheet" href="../static/style.css" />
+
+<!-- <link
   rel="stylesheet"
   href="{{ url_for('static', filename='addReview.css') }}"
+/> -->
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap"
+  rel="stylesheet"
 />
+
 <script
   src="https://kit.fontawesome.com/42ed29bed1.js"
   crossorigin="anonymous"
 ></script>
 
+<script src="{{ url_for('static', filename='addReview.js') }}"></script>
 <body>
   {% endblock %} {% block section %}
   <div class="subject">
@@ -23,54 +32,6 @@
   </div>
 
   <h3>식당에 대한 솔직한 리뷰를 등록해주세요</h3>
-
-  <form
-    action="/addReviewResult"
-    enctype="multipart/form-data"
-    method="post"
-    class="review"
-  >
-    <div class="review-top">
-      <div class="comment">
-        <div class="label-wrap">
-          <label
-            >식당 이름
-            <input
-              type="text"
-              name="res_name"
-              placeholder="식당 이름을 입력해주세요"
-            />
-          </label>
-        </div>
-      </div>
-
-      <div class="nickname">
-        <div class="label-wrap">
-          <label
-            >닉네임
-            <input
-              type="text"
-              name="review_reviewer"
-              placeholder="닉네임을 입력해주세요"
-            />
-          </label>
-        </div>
-      </div>
-
-      <div class="rating">
-        <div class="label-wrap">
-          <label
-            >평점
-            <input
-              type="text"
-              name="rating"
-              placeholder="평점을 입력해주세요"
-            />
-          </label>
-        </div>
-      </div>
-    </div>
-  </form>
 
   <form
     action="/showReview"
@@ -126,8 +87,11 @@
         <div class="imgPreview"></div>
       </div>
     </div>
+      <div class="submit">
+            <input type="submit" value="리뷰 등록하기"><br><br>
+      </div>
   </form>
-
-  {% endblock section %}
   <script type="text/javascript" src="../static/addReview.js"></script>
+    
+  {% endblock section %}
 </body>

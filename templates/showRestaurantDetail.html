@@ -32,6 +32,7 @@
 
     <div class="food-pic">
       <img src="/static/image/{{data.img_path}}" >
+        <!--for문으로 사진 세 개 가져옴-->
     </div>
 
 <!--    <h4 class="restaurant-desc">40년 전통 계란 풀어진 얼큰한 우동!</h4>-->
@@ -54,10 +55,12 @@
         <!-- 카테고리, 주차, 가격대는 구현예정 -->
           <!--<div class="category">한식</div>-->
           <div class="address">{{data.addr}}</div>
+          <div class="parking"><p>
+              주차여부: 
+              </p>{{data.parking}}</div>
           <div class="phoneNum">{{data.tel}}</div>
           <div class="openTime">{{data.open_time}}~{{data.close_time}}</div>
-          <!--<div class="parking">주차</div>-->
-          <!--<div class="price">가격대</div>-->
+          <div class="price_range">{{data.price_range}}</div>
         </div>
       </div>
 
