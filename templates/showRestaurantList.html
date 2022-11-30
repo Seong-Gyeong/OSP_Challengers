@@ -11,6 +11,12 @@
 {% endblock %}
 
 {% block section %}
+        <script>
+            $(document).ready(function () {
+              //alert("{{category}}");
+            $('#category option:contains("{{category}}")').prop("selected", true);
+        });
+        </script>
         <div class="subject">
             <h1>#Restaurants</h1>
         </div>
@@ -20,9 +26,9 @@
            <button id="한식btn" type="button">한식</button>
             <button id="양식btn" type="button">양식</button>
             <button id="일식btn" type="button">일식</button><br>
-            <button id="세계음식btn" type="button">세계음식</button>
+            <button id="세계음식btn" type="button">기타</button>
             <button id="allbtn" type="button" onclick="location.href='/showAllRestaurantList'">전체맛집</button>  
-            <button id="디저트btn" type="button">디저트</button>
+            <button id="디저트btn" type="button">카페/디저트</button>
             </p>
         </div>
         <p class="clear"></p>

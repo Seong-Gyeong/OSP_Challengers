@@ -75,22 +75,16 @@
         </label>
       </div>
 
-      <!-- 커스텀한 드롭박스는 isrequired js에서 따로 처리해야함 -->
-      <!--<div>
-        <label for="restaurant__category">카테고리</label>
-        <button id="restaurant__category">
-          카테고리를 선택해주세요
-          <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-        <!--</button>-->
-      <!--</div>-->
-
-      <!-- 드롭다운 펼치면 보일 부분 -->
-      <!-- <ul id="restaurant__category--option">
-        <li>양식</li>
-        <li>한식</li>
-        <li>중식</li>
-        <li>기타</li>
-      </ul> -->
+      <div>
+        <label for="restaurant_category">카테고리</label>
+        <select name="restaurant_category" id="restaurant_category">
+            <option value="한식">한식</option>
+            <option value="양식">양식</option>
+            <option value="일식">일식</option>
+            <option value="카페/디저트">카페/디저트</option>
+            <option value="기타">기타</option>
+        </select>
+        </div>
 
       <div>
         <label for="restaurant_parking">주차 가능 여부를 선택해주세요</label>

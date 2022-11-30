@@ -2,30 +2,42 @@
 {% block head %}
   {{ super() }}
     <title>Result Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
 {% endblock %}
 
 {% block section %}
-    <p>restaurant name is {{data.restaurant_name}} and address is {{data.restaurant_address}}
+    <div class="subject">
+        '{{data.restaurant_name}}' 를 등록하시겠습니까?
+    </div>
+    <div class="result">
+    <p>이름 <span>{{data.restaurant_name}}</span>
+    </p>
+
+    <p>주소 <span>{{data.restaurant_address}}</span>
     </p>
     
-    <p>restaurant homepage is {{data.restaurant_homepage}}
+    <p>홈페이지 <span>{{data.restaurant_homepage}}</span>
     </p>
 
-    <p>restaurant parking is {{data.restaurant_parking}}
+    <p>주차 가능 여부 <span>{{data.restaurant_parking}}</span>
     </p>
 
-    <p>restaurant open time is {{data.restaurant_open_time}} and close time is {{data.restaurant_close_time}}
+    <p>영업 시간 <span>{{data.restaurant_open_time}}</span> ~ <span>{{data.restaurant_close_time}}</span>
     </p>
     
-    <p>restaurant tel. is {{data.restaurant_contact}}
+    <p>연락처 <span>{{data.restaurant_contact}}</span>
     </p>
 
-    <p>restaurant price range is {{data.restaurant_price_range}}
+    <p>가격대 <span>{{data.restaurant_price_range}}</span>
+    </p>
+
+    <p>카테고리 <span>{{data.restaurant_category}}</span>
     </p>
     
     {% if True %}
     <img src="{{image_path}}" alt="Restaurant Image" height="400px">
     {% endif %}
+    </div>
 
     <form method="post" action="/addBestMenu">
         <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">

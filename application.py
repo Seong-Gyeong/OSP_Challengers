@@ -8,7 +8,7 @@ DB = DBhandler()
 
 @application.route("/")
 def hello():
-    return render_template("home.html")
+    return render_template("homeView.html")
 
 @application.route("/addRestaurant")
 def reg_restaurant():
