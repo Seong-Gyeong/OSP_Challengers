@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from database import DBhandler
-import sys
+import sys, math
 
 application = Flask(__name__)
 
@@ -101,28 +101,43 @@ def reg_restaurant_submit():
 @application.route("/showAllRestaurantList")
 def list_all_restaurants():
     page = request.args.get("page", 0, type=int)
+    category = request.args.get("category", "전체")
     limit = 6
     
     start_idx=limit*page
     end_idx=limit*(page+1)
-    data = DB.get_restaurants() #read the table
-    tot_count = len(data)
-    print(data)
-    data = dict(list(data.items())[start_idx:end_idx])
     
+    if category=="전체":
+        data = DB.get_restaurants()
+    else:
+        data = DB.get_restaurants_bycategory(category)
+    
+ #   data = DB.get_restaurants() #read the table
+    tot_count = len(data)
+    print("category",category,tot_count)
+    if tot_count<=limit:
+        data = dict(list(data.items())[:tot_count])
+    else:
+        data = dict(list(data.items())[start_idx:end_idx])
+    data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
+    print(data)
+    
+    page_count = len(data)
+    print(tot_count,page_count)
     return render_template(
         "showAllRestaurantList.html",
         datas=data.items(),
         total=tot_count,
         limit=limit,
         page=page,
-        page_count=int((tot_count/6)+1))
+        page_count=math.ceil(tot_count/6),
+        category=category)
 
 @application.route("/view_detail/<name>/")
 def view_restaurant_detail(name):
     data = DB.get_restaurant_byname(str(name))
     avg_rate = DB.get_avgrate_byname(str(name))
-
+    
     print("####data:",data)
     return render_template("showRestaurantDetail.html", data=data, avg_rate=avg_rate)
 

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+{% extends "navbar.html" %}
+{% block head %}
+  {{ super() }}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../static/homeView.css" />
     <link rel="stylesheet" href="../static/reset.css" />
-    <script scr="https://code.jquery.com/jquery.com/jquery-latest.min.js"></script>
-  </head>
-  <body>
+   
+{% endblock %}
+    {% block section %}
     <img src="../static/image/homeBanner.png" class="homeBanner" />
 
     <div class="recommendWrap">
@@ -105,5 +105,4 @@
         </div>
       </div>
     </footer>
-  </body>
-</html>
+{% endblock section %}
