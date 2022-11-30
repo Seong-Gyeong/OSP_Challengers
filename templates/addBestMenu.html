@@ -1,4 +1,4 @@
-{% extends "navbar.html" %} {% block head %} {{ super() }}
+<!-- {% extends "navbar.html" %} {% block head %} {{ super() }} -->
 <title>대표 메뉴를 등록해주세요</title>
 <link
   rel="stylesheet"
@@ -14,6 +14,35 @@
   src="https://kit.fontawesome.com/42ed29bed1.js"
   crossorigin="anonymous"
 ></script>
+
+<script type="text/javascript">
+  window.onload = function () {
+    const dropDownSection = document.querySelector(".second");
+    const dropDownBtn = document.querySelector(".second_btn");
+    const dropDownMenu = document.querySelector(".second_dropdown");
+
+    const options = document.querySelectorAll(".second_dropdown_option");
+
+    dropDownBtn.addEventListener("click", () => {
+      dropDownMenu.classList.toggle("show");
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        // dropDownBtn.firstChild.data = event.currentTarget.innerText;
+        dropDownBtn.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu.classList.remove("show");
+
+        for (let opt of options) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+  };
+</script>
 
 <!-- <link
   rel="stylesheet"
@@ -75,23 +104,22 @@
     </div>
   </div>
 
-  <!-- 비건 여부 코드 작성중
   <div class="second">
-        <div>
-          <label>비건 여부<br/>
-          <button id="menu__vegan">
-            비건 여부를 골라주세요
-            <span class="material-symbols-rounded"> arrow_drop_down </span>
-  </button></label>
-  </div> -->
+    <button type="button" class="second_btn">
+      비건 여부
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+    </button>
+  </div>
 
-  <!-- 드롭다운 펼치면 보일 부분
-  <ul id="menu__vegan--option">
-        <li>Yes</li>
-        <li>No</li>
-      </ul> -->
-  <!-- <br />
-  <br /> -->
+  <ul class="second_dropdown">
+    <li>
+      <button type="button" class="second_dropdown_option">Yes</button>
+    </li>
+    <li>
+      <button type="button" class="second_dropdown_option selected">No</button>
+    </li>
+  </ul>
+
   <div>
     <label
       >알러지 유발 가능 재료<br />
@@ -117,28 +145,7 @@
     </div>
   </div>
 
-  <!-- 이미지 클릭하면 파일 업로드 되도록 하는 부분 다시 작업하기 -->
-  <!-- <label src="./assets/attachImg.png"></label>
-      <input type="file" name="file1" style="display: none" />
-    </form>
-
-   -->
-
-  <!-- 이미지 첨부할 부분, 차후 Js와 연결해서 이미지 클릭하면 사진 업로드 되게 할 예정 -->
-  <!-- <div class="img">
-      <input
-        class="upload_img_input"
-        type="file"
-        accept="image/*"
-        required
-        multiple
-        style="display: none"
-      />
-      <div class="img_section">
-        <div class="upload"></div>
-        <div class="img_preview"></div>
-      </div>
-    </div>-->
+  <!-- 이미지 클릭하면 파일 업로드 되도록 하는 부분  -->
 
   <div>
     <label for="img">사진 업로드 : </label>
@@ -149,4 +156,5 @@
     <input type="submit" value="메뉴 등록하기" /><br /><br />
   </div>
 </form>
+
 {% endblock section %}

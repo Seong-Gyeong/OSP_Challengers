@@ -1,208 +1,280 @@
-{% extends "navbar.html" %}
-{% block head %}
-  {{ super() }}
-    <title>맛집을 등록해주세요</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="{{ url_for('static', filename='addRestaurant.css') }}"/>
+{% extends "navbar.html" %} {% block head %} {{ super() }}
+<title>맛집을 등록해주세요</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='addRestaurant.css') }}"
+/> -->
+<link rel="stylesheet" href="../static/addRestaurant.css" />
 
-    <script
-      src="https://kit.fontawesome.com/42ed29bed1.js"
-      crossorigin="anonymous"
-    ></script>
+<script
+  src="https://kit.fontawesome.com/42ed29bed1.js"
+  crossorigin="anonymous"
+></script>
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-    
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='addRestaurant.css') }}"
-    />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='addRestaurant.css') }}"
-    />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='addRestaurant.css') }}"
+/>
 
-    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='addRestaurant.css') }}"
+/>
 
-    <!--웹서버(과제)css, js 연결 위해 경로를 위와 같이 수정했습니다-->
+<script>
+  window.onload = function () {
+    const dropDownSection = document.querySelector(".category");
+    const dropDownBtn = document.querySelector(".category_btn");
+    const dropDownMenu = document.querySelector(".category_dropdown");
 
-    <!--기존 코드-->
-    <!--<link rel="stylesheet" href="../css/style.css" />
+    const dropDownSection2 = document.querySelector(".parking");
+    const dropDownBtn2 = document.querySelector(".parking_btn");
+    const dropDownMenu2 = document.querySelector(".parking_dropdown");
+
+    const dropDownSection3 = document.querySelector(".price");
+    const dropDownBtn3 = document.querySelector(".price_btn");
+    const dropDownMenu3 = document.querySelector(".price_dropdown");
+
+    const options = document.querySelectorAll(".category_dropdown_option");
+    const options2 = document.querySelectorAll(".parking_dropdown_option");
+    const options3 = document.querySelectorAll(".price_dropdown_option");
+
+    dropDownBtn.addEventListener("click", () => {
+      dropDownMenu.classList.toggle("show");
+    });
+
+    dropDownBtn2.addEventListener("click", () => {
+      dropDownMenu2.classList.toggle("show");
+    });
+
+    dropDownBtn3.addEventListener("click", () => {
+      dropDownMenu3.classList.toggle("show");
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        dropDownBtn.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu.classList.remove("show");
+
+        for (let opt of options) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+
+    options2.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        dropDownBtn2.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu2.classList.remove("show");
+
+        for (let opt of options2) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+
+    options3.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        dropDownBtn3.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu3.classList.remove("show");
+
+        for (let opt of options3) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+  };
+</script>
+<script src="{{ url_for('static', filename='nav.js') }}" defer></script>
+
+<!--웹서버(과제)css, js 연결 위해 경로를 위와 같이 수정했습니다-->
+
+<!--기존 코드-->
+<!--<link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/addRestaurant.css" />
     <script src="../js/nav.js" defer></script>-->
 
-    <title>맛집을 등록해주세요</title>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navbar-logo">
-        <i class="fa-solid fa-utensils"></i>
-        <a href="/">EAT-WHA</a>
-      </div>
-      <ul class="navbar-menu">
-        <li><a href="/showRestaurantList">Restaurants</a></li>
-        <li><a href="/addRestaurant">Register</a></li>
-        <li><a href="/showRecommendation">Recommendation</a></li>
-        <li><a href="/showAboutUs">About Us</a></li>
-      </ul>
+{% endblock %} {% block section %}
 
-      <a href="#" class="navbar-togglebtn">
-        <i class="fa-solid fa-bars"></i>
-      </a>
-    </nav>
+<div class="subject">
+  <br /><br /><br /><br /><br />
+  <h1>#Register your restaurant</h1>
+  <br /><br /><br /><br />
+</div>
 
-     
+<h1></h1>
 
-{% endblock %}
-      
-{% block section %} 
+<h3>새로운 맛집을 등록해주세요</h3>
 
-    <div class="subject">
-      <br /><br /><br /><br /><br />
-      <h1>#Register your restaurant</h1>
-      <br /><br /><br /><br />
-    </div>
+<form
+  action="/result"
+  enctype="multipart/form-data"
+  method="post"
+  id="restaurant"
+>
+  <div>
+    <label
+      >이름
 
-    <h1></h1>
+      <input
+        type="text"
+        name="restaurant_name"
+        placeholder="가게 이름을 입력해주세요"
+        isrequired="true"
+      />
+    </label>
+  </div>
 
-    <h3>새로운 맛집을 등록해주세요</h3>
+  <div>
+    <label
+      >주소
+      <input
+        type="text"
+        name="restaurant_address"
+        placeholder="주소를 입력해주세요"
+        isrequired="true"
+      />
+    </label>
+  </div>
 
-    <form action="/result" enctype="multipart/form-data" method="post" id="restaurant">
+  <div>
+    <label
+      >연락처
+      <input
+        type="text"
+        name="restaurant_contact"
+        placeholder="연락처를 입력해주세요"
+      />
+    </label>
+  </div>
 
+  <div>
+    <label
+      >홈페이지
+      <input
+        type="text"
+        name="restaurant_homepage"
+        placeholder="홈페이지 주소를 입력해주세요"
+      />
+    </label>
+  </div>
 
-      <div>
-        <label
-          >이름
+  <!--카테고리 코드 작성중-->
+  <div class="category">
+    <button type="button" class="category_btn">
+      카테고리
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+    </button>
+  </div>
 
-          <input
-            type="text"
-            name="restaurant_name"
-            placeholder="가게 이름을 입력해주세요"
-            isrequired="true"
-          />
-        </label>
-      </div>
+  <ul class="category_dropdown">
+    <li>
+      <button type="button" class="category_dropdown_option">한식</button>
+    </li>
+    <li>
+      <button type="button" class="category_dropdown_option selected">
+        양식
+      </button>
+    </li>
+    <li>
+      <button type="button" class="category_dropdown_option">일식</button>
+    </li>
+    <li>
+      <button type="button" class="category_dropdown_option">
+        카페/디저트
+      </button>
+    </li>
+    <li>
+      <button type="button" class="category_dropdown_option">기타</button>
+    </li>
+  </ul>
 
-      <div>
-        <label
-          >주소
-          <input
-            type="text"
-            name="restaurant_address"
-            placeholder="주소를 입력해주세요"
-            isrequired="true"
-          />
-        </label>
-      </div>
+  <!--주차 가능 여부 코드 작성중-->
 
-      <div>
-        <label
-          >연락처
-          <input
-            type="text"
-            name="restaurant_contact"
-            placeholder="연락처를 입력해주세요"
-          />
-        </label>
-      </div>
+  <div class="parking">
+    <button type="button" class="parking_btn">
+      주차 가능 여부
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+    </button>
+  </div>
 
-      <div>
-        <label
-          >홈페이지
-          <input
-            type="text"
-            name="restaurant_homepage"
-            placeholder="홈페이지 주소를 입력해주세요"
-          />
-        </label>
-      </div>
+  <ul class="parking_dropdown">
+    <li>
+      <button type="button" class="parking_dropdown_option">가능</button>
+    </li>
+    <li>
+      <button type="button" class="parking_dropdown_option">불가능</button>
+    </li>
+  </ul>
 
-      <!--카테고리 코드 작성중-->
-      <!-- 커스텀한 드롭박스는 isrequired js에서 따로 처리해야함 -->
-      <!--<div>
-        <label for="restaurant__category">카테고리</label>
-        <button id="restaurant__category">
-          카테고리를 선택해주세요
-          <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-      <!--</button>-->
-      <!--</div>-->
+  <div>
+    <label
+      >영업 시간
+      <input
+        type="text"
+        name="restaurant_open_time"
+        placeholder="오픈 시간을 입력해주세요"
+      />
 
-      <!-- 드롭다운 펼치면 보일 부분 -->
-      <!-- <ul id="restaurant__category--option">
-        <li>양식</li>
-        <li>한식</li>
-        <li>중식</li>
-        <li>기타</li>
-      </ul> -->
+      <input
+        type="text"
+        name="restaurant_close_time"
+        placeholder="마감 시간을 입력해주세요"
+      />
+    </label>
+    <!--백: 오픈 시간과 마감 시간의 id가 restaurant__time으로 동일하여 수정하였습니다. -->
+    <p style="display: inline; margin: auto 10px"><b></b></p>
+    <br />
+    <br />
+    <br />
+  </div>
 
-      <!--주차 가능 여부 코드 작성중-->
+  <div class="price">
+    <button type="button" class="price_btn">
+      가격대를 선택해주세요
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+    </button>
+  </div>
 
-      <!--<div>
-        <label for="restaurant__parking">주차</label>
-        <button id="restaurant__parking">
-          주차 가능 여부를 선택해주세요
-          <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-      <!--</button>-->
-      <!--</div>-->
+  <ul class="price_dropdown">
+    <li>
+      <button type="button" class="price_dropdown_option">10000원 미만</button>
+    </li>
+    <li>
+      <button type="button" class="price_dropdown_option selected">
+        10000원 이상 ~15000원 미만
+      </button>
+    </li>
+    <li>
+      <button type="button" class="price_dropdown_option">
+        15000원 이상 ~20000원 미만
+      </button>
+    </li>
+    <li>
+      <button type="button" class="price_dropdown_option">20000원 이상</button>
+    </li>
+  </ul>
 
-      <!-- 드롭다운 펼치면 보일 부분 -->
-      <!-- <ul id="restaurant__parking--option">
-        <li>가능</li>
-        <li>불가능</li>
-      </ul> -->
-
-      <div>
-        <label
-          >영업 시간
-          <input
-            type="text"
-            name="restaurant_open_time"
-            placeholder="오픈 시간을 입력해주세요"
-          />
-
-          <input
-            type="text"
-            name="restaurant_close_time"
-            placeholder="마감 시간을 입력해주세요"
-          />
-        </label>
-        <!--백: 오픈 시간과 마감 시간의 id가 restaurant__time으로 동일하여 수정하였습니다. -->
-        <p style="display: inline; margin: auto 10px"><b></b></p>
-        <br />
-        <br />
-        <br />
-      </div>
-
-      <!--가격대 코드 작성중-->
-
-      <!--<div>
-        <label for="restaurant__price">가격대</label>
-        <button id="restaurant__price">
-          가격대를 선택해주세요
-          <span class="material-symbols-rounded"> arrow_drop_down </span> -->
-      <!--</button>-->
-      <!--</div>-->
-
-      <!-- 드롭다운 펼치면 보일 부분 -->
-      <!-- <ul id="restaurant__price--option">
-        <li>10000원 미만</li>
-        <li>10000원 이상 ~15000원 미만</li>
-        <li>15000원 이상 ~ 20000원 미만</li>
-        <li>20000원 이상</li>
-      </ul> -->
-
-
-      <!--<div>
+  <!--<div>
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
       </div>
@@ -227,20 +299,17 @@
         </div>
       </div>-->
 
+  <div class="submit"><input type="submit" value="Submit" /><br /><br /></div>
 
-      <div class="submit">
-        <input type="submit" value="Submit" /><br /><br />
-      </div>
-
-      <!--<div class="step2">
+  <!--<div class="step2">
         <input
           class="step2_btn"
           type="button"
           value="step2. 대표 메뉴 등록하러 가기"
         />
       </div> -->
-      <!-- 백: 현재 구현된 "대표 메뉴 등록하러 가기" 버튼은 submit의 
+  <!-- 백: 현재 구현된 "대표 메뉴 등록하러 가기" 버튼은 submit의 
 기능이 없어, 등록 이후 바로 결과를 확인할 수 없음.
 따라서 해당 버튼에 "submit"type을 추가하였음.-->
-    </form>
+</form>
 {% endblock section %}

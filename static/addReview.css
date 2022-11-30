@@ -87,8 +87,8 @@ input {
 }
 
 .img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
 
   margin-left: 300px;
 
@@ -97,6 +97,10 @@ input {
 
 .imgInput {
   display: none;
+}
+
+.img_section {
+  display: flex;
 }
 
 .upload {
@@ -115,6 +119,11 @@ input {
   gap: 20px;
 
   display: flex;
+}
+
+.previewItem {
+  width: 180px;
+  height: 180px;
 }
 
 .submitBtn {
