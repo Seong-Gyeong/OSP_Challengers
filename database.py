@@ -36,6 +36,7 @@ class DBhandler:
             "close_time": data['restaurant_close_time'],
             "price_range": data['restaurant_price_range'],
             "site": data['restaurant_homepage'],
+            "category": data['restaurant_category'],
             "img_path": img_path 
         }   
         self.db.child("restaurant").push(restaurant_info)
