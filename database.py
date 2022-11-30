@@ -83,7 +83,11 @@ class DBhandler:
             value = rev.val()
             if value['res_name'] == name:
                 rates.append(float(value['rating']))
-        return float(sum(rates)/len(rates))
+                
+        if len(rates)==0:
+            return 0
+        else:
+            return float(sum(rates)/len(rates))
     
     def get_review_byname(self, name):
         reviews = self.db.child("review").get()
@@ -95,6 +99,21 @@ class DBhandler:
                 target_value.append(value)
                 
         return target_value
+    
+    def get_restaurants_bycategory(self, cate):
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for res in restaurants.each():
+            value = res.val()
+            
+            if value['res_category'] == cate:
+                target_value.append(value)
+        print("######target_value",target_value)
+        new_dict={}
+        for k,v in enumerate(target_value):
+            new_dict[k]=v
+        
+        return new_dict
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={
