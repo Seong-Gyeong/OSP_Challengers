@@ -9,46 +9,88 @@
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='showRecommendation.css') }}">
+    <script src="{{ url_for('static', filename='showRecommendation.js') }}" defer></script>
     <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 {% endblock %}
 
 {% block section %}
 
-        <div class="toptitle">
+        <div class="subject">
         <h1>메뉴 결정이 어려우신가요?</h1>
         </div>
-        <h2>
-            Greats의 테마별 추천 메뉴
-        </h2>
-        <div class="theme">
-        <div class="theme1">
-            <h1># TV 출연 맛집</h1>
-            <img src="../static/image/slide1.jpg" alt="tv출연맛집">
-            <img src="../static/image/slide1.jpg" alt="tv출연맛집"><br>
-            <img src="../static/image/slide1.jpg" alt="tv출연맛집">
-            <img src="../static/image/slide1.jpg" alt="tv출연맛집">
-        </div>
-        <div class="theme2">
-            <h1># 첫 밥약</h1>
-            <img src="../static/image/slide1.jpg" alt="첫밥약">
-            <img src="../static/image/slide1.jpg" alt="첫밥약"><br>
-            <img src="../static/image/slide1.jpg" alt="첫밥약">
-            <img src="../static/image/slide1.jpg" alt="첫밥약">
-        </div>
-        <div class="theme1">
-            <h1># 가성비 맛집</h1>
-            <img src="../static/image/slide1.jpg" alt="가성비맛집">
-            <img src="../static/image/slide1.jpg" alt="가성비맛집"><br>
-            <img src="../static/image/slide1.jpg" alt="가성비맛집">
-            <img src="../static/image/slide1.jpg" alt="가성비맛집">
-        </div>
-        <div class="theme2">
-            <h1># 매운 음식 땡길 때</h1>
-            <img src="../static/image/slide1.jpg" alt="매운음식">
-            <img src="../static/image/slide1.jpg" alt="매운음식"><br>
-            <img src="../static/image/slide1.jpg" alt="매운음식">
-            <img src="../static/image/slide1.jpg" alt="매운음식">
-        </div>
-        </div>
 
+        <h2>Greats의 테마별 추천 메뉴</h2>
+        <br>
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-inner">
+              <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+
+                <div class="carousel-item">
+                    <h1>#TV 출연 맛집 🎥</h1>
+                    <span class="recom">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                    </span>
+                </div>  
+              <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+
+                <div class="carousel-item">
+                    <h1>#첫 밥약 😆</h1>
+                    <span class="recom">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                    </span>
+                </div>
+                <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+
+                <div class="carousel-item">
+                    <h1>#가성비 맛집 🤑</h1>
+                    <span class="recom">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                    </span>
+                </div>
+                <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
+
+                <div class="carousel-item">
+                    <h1>#매운 음식 땡길 때 🔥</h1>
+                    <span class="recom">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                      <img src="../static/image/모미지식당_육회덮밥.jpg" alt="모미지식당">
+                    </span>
+                </div>
+
+                <label for="carousel-4" class="carousel-control prev control-1">‹</label>
+                <label for="carousel-2" class="carousel-control next control-1">›</label>
+                <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+                <label for="carousel-3" class="carousel-control next control-2">›</label>
+                <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+                <label for="carousel-4" class="carousel-control next control-3">›</label>
+                <label for="carousel-3" class="carousel-control prev control-4">‹</label>
+                <label for="carousel-1" class="carousel-control next control-4">›</label>
+                <ol class="carousel-indicators">
+                    <li>
+                        <label for="carousel-1" class="carousel-bullet">&#9679;</label>
+                    </li>
+                    <li>
+                        <label for="carousel-2" class="carousel-bullet">&#9679;</label>
+                    </li>
+                    <li>
+                        <label for="carousel-3" class="carousel-bullet">&#9679;</label>
+                    </li>
+                    <li>
+                        <label for="carousel-4" class="carousel-bullet">&#9679;</label>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
 {% endblock section %}
