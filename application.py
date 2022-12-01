@@ -19,7 +19,7 @@ def view_list():
     return render_template("showRestaurantList.html")
 
 @application.route("/showRestaurantDetail")
-def view_res_deatil():
+def view_res_detail():
     return render_template("showRestaurantDetail.html")
 
 @application.route("/showRecommendation")
@@ -30,11 +30,17 @@ def view_recomm_list():
 def view_info():
     return render_template("showAboutUs.html")
 
-@application.route("/addBestMenu", methods=['POST'])
+@application.route("/addBestMenuFirst", methods=['POST'])
 def reg_bestmenu():
     data=request.form
     print(list(data.values()))
-    return render_template("addBestMenu.html", data=data)
+    return render_template("addBestMenuFirst.html", data=data)
+
+#@application.route("/addBestMenu", methods=['POST'])
+#def reg_bestmenus():
+#    data=request.form
+#    print(list(data.values()))
+#    return render_template("addBestMenu.html", data=data)
 
 @application.route("/showBestMenu")
 def view_bestmenu():
@@ -70,9 +76,24 @@ def reg_review_submit():
     if DB.insert_review(data['review_reviewer'], data, image_file.filename):
         return render_template("addReviewResult.html", data=data, img_path="/static/image/"+image_file.filename) 
     
-@application.route("/addReview")
-def reg_review():
-    return render_template("addReview.html")
+    
+@application.route("/add_reviews/<res_name>/")
+def add_reviews(res_name):
+    res_data = DB.get_restaurant_byname(str(res_name))
+        
+    return render_template(
+        "addReview.html",
+        data=res_data
+        )
+
+#@application.route("/addReview")
+#def reg_review():
+#    return render_template("addReview.html")
+    
+    
+#@application.route("/addReview")
+#def reg_review():
+#    return render_template("addReview.html")
 
 #@application.route("/showReview", methods=['POST']) 
 #def reg_review_submit():
@@ -170,5 +191,14 @@ def view_reviews(res_name):
         avg_rate=avg_rate)
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=True)
+    application.run(host='0.0.0.0', debug=True)     
     
+############################addBestMenu 동적라우팅######################
+    
+@application.route("/add_menus/<res_name>/")
+def add_menus(res_name):
+    data = DB.get_restaurant_byname(str(res_name))
+    
+    return render_template(
+        "addBestMenu.html",
+        data=data)

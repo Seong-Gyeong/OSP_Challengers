@@ -117,7 +117,7 @@ class DBhandler:
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={
-            "name": data['restaurant_name'],
+            "res_name": data['restaurant_name'],
             "menu_name": data['menu_name'],
             "menu_price": data['menu_price'],
             "menu_allergy": data['menu_allergy'],
