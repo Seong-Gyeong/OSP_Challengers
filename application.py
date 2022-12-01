@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from database import DBhandler
-import sys
+import sys, math
 
 application = Flask(__name__)
 
@@ -8,7 +8,7 @@ DB = DBhandler()
 
 @application.route("/")
 def hello():
-    return render_template("home.html")
+    return render_template("homeView.html")
 
 @application.route("/addRestaurant")
 def reg_restaurant():
@@ -19,7 +19,7 @@ def view_list():
     return render_template("showRestaurantList.html")
 
 @application.route("/showRestaurantDetail")
-def view_res_deatil():
+def view_res_detail():
     return render_template("showRestaurantDetail.html")
 
 @application.route("/showRecommendation")
@@ -30,11 +30,17 @@ def view_recomm_list():
 def view_info():
     return render_template("showAboutUs.html")
 
-@application.route("/addBestMenu", methods=['POST'])
+@application.route("/addBestMenuFirst", methods=['POST'])
 def reg_bestmenu():
     data=request.form
     print(list(data.values()))
-    return render_template("addBestMenu.html", data=data)
+    return render_template("addBestMenuFirst.html", data=data)
+
+#@application.route("/addBestMenu", methods=['POST'])
+#def reg_bestmenus():
+#    data=request.form
+#    print(list(data.values()))
+#    return render_template("addBestMenu.html", data=data)
 
 @application.route("/showBestMenu")
 def view_bestmenu():
@@ -70,9 +76,24 @@ def reg_review_submit():
     if DB.insert_review(data['review_reviewer'], data, image_file.filename):
         return render_template("addReviewResult.html", data=data, img_path="/static/image/"+image_file.filename) 
     
-@application.route("/addReview")
-def reg_review():
-    return render_template("addReview.html")
+    
+@application.route("/add_reviews/<res_name>/")
+def add_reviews(res_name):
+    res_data = DB.get_restaurant_byname(str(res_name))
+        
+    return render_template(
+        "addReview.html",
+        data=res_data
+        )
+
+#@application.route("/addReview")
+#def reg_review():
+#    return render_template("addReview.html")
+    
+    
+#@application.route("/addReview")
+#def reg_review():
+#    return render_template("addReview.html")
 
 #@application.route("/showReview", methods=['POST']) 
 #def reg_review_submit():
@@ -101,30 +122,48 @@ def reg_restaurant_submit():
 @application.route("/showAllRestaurantList")
 def list_all_restaurants():
     page = request.args.get("page", 0, type=int)
+    category = request.args.get("category", "전체")
     limit = 6
     
     start_idx=limit*page
     end_idx=limit*(page+1)
-    data = DB.get_restaurants() #read the table
-    tot_count = len(data)
-    print(data)
-    data = dict(list(data.items())[start_idx:end_idx])
     
+    if category=="전체":
+        data = DB.get_restaurants()
+    else:
+        data = DB.get_restaurants_bycategory(category)
+    
+ #   data = DB.get_restaurants() #read the table
+    tot_count = len(data)
+    print("category",category,tot_count)
+    if tot_count<=limit:
+        data = dict(list(data.items())[:tot_count])
+    else:
+        data = dict(list(data.items())[start_idx:end_idx])
+    data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
+    print(data)
+    
+    page_count = len(data)
+    print(tot_count,page_count)
     return render_template(
         "showAllRestaurantList.html",
         datas=data.items(),
         total=tot_count,
         limit=limit,
         page=page,
-        page_count=int((tot_count/6)+1))
+        page_count=math.ceil(tot_count/6),
+        category=category)
 
 @application.route("/view_detail/<name>/")
 def view_restaurant_detail(name):
+    menu_data = DB.get_food_byname(str(name))
     data = DB.get_restaurant_byname(str(name))
+    
     avg_rate = DB.get_avgrate_byname(str(name))
-
+    menu_count = len(menu_data)
+    
     print("####data:",data)
-    return render_template("showRestaurantDetail.html", data=data, avg_rate=avg_rate)
+    return render_template("showRestaurantDetail.html", menu_data=menu_data, data=data, avg_rate=avg_rate, total=menu_count)
 
 @application.route("/list_foods/<res_name>/")
 def view_foods(res_name):
@@ -153,8 +192,17 @@ def view_reviews(res_name):
         datas=data,
         total=tot_count,
         avg_rate=avg_rate)
+############################addBestMenu 동적라우팅######################
+    
+@application.route("/add_menus/<res_name>/")
+def add_menus(res_name):
+    res_data = DB.get_restaurant_byname(str(res_name))
+    
+    return render_template(
+        "addBestMenu.html",
+        data=res_data
+        )
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=True)
-    
+    application.run(host='0.0.0.0', debug=True)     
     

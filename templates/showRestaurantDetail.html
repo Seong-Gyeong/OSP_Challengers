@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='showRestaurantDetail.css') }}">
-
 {% endblock %}
 
 {% block section %}
@@ -29,10 +28,29 @@
     <h3 class="restaurant-name">
       {{data.name}} <span>⭐️ <b>{{avg_rate}}</b></span>
     </h3>
-
-    <div class="food-pic">
-      <img src="/static/image/{{data.img_path}}" >
-    </div>
+<!--실험 시작-->
+    <div class="food-pic"> 
+        <img src="/static/image/{{data.img_path}}">
+    {% if total > 3 %}
+    
+        {% for i in range(3) %}
+            <img src="/static/image/{{menu_data[i].img_path}}">
+        {% endfor %}
+        
+    {% else %}
+        {% for i in range(total) %}
+            <img src="/static/image/{{menu_data[i].img_path}}">
+        {% endfor %}
+    {% endif %}
+    </div>    
+<br>
+<br>
+        <!--실험 끝-->
+        
+   <!-- <div class="food-pic"> 
+      <img src="/static/image/{{data.img_path}}">
+        <!--for문으로 사진 세 개 가져옴
+    </div>-->
 
 <!--    <h4 class="restaurant-desc">40년 전통 계란 풀어진 얼큰한 우동!</h4>-->
 
@@ -42,22 +60,26 @@
       <div class="left-info">
         <div class="left-btn">
           <!--리뷰 쓰러가기 버튼-->  
-          <a href="/addReview" color="black"><img class="side-button" src="/static/image/addreview_btn.PNG" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br> <!--addreview_btn.PNG-->
+          <a href="/add_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/addreview_btn.PNG" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br> <!--addreview_btn.PNG-->
           <!--리뷰 보러가기 버튼-->    
           <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showreview_btn.PNG" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
           <!--대표메뉴 보러가기 버튼-->   
           <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showbestmenu_btn.PNG" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
-        
+          <!--대표메뉴 등록하기 버튼-->   
+          <a href="/add_menus/{{data.name}}/" color="black" style="color:black">눌러서 대표메뉴 등록</a><br><br>
+            
+
         </div>
 
         <div class="detail-info">
         <!-- 카테고리, 주차, 가격대는 구현예정 -->
-          <!--<div class="category">한식</div>-->
+          <div class="category">{{data.category}}</div>
           <div class="address">{{data.addr}}</div>
+          <div class="parking">
+              주차여부: {{data.parking}}</div>
           <div class="phoneNum">{{data.tel}}</div>
           <div class="openTime">{{data.open_time}}~{{data.close_time}}</div>
-          <!--<div class="parking">주차</div>-->
-          <!--<div class="price">가격대</div>-->
+          <div class="price_range">{{data.price_range}}</div>
         </div>
       </div>
 
