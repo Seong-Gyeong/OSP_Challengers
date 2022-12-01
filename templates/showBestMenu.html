@@ -1,28 +1,34 @@
-{% extends "navbar.html" %}
-{% block head %}
-  {{ super() }}
-    <title>Best Menu</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='showBestMenu.css') }}">
-    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
-{% endblock %}
+{% extends "navbar.html" %} {% block head %} {{ super() }}
+<title>Best Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+  rel="stylesheet"
+/>
+<script
+  src="https://kit.fontawesome.com/42ed29bed1.js"
+  crossorigin="anonymous"
+></script>
 
-{% block section %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='showBestMenu.css') }}"
+/>
+<script src="{{ url_for('static', filename='nav.js') }}" defer></script>
+{% endblock %} {% block section %}
 
-        <div class="subject">
-            <h1>#Best Menu</h1>
-        </div>
+<div class="subject">
+  <h1>#Best Menu</h1>
+</div>
 
 {% if total > 0 %}
 
 <p>대표메뉴 리스트 -- 현재까지 {{total}}개 등록됨</p>
 {% for data in datas %}
+
         
 
         <div class="main">
@@ -41,6 +47,7 @@
                 </div>
             </div>
             <!--<div class="menu">
+
                 <div class="menugroup">
                     <div class="menuimg">
                         <img src="{{image_path}}" alt="Menu Image" height="270px"></div>
@@ -60,11 +67,8 @@
                     </div>
                 </div>
             </div>-->
-        </div>
-        </div>
-{% endfor %}
-{% else %}
-<p>등록된 메뉴가 없습니다. </p>
-{% endif %}
-
-{% endblock section %} 
+  </div>
+</div>
+{% endfor %} {% else %}
+<p>등록된 메뉴가 없습니다.</p>
+{% endif %} {% endblock section %}

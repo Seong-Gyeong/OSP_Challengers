@@ -18,6 +18,7 @@ function getImageFiles(event) {
       reader.onload = (e) => {
         const preview = createElement(e, file);
         imgPreview.appendChild(preview);
+        preview.classList.add("previewItem");
       };
       reader.readAsDataURL(file);
     }
@@ -27,7 +28,7 @@ function getImageFiles(event) {
 }
 
 function createElement(event, file) {
-  const li = document.createElement("li");
+  const li = document.createElement("div");
   const img = document.createElement("img");
   img.setAttribute("src", event.target.result);
   img.setAttribute("data-file", file.name);

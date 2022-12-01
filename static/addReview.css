@@ -1,5 +1,9 @@
 @import "reset.css";
 
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 h1 {
   text-align: center;
 }
@@ -13,9 +17,10 @@ input {
 }
 
 .review {
+  padding-left: 50px;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .review-top {
@@ -30,7 +35,7 @@ input {
   display: flex;
   justify-content: space-between;
 
-  margin: 0;
+  margin-left: 25px;
   padding: 0;
 }
 
@@ -82,8 +87,8 @@ input {
 }
 
 .img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
 
   margin-left: 300px;
 
@@ -94,12 +99,18 @@ input {
   display: none;
 }
 
+.img_section {
+  display: flex;
+}
+
 .upload {
   width: 200px;
   height: 200px;
 
   padding: 0;
   cursor: pointer;
+
+  margin: 25px;
 }
 
 .img_preview {
@@ -108,4 +119,23 @@ input {
   gap: 20px;
 
   display: flex;
+}
+
+.previewItem {
+  width: 180px;
+  height: 180px;
+}
+
+.submitBtn {
+  width: 300px;
+  height: 56px;
+
+  background: #00462a;
+  border-radius: 66px;
+
+  color: #fff;
+
+  margin-left: 25px;
+
+  cursor: pointer;
 }
