@@ -17,23 +17,23 @@
       crossorigin="anonymous"
     ></script>
     
-    <link rel="stylesheet" href="{{ url_for('static', filename='addBestMenu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='addBestMenu.css') }}">    <!--이 부분 css 안되고 있음-->
     <!--<link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">-->
 {% endblock %}
     
 {% block section %}
-
     <div class="subject">
       <br /><br /><br /><br /><br />
       <h1>#Best Menu</h1>
       <br /><br /><br /><br />
     </div>
 
-    <h3><b>{{data.res_name}}의 대표 메뉴를 등록해주세요</b></h3>
-<br>
+    <h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
+    <br>
     <h3>대표메뉴</h3>
             
     <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
+
       <div class="first">
          <div>
          

@@ -32,23 +32,13 @@
 
     <h1></h1>
 
-    <h3>식당에 대한 솔직한 리뷰를 등록해주세요</h3>
+    <h3>{{data.name}}에 대한 솔직한 리뷰를 등록해주세요</h3>
 
     <form action="/addReviewResult" enctype="multipart/form-data" method="post" class="review">
-      <div class="review-top">
-          
-        <div class="comment">
-            <div class="label-wrap">
-            
-            <label>식당 이름
-                <input
-                       type="text"
-                       name="res_name"
-                       placeholder="식당 이름을 입력해주세요"
-                />
-            </label>
-            </div>
-          </div>
+    <input type="hidden" name="res_name" value="{{data.name}}">
+
+        <div class="review-top">
+         
           
         <div class="nickname">
           <div class="label-wrap">
@@ -88,13 +78,10 @@
 
     </div>
           
-      <div class="addImgWrap">
-          <input class="imgInput" type="file" accept="image/*" required multiple />
-          <div class="img_section">
-              <img class="upload" src="../static/image/uploadImg.png" />
-              <div class="imgPreview"></div>
+            <div>
+        <label for="img">Representative Image upload : </label>
+        <input type="file" name="file" /><br><br>
       </div>
-    </div>
         
         <div class="submit">
             <input type="submit" value="리뷰 등록하기"><br><br>
