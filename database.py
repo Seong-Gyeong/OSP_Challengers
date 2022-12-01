@@ -106,7 +106,7 @@ class DBhandler:
         for res in restaurants.each():
             value = res.val()
             
-            if value['res_category'] == cate:
+            if value['category'] == cate:
                 target_value.append(value)
         print("######target_value",target_value)
         new_dict={}
@@ -117,7 +117,7 @@ class DBhandler:
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={
-            "res_name": data['res_name'],
+            "name": data['restaurant_name'],
             "menu_name": data['menu_name'],
             "menu_price": data['menu_price'],
             "menu_allergy": data['menu_allergy'],
