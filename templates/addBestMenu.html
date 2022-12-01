@@ -29,11 +29,13 @@
       <br /><br /><br /><br />
     </div>
 
-    <h3><b>{{data.res_name}}의 대표 메뉴를 등록해주세요</b></h3>
+    <h3><b>{{data.name}}의 대표 메뉴를 등록해주세요</b></h3>
 <br>
     <h3>대표메뉴</h3>
             
     <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
+    <input type="hidden" name="restaurant_name" value="{{data.name}}">
+
       <div class="first">
          <div>
          
