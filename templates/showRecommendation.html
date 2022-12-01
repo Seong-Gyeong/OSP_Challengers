@@ -3,28 +3,24 @@
   {{ super() }}
     <title>테마별 맛집추천</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='showBestMenu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='showRecommendation.css') }}">
     <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 {% endblock %}
 
 {% block section %}
-    <div class="subject">
-        <h1>#Recommendation</h1>
-    </div>
 
-    <div id="circle">circle</div>
-    <br>
-    <div id="circle2">circle</div>
-    <br>
-    <div id="circle3">circle</div>
-    <br>
-
-    <div class="main">
+        <div class="toptitle">
+        <h1>메뉴 결정이 어려우신가요?</h1>
+        </div>
+        <h2>
+            Greats의 테마별 추천 메뉴
+        </h2>
+        <div class="theme">
         <div class="theme1">
             <h1># TV 출연 맛집</h1>
             <img src="../static/image/slide1.jpg" alt="tv출연맛집">
@@ -53,5 +49,6 @@
             <img src="../static/image/slide1.jpg" alt="매운음식">
             <img src="../static/image/slide1.jpg" alt="매운음식">
         </div>
-    </div>
+        </div>
+
 {% endblock section %}

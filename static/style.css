@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background-color: #dedede;
+  background-color: #ffffff;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -32,6 +32,7 @@ a {
 
 .navbar-logo a {
   font-family: "Noto Sans KR", sans-serif;
+  font-weight: bold;
 }
 .navbar-menu {
   font-family: "Noto Sans KR", sans-serif;
