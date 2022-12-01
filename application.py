@@ -189,16 +189,17 @@ def view_reviews(res_name):
         datas=data,
         total=tot_count,
         avg_rate=avg_rate)
-
-if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=True)     
-    
 ############################addBestMenu 동적라우팅######################
     
 @application.route("/add_menus/<res_name>/")
 def add_menus(res_name):
-    data = DB.get_restaurant_byname(str(res_name))
+    res_data = DB.get_restaurant_byname(str(res_name))
     
     return render_template(
         "addBestMenu.html",
-        data=data)
+        data=res_data
+        )
+
+if __name__ == "__main__":
+    application.run(host='0.0.0.0', debug=True)     
+    
