@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
+
 body {
   margin: 0;
   background-color: #dedede;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 a {
@@ -29,10 +31,10 @@ a {
 }
 
 .navbar-logo a {
-  font-family: "Carter One", cursive;
+  font-family: "Noto Sans KR", sans-serif;
 }
 .navbar-menu {
-  font-family: "Carter One", cursive;
+  font-family: "Noto Sans KR", sans-serif;
   display: flex;
   list-style: none;
   padding-left: 0;
@@ -91,10 +93,8 @@ a {
 .subject {
   display: flex;
   justify-content: center;
-  text-decoration: underline;
-  text-underline-position: under;
   text-shadow: 2px 2px 2px gray;
-  font-family: "Carter One", cursive;
+  font-family: "Noto Sans KR", sans-serif;
   letter-spacing: 2px;
   color: rgb(40, 40, 40);
   padding-top: 100px;
