@@ -99,14 +99,15 @@ button {
   align-items: center;
 
   width: 6rem;
+  position: relative;
 
   display: flex;
   flex-direction: column;
 }
 
 .second_btn {
-  width: 100%;
-  height: 2rem;
+  width: 12rem;
+  height: 2.5rem;
   border: none;
 
   display: flex;
@@ -122,8 +123,8 @@ button {
   display: none;
 
   position: absolute;
-  top: 10rem;
-  left: 21rem;
+  top: 2.5rem;
+  left: 0rem;
 
   z-index: 2;
 }

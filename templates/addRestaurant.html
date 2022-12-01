@@ -180,54 +180,54 @@
 
   <!--카테고리 코드 작성중-->
   <div class="category">
+    <label>카테고리 </label>
     <button type="button" class="category_btn">
       카테고리
       <span class="material-symbols-outlined"> arrow_drop_down </span>
     </button>
+    <ul class="category_dropdown">
+      <li>
+        <button type="button" class="category_dropdown_option">한식</button>
+      </li>
+      <li>
+        <button type="button" class="category_dropdown_option selected">
+          양식
+        </button>
+      </li>
+      <li>
+        <button type="button" class="category_dropdown_option">일식</button>
+      </li>
+      <li>
+        <button type="button" class="category_dropdown_option">
+          카페/디저트
+        </button>
+      </li>
+      <li>
+        <button type="button" class="category_dropdown_option">기타</button>
+      </li>
+    </ul>
   </div>
-
-  <ul class="category_dropdown">
-    <li>
-      <button type="button" class="category_dropdown_option">한식</button>
-    </li>
-    <li>
-      <button type="button" class="category_dropdown_option selected">
-        양식
-      </button>
-    </li>
-    <li>
-      <button type="button" class="category_dropdown_option">일식</button>
-    </li>
-    <li>
-      <button type="button" class="category_dropdown_option">
-        카페/디저트
-      </button>
-    </li>
-    <li>
-      <button type="button" class="category_dropdown_option">기타</button>
-    </li>
-  </ul>
 
   <!--주차 가능 여부 코드 작성중-->
 
   <div class="parking">
+    <label> 주차 가능 여부 </label>
     <button type="button" class="parking_btn">
       주차 가능 여부
       <span class="material-symbols-outlined"> arrow_drop_down </span>
     </button>
+    <ul class="parking_dropdown">
+      <li>
+        <button type="button" class="parking_dropdown_option">가능</button>
+      </li>
+      <li>
+        <button type="button" class="parking_dropdown_option">불가능</button>
+      </li>
+    </ul>
   </div>
 
-  <ul class="parking_dropdown">
-    <li>
-      <button type="button" class="parking_dropdown_option">가능</button>
-    </li>
-    <li>
-      <button type="button" class="parking_dropdown_option">불가능</button>
-    </li>
-  </ul>
-
   <div>
-    <label
+    <label class="runningTime"
       >영업 시간
       <input
         type="text"
@@ -241,6 +241,7 @@
         placeholder="마감 시간을 입력해주세요"
       />
     </label>
+
     <!--백: 오픈 시간과 마감 시간의 id가 restaurant__time으로 동일하여 수정하였습니다. -->
     <p style="display: inline; margin: auto 10px"><b></b></p>
     <br />
@@ -249,30 +250,35 @@
   </div>
 
   <div class="price">
+    <label> 가격대 </label>
     <button type="button" class="price_btn">
       가격대를 선택해주세요
       <span class="material-symbols-outlined"> arrow_drop_down </span>
     </button>
-  </div>
 
-  <ul class="price_dropdown">
-    <li>
-      <button type="button" class="price_dropdown_option">10000원 미만</button>
-    </li>
-    <li>
-      <button type="button" class="price_dropdown_option selected">
-        10000원 이상 ~15000원 미만
-      </button>
-    </li>
-    <li>
-      <button type="button" class="price_dropdown_option">
-        15000원 이상 ~20000원 미만
-      </button>
-    </li>
-    <li>
-      <button type="button" class="price_dropdown_option">20000원 이상</button>
-    </li>
-  </ul>
+    <ul class="price_dropdown">
+      <li>
+        <button type="button" class="price_dropdown_option">
+          10000원 미만
+        </button>
+      </li>
+      <li>
+        <button type="button" class="price_dropdown_option selected">
+          10000원 이상 ~15000원 미만
+        </button>
+      </li>
+      <li>
+        <button type="button" class="price_dropdown_option">
+          15000원 이상 ~20000원 미만
+        </button>
+      </li>
+      <li>
+        <button type="button" class="price_dropdown_option">
+          20000원 이상
+        </button>
+      </li>
+    </ul>
+  </div>
 
   <!--<div>
         <label for="img">Representative Image upload : </label>
@@ -299,7 +305,9 @@
         </div>
       </div>-->
 
-  <div class="submit"><input type="submit" value="Submit" /><br /><br /></div>
+  <div class="submit">
+    <input type="submit" value="step2. 대표 메뉴 등록하러 가기" /><br /><br />
+  </div>
 
   <!--<div class="step2">
         <input
