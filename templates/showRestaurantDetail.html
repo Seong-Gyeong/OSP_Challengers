@@ -28,14 +28,29 @@
     <h3 class="restaurant-name">
       {{data.name}} <span>⭐️ <b>{{avg_rate}}</b></span>
     </h3>
-
-    <div class="food-pic">
+<!--실험 시작-->
+    <div class="food-pic"> 
+        <img src="/static/image/{{data.img_path}}">
+    {% if total > 3 %}
+    
+        {% for i in range(3) %}
+            <img src="/static/image/{{menu_data[i].img_path}}">
+        {% endfor %}
+        
+    {% else %}
+        {% for i in range(total) %}
+            <img src="/static/image/{{menu_data[i].img_path}}">
+        {% endfor %}
+    {% endif %}
+    </div>    
+<br>
+<br>
+        <!--실험 끝-->
+        
+   <!-- <div class="food-pic"> 
       <img src="/static/image/{{data.img_path}}">
-      <img src="/static/image/{{data.img_path}}">
-      <img src="/static/image/{{data.img_path}}">
-      <img src="/static/image/{{data.img_path}}">
-        <!--for문으로 사진 세 개 가져옴-->
-    </div>
+        <!--for문으로 사진 세 개 가져옴
+    </div>-->
 
 <!--    <h4 class="restaurant-desc">40년 전통 계란 풀어진 얼큰한 우동!</h4>-->
 
