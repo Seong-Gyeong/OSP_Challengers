@@ -33,15 +33,10 @@
     <h3>대표메뉴</h3>
             
     <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
+    <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
       <div class="first">
          <div>
-          <label>식당 이름
-          <input
-            type="text"
-            name="res_name"
-            placeholder="식당 이름을 입력해주세요"
-            isrequired="true"
-          /></label>
+         
         </div>
         <br>
         <br>
