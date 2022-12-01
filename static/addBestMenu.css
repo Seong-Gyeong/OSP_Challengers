@@ -1,5 +1,9 @@
 @import "reset.css";
 
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 h1 {
   text-align: center;
 }
@@ -88,4 +92,63 @@ button {
   gap: 20px;
 
   display: flex;
+}
+
+.second {
+  display: flex;
+  align-items: center;
+
+  width: 6rem;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.second_btn {
+  width: 12rem;
+  height: 2.5rem;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border-bottom: 3px solid transparent;
+
+  cursor: pointer;
+}
+
+.second_dropdown {
+  display: none;
+
+  position: absolute;
+  top: 2.5rem;
+  left: 0rem;
+
+  z-index: 2;
+}
+
+.show {
+  display: block;
+}
+
+.second_dropdown_option {
+  width: 12rem;
+  height: 2.5rem;
+  border: none;
+  border-bottom: #f1f3f5 solid 1px;
+  line-height: 2rem;
+  text-align: center;
+  background-color: #ffffff;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected {
+  color: #12b886;
 }
