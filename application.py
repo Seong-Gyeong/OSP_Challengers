@@ -156,11 +156,14 @@ def list_all_restaurants():
 
 @application.route("/view_detail/<name>/")
 def view_restaurant_detail(name):
+    menu_data = DB.get_food_byname(str(name))
     data = DB.get_restaurant_byname(str(name))
+    
     avg_rate = DB.get_avgrate_byname(str(name))
+    menu_count = len(menu_data)
     
     print("####data:",data)
-    return render_template("showRestaurantDetail.html", data=data, avg_rate=avg_rate)
+    return render_template("showRestaurantDetail.html", menu_data=menu_data, data=data, avg_rate=avg_rate, total=menu_count)
 
 @application.route("/list_foods/<res_name>/")
 def view_foods(res_name):
