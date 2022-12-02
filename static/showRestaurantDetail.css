@@ -57,7 +57,7 @@
 .phoneNum,
 .openTime,
 .parking,
-.price {
+.price_range {
   margin: 30px;
   font-weight: 700;
 

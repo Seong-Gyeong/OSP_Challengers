@@ -9,13 +9,96 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="{{ url_for('static', filename='addRestaurant.css') }}"/>
-
+    <link rel="stylesheet" href="{{url_for('static', filename='addRestaurant.css') }}"/>
+    <link
+     rel="stylesheet"
+     href="{{ url_for('static', filename='addRestaurant.css') }}"
+     />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link
+     rel="stylesheet"
+     href="{{ url_for('static', filename='style.css') }}"
+     />
     <script
       src="https://kit.fontawesome.com/42ed29bed1.js"
       crossorigin="anonymous"
     ></script>
-     
+
+<script>
+  window.onload = function () {
+    const dropDownSection = document.querySelector(".category");
+    const dropDownBtn = document.querySelector(".category_btn");
+    const dropDownMenu = document.querySelector(".category_dropdown");
+
+    const dropDownSection2 = document.querySelector(".parking");
+    const dropDownBtn2 = document.querySelector(".parking_btn");
+    const dropDownMenu2 = document.querySelector(".parking_dropdown");
+
+    const dropDownSection3 = document.querySelector(".price");
+    const dropDownBtn3 = document.querySelector(".price_btn");
+    const dropDownMenu3 = document.querySelector(".price_dropdown");
+
+    const options = document.querySelectorAll(".category_dropdown_option");
+    const options2 = document.querySelectorAll(".parking_dropdown_option");
+    const options3 = document.querySelectorAll(".price_dropdown_option");
+
+    dropDownBtn.addEventListener("click", () => {
+      dropDownMenu.classList.toggle("show");
+    });
+
+    dropDownBtn2.addEventListener("click", () => {
+      dropDownMenu2.classList.toggle("show");
+    });
+
+    dropDownBtn3.addEventListener("click", () => {
+      dropDownMenu3.classList.toggle("show");
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        dropDownBtn.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu.classList.remove("show");
+
+        for (let opt of options) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+
+    options2.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        dropDownBtn2.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu2.classList.remove("show");
+
+        for (let opt of options2) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+
+    options3.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        dropDownBtn3.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu3.classList.remove("show");
+
+        for (let opt of options3) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+  };
+</script>
+
+<script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 
 {% endblock %}
       
@@ -75,8 +158,8 @@
         </label>
       </div>
 
-      <div>
-        <label for="restaurant_category">카테고리</label>
+       <div class="category">
+        <label>카테고리</label>
         <select name="restaurant_category" id="restaurant_category">
             <option value="한식">한식</option>
             <option value="양식">양식</option>
@@ -86,8 +169,8 @@
         </select>
         </div>
 
-      <div>
-        <label for="restaurant_parking">주차 가능 여부를 선택해주세요</label>
+      <div class="parking">
+        <label>주차 가능 여부</label>
         <select name="restaurant_parking" id="restaurant_parking">
             <option value="가능">가능</option>
         <option value="불가능">불가능</option>
@@ -95,7 +178,7 @@
       </div>
 
       <div>
-        <label>영업 시간
+        <label class="runningTime">영업 시간
         <input
           type="text"
           name="restaurant_open_time"
@@ -117,23 +200,23 @@
         
       </div>
     
-        <div>
-        <label>가격대
-        <input
-          type="text"
-          name="restaurant_price_range"
-          placeholder="가격대를 입력해주세요"
-        />
-        </label>
-      </div>
-    
+       <div class="price">
+        <label>가격대</label>
+        <select name="restaurant_price_range" id="restaurant_price_range">
+            <option value="10,000원 미만">10,000원 미만</option>
+            <option value="10,000원 이상 ~15000원 미만">10,000원 이상 ~15,000원 미만</option>
+            <option value="15,000원 이상 ~20,000원 미만">15,000원 이상 ~20,000원 미만</option>
+            <option value="20,000원 이상">20,000원 이상</option>
+        </select>
+        </div>
+
       <div>
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
       </div>
         
       <div class="submit">
-        <input type="submit" value="Submit"><br><br>
+        <input type="submit" value="step2. 대표 메뉴 등록하러 가기"><br><br>
     </div>
         
       <!--<div class="img">

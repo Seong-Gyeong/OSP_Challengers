@@ -19,6 +19,8 @@
     ></script>
 
     <script src="{{ url_for('static', filename='addReview.js') }}"></script>
+    <script type="text/javascript" src="../static/addReview.js"></script>
+
 
     <body>
 {% endblock %}
@@ -77,19 +79,13 @@
      </div></div>
 
     </div>
-          
-        
-                    <a href="/view_detail/{{data.name}}/">맛집 보러가기</a>
-
 
             <div>
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
       </div>
         
-        <div class="submit">
-            <input type="submit" value="리뷰 등록하기"><br><br>
-    </div>
+    <button class="submitBtn">리뷰 등록하기</button>
         
     </form>
     {% endblock section %}
