@@ -33,6 +33,7 @@
     <h3>대표메뉴</h3>
             
     <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
+    <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
 
       <div class="first">
          <div>
@@ -62,20 +63,27 @@
         </div>
       </div>
 
-      <div class="second">
-          
-        <!--<div>
-          <label>비건 여부<br/>
-          <button id="menu__vegan">
-            비건 여부를 골라주세요
-            <span class="material-symbols-rounded"> arrow_drop_down </span> 
-          </button></label>
+           <div class="second">        
+      <label for="menu_vegan">비건 여부</label>
+        <select name="menu_vegan" id="menu_vegan">
+            <option value="vegan">Yes</option>
+            <option value="non-vegan">No</option>
+        </select>
         </div>
-
-        <ul id="menu__vegan--option">
-        <li>Yes</li>
-        <li>No</li>
-      </ul> -->
+   <!-- <div class="second">
+      <button type="button" class="second_btn">
+      비건 여부
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+      </button>
+      <ul class="second_dropdown" name="menu_vegan">
+        <li>
+          <button type="button" class="second_dropdown_option" value="vegan">Yes</button>
+        </li>
+        <li>
+          <button type="button" class="second_dropdown_option selected" value="non-vegan">No</button>
+        </li>
+      </ul>
+    </div> -->
           
         <br>
         <br>

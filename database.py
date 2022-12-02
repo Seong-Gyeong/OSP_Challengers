@@ -120,6 +120,7 @@ class DBhandler:
             "res_name": data['restaurant_name'],
             "menu_name": data['menu_name'],
             "menu_price": data['menu_price'],
+            "menu_vegan": data['menu_vegan'],
             "menu_allergy": data['menu_allergy'],
             "menu_introduce": data['menu_introduce'],
             "img_path": img_path
@@ -146,4 +147,3 @@ class DBhandler:
         self.db.child("review").child(name).set(review_info)
         print(data,img_path)
         return True
-    
