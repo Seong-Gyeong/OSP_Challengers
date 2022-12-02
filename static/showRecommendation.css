@@ -103,8 +103,9 @@
   color: black;
 }
 .carousel-item {
-  background:rgba(0, 70, 42);
+  background-image: url(./image/green-gradient.jpg);
   padding: 20px;
+  padding-bottom: 10px;
   text-align: center;
 }
 
