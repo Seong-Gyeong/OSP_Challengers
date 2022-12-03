@@ -13,12 +13,10 @@ class DBhandler:
         restaurants = self.db.child("restaurant").get()
         
         for res in restaurants.each():
-            if res.key() == name:
-                return False
-            #value = res.val()
+            value = res.val()
             
-            #if value['name'] == name:
-                #return False
+            if value['name'] == name:
+                return False
         return True 
     
     def menu_duplicate_check(self, name):
@@ -39,13 +37,9 @@ class DBhandler:
             "price_range": data['restaurant_price_range'],
             "site": data['restaurant_homepage'],
             "category": data['restaurant_category'],
-            "hash":data['hash[]'],
+            "hashtag": data['hashtag[]'],
             "img_path": img_path 
         }   
-        self.db.child("restaurant").push(restaurant_info)
-        print(data,img_path)
-        return True
-        
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").push(restaurant_info)
             print(data,img_path)
@@ -118,13 +112,13 @@ class DBhandler:
         
         return new_dict
     
-    def get_restaurants_byhash(self, hashe):
+    def get_restaurants_byhash(self, hashtag):
         restaurants = self.db.child("restaurant").get()
         target_value=[]
         for res in restaurants.each():
             value = res.val()
             
-            if value['hash'] == hashe:
+            if value['hashtag'] == hashtag:
                 target_value.append(value)
         print("######target_value",target_value)
         new_dict={}
