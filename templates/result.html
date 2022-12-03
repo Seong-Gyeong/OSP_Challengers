@@ -7,45 +7,53 @@
 
 {% block section %}
     <div class="subject">
-        '{{data.restaurant_name}}' 를 등록하시겠습니까?
+        <h1>#Register your restaurant</h1>
     </div>
-    <div class="result">
-    <p>이름 <span>{{data.restaurant_name}}</span>
-    </p>
-
-    <p>주소 <span>{{data.restaurant_address}}</span>
-    </p>
-    
-    <p>홈페이지 <span>{{data.restaurant_homepage}}</span>
-    </p>
-
-    <p>주차 가능 여부 <span>{{data.restaurant_parking}}</span>
-    </p>
-
-    <p>영업 시간 <span>{{data.restaurant_open_time}}</span> ~ <span>{{data.restaurant_close_time}}</span>
-    </p>
-    
-    <p>연락처 <span>{{data.restaurant_contact}}</span>
-    </p>
-
-    <p>가격대 <span>{{data.restaurant_price_range}}</span>
-    </p>
-
-    <p>카테고리 <span>{{data.restaurant_category}}</span>
-    </p>
-    
-    {% if True %}
-    <img src="{{image_path}}" alt="Restaurant Image" height="400px">
-    {% endif %}
+    <div class="main">
+        <h2><span class=rest_name>&nbsp;{{data.restaurant_name}} </span> 의 등록 정보를 확인해주세요</h2>
+        <br><br>
+        <div class="info_all">
+            <div>
+                <div class="info">이름</div> <span>{{data.restaurant_name}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">주소</div> <span>{{data.restaurant_address}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">홈페이지</div> <span>{{data.restaurant_homepage}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">주차 가능 여부</div> <span>{{data.restaurant_parking}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">영업 시간</div> <span>{{data.restaurant_open_time}}</span> ~ <span>{{data.restaurant_close_time}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">연락처</div> <span>{{data.restaurant_contact}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">가격대</div> <span>{{data.restaurant_price_range}}</span>
+            </div>
+        <br>
+        <div>
+            <div class="info">카테고리</div> <span>{{data.restaurant_category}}</span>
+            </div>
+        <br>
+        {% if True %}
+        <img src="{{image_path}}" alt="Restaurant Image" height="200px">
+        {% endif %}
     </div>
-
+        
     <form method="post" action="/addBestMenuFirst">
         <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
-        <div>
-            <p>It's time to register the representative menu in {{data.restaurant_name}}
-            </p>
-            <br>
-            <button type="submit" name="best__menu">Register Best Menu</button><br><br>
+        <div class="button_space">
+            <button claa="btn" type="submit" name="best__menu">확인 및 대표메뉴 등록</button><br><br>
         </div>
     </form>      
 {% endblock section %}
