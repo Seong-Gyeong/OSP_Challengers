@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for
 from database import DBhandler
 import sys, math
 
 application = Flask(__name__)
+application.config["SECRET_KEY"] = "anything-you-want"
 
 DB = DBhandler()
 

@@ -81,7 +81,8 @@ button {
 
 .category,
 .parking,
-.price {
+.price
+.hashtag {
   position: relative;
   width: 12rem;
 
@@ -91,7 +92,8 @@ button {
 
 .category label,
 .price label,
-.parking label {
+.parking label 
+.hashtag label {
   align-self: flex-start;
 }
 
