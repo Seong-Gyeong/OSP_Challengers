@@ -9,6 +9,7 @@
     <div class="subject">
         <h1>#Register your restaurant</h1>
     </div>
+    <br><br>
     <div class="main">
         <h2><span class=rest_name>&nbsp;{{data.restaurant_name}} </span> 의 등록 정보를 확인해주세요</h2>
         <br><br>
@@ -46,14 +47,17 @@
             </div>
         <br>    
         {% if True %}
-        <img src="{{image_path}}" alt="Restaurant Image" height="200px">
+        <div>
+            <div class="info"></div> <span><img class="info_img" src="{{image_path}}" alt="Restaurant Image" height="200px"></span>
+            </div>
         {% endif %}
     </div>
-        
+    <br><br>
     <form method="post" action="/addBestMenuFirst">
         <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
         <div class="button_space">
-            <button claa="btn" type="submit" name="best__menu">확인 및 대표메뉴 등록</button><br><br>
+            <button class="btn" type="submit" name="best__menu">확인 및 대표메뉴 등록</button><br><br>
         </div>
     </form>      
+    <br><br><br>
 {% endblock section %}
