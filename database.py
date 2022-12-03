@@ -13,10 +13,12 @@ class DBhandler:
         restaurants = self.db.child("restaurant").get()
         
         for res in restaurants.each():
-            value = res.val()
-            
-            if value['name'] == name:
+            if res.key() == name:
                 return False
+            #value = res.val()
+            
+            #if value['name'] == name:
+                #return False
         return True 
     
     def menu_duplicate_check(self, name):
@@ -37,6 +39,7 @@ class DBhandler:
             "price_range": data['restaurant_price_range'],
             "site": data['restaurant_homepage'],
             "category": data['restaurant_category'],
+            "hash":data['hash[]'],
             "img_path": img_path 
         }   
         self.db.child("restaurant").push(restaurant_info)
@@ -114,6 +117,19 @@ class DBhandler:
             new_dict[k]=v
         
         return new_dict
+    
+    def get_restaurants_byhash(self, hashe):
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for res in restaurants.each():
+            value = res.val()
+            
+            if value['hash'] == hashe:
+                target_value.append(value)
+        print("######target_value",target_value)
+        new_dict={}
+        for k,v in enumerate(target_value):
+            new_dict[k]=v
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={
