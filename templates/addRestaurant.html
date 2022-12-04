@@ -104,7 +104,9 @@
       
 {% block section %} 
     <div class="subject">
+      <br /><br /><br /><br /><br />
       <h1>#Register your restaurant</h1>
+      <br /><br /><br /><br />
     </div>
 
     <h1></h1>
@@ -208,16 +210,18 @@
         </select>
         </div>
 
+    
        <div class="hashtag">
         <p><label>식당을 대표하는 #해쉬태그 한 가지를 골라주세요!</label></p>
         <br>
         <br>           
-        <label><input type="checkbox" style='zoom:0.5;' name="hashtag[]" value="TV 출연 맛집"> #TV 출연 맛집 🎥</label><br>
-        <label><input type="checkbox" style='zoom:0.5;' name="hashtag[]" value="첫 밥약"> #첫 밥약 😆</label>
-        <label><input type="checkbox" style='zoom:0.5;' name="hashtag[]" value="가성비 맛집"> #가성비 맛집 🤑</label>
-        <label><input type="checkbox" style='zoom:0.5;' name="hashtag[]" value="#매운 음식 도전"> #매운 음식 맛집 🔥</label>
-       </div>
-        
+           #TV_출연_맛집 🎥<input type='radio' name='hashtag' value='TV_출연_맛집' />
+           #첫_밥약 😆<input type='radio' name='hashtag' value='첫_밥약' />
+           #가성비_맛집 🤑<input type='radio' name='hashtag' value='가성비_맛집' />
+           #매운_음식_맛집 🔥<input type='radio' name='hashtag' value='매운_음식_맛집' />
+        <br>
+        </div>
+           
       <div>
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
@@ -225,7 +229,7 @@
         
       <div class="submit">
         <input type="submit" value="step2. 대표 메뉴 등록하러 가기"><br><br>
-    </div>
+      </div>
         
       <!--<div class="img">
         <input
@@ -255,4 +259,5 @@
 기능이 없어, 등록 이후 바로 결과를 확인할 수 없음.
 따라서 해당 버튼에 "submit"type을 추가하였음.-->
     </form>
+
 {% endblock section %}

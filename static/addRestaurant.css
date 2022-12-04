@@ -33,6 +33,12 @@ input {
   margin: 20px;
 }
 
+input[type=radio] {
+    border: 0px;
+    width: 50%;
+    height: 2em;
+}
+
 button {
   width: 400px;
   height: 40px;
