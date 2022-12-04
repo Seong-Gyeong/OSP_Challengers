@@ -20,7 +20,9 @@
         </h1>
     </div>
     <div class="main">
-        <select id="category" name="category" onchange="location=this.value">>
+        <div class="right_element">
+            Category
+           <select id="category" name="category" onchange="location=this.value">>
             <!--<option value="{{url_for('list_all_restaurants', page=i, category='선택')}}">선택</option>-->
             <option value="{{url_for('list_all_restaurants', page=i, category='선택')}}">선택</option>
             <option value="{{url_for('list_all_restaurants', page=i, category='전체')}}">전체</option>
@@ -29,36 +31,41 @@
             <option value="{{url_for('list_all_restaurants', page=i, category='일식')}}">일식</option>
             <option value="{{url_for('list_all_restaurants', page=i, category='카페/디저트')}}">카페/디저트</option>
             <option value="{{url_for('list_all_restaurants', page=i, category='기타')}}">기타</option>
-        </select>
-        <span>맛집을 둘러보세요</span>
-    <br>
-    {% if total > 0 %}
-    <div class="total_num">현재 {{total}}개의 맛집 추천 중 ‥</div>
-    {% for data in datas %}
-    <br>
-    <br>
-    <div class="restaurants">
-        <a href="/view_detail/{{data[1].name}}/"><img class="rest_img" src="../static/image/{{data[1].img_path}}/"></a>
-        <div class="info">
-            {{data[1].name}} ⭐<span class="star">4.5<b>{{avg_rate}}</b></span> <!-- 별점 데이터 연결해주세요! -->
+        </select> 
+        <br>
+        {% if total > 0 %}
+        <div>현재 {{total}}개의 맛집 추천 중 ‥</div>
         </div>
+        
+        <h2>
+            <span class="green">{{category}} 맛집</span>을 둘러보세요
+        </h2>
+        <br>
+        <div class="all_rest">
+        {% for data in datas %}
+        <div class="restaurants">
+            <a href="/view_detail/{{data[1].name}}/"><img class="rest_img" src="../static/image/{{data[1].img_path}}/"></a>
+            <div class="info">
+                {{data[1].name}} ⭐<span class="star">4.5<b>{{avg_rate}}</b></span> <!-- 별점 데이터 연결해주세요! -->
+            </div>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
 
-    <!-- 페이지네이션을 위한 코드 시작 -->
-    <div class="page-wrap">
-        <div class="page-nation">
-            <ul>
-                <li>
-                    {% for i in range(page_count)%}
-                    <a href="{{url_for('list_all_restaurants', page=i)}}" color="black">{{i+1}}</a>
-                    {% endfor %}
-                </li>
-            </ul>
+        <!-- 페이지네이션을 위한 코드 시작 -->
+        <div class="page-wrap">
+            <div class="page-nation">
+                <ul>
+                    <li>
+                        {% for i in range(page_count)%}
+                        <a href="{{url_for('list_all_restaurants', page=i)}}" color="black">{{i+1}}</a>
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
         </div>
+        {% else %}
+        <p>등록된 맛집이 없습니다. </p>
+        {% endif %}
     </div>
-    {% else %}
-    <p>등록된 맛집이 없습니다. </p>
-    {% endif %}
-</div>
 {% endblock section %}
