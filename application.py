@@ -208,31 +208,31 @@ def add_menus(res_name):
 ###############showRecommendationList 동적라우팅###################
 
 @application.route("/showRecommendationList/<hashtag>/")
-def list_hashtag_restaurants():
+def list_hashtag_restaurants(hashtag):
     page = request.args.get("page", 0, type=int)
-    hashtag = request.args.get("hashtag", "전체")
+    hashtag = request.args.get("hashtag")
     limit = 6
     
     start_idx=limit*page
     end_idx=limit*(page+1)
     
-    data = DB.get_restaurants_byhash(str(name))
-    
+    data = DB.get_restaurants_byhash(str(hashtag))
+
  #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("hashtag",hashtag,tot_count)
-    if tot_count<=limit:
-        data = dict(list(data.items())[:tot_count])
-    else:
-        data = dict(list(data.items())[start_idx:end_idx])
-    data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
-    print(data)
+#    if tot_count<=limit:
+#        data = dict(list(data.items())[:tot_count])
+#    else:
+#        data = dict(list(data.items())[start_idx:end_idx])
+#    data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
+    #print(data)
     
     page_count = len(data)
     print(tot_count,page_count)
     return render_template(
         "showRecommendationList.html",
-        datas=data.items(),
+        datas=data,
         total=tot_count,
         limit=limit,
         page=page,

@@ -1,18 +1,18 @@
 {% extends "navbar.html" %}
 {% block head %}
   {{ super() }}
-    <title>맛집 전체리스트</title>
+    <title>테마별 추천맛집</title>
  
     <link rel="stylesheet" href="{{ url_for('static', filename='showAllRestaurantList.css') }}">
 {% endblock %}
       
 {% block section %} 
-<script>
+<!--<script>
     $(document).ready(function () {
-        alert("{{hash}}");
-        $('#hash option:contains("{{hash}}")').prop("selected", true);
+        alert("{{hashtag}}");
+        $('#hashtag option:contains("{{hashtag}}")').prop("selected", true);
     });
-</script>
+</script>-->
 
 {% if total > 0 %}
 <p> 맛집 리스트 -- 현재까지 {{total}}개 등록됨</p>
@@ -31,7 +31,7 @@
         <ul>
             <li>
                 {% for i in range(page_count)%}
-                <a href="{{url_for('list_all_restaurants', page=i)}}" color="black">{{i+1}}</a>
+                <a href="{{url_for('list_hashtag_restaurants', page=i)}}" color="black">{{i+1}}</a>
                 {% endfor %}
             </li>
         </ul>
