@@ -1,0 +1,45 @@
+* {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+img{
+    width: 100px;
+    border-radius: 100px;
+  }
+
+.profile {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+  }
+
+.info {
+    border-left: solid 1px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+span {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+h2{
+    font-weight: bold;
+}
+
+.main{
+    margin-bottom: 30px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}
+
+.logo{
+  margin-top: 40px;
+  float: right;
+  width: 200px;
+}
