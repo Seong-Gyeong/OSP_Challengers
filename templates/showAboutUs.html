@@ -6,22 +6,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='showAboutUs.css') }}"/>
     
 {% endblock %}
     
 {% block section %}
-        <div class="subject">
+    <div class="subject">
         <h1>#About Us</h1>
-        </div>
+    </div>
     
-        <div class="main">
-            <h1>GREATS</h1>
-            <p>GREATS는 이대 앞 맛집을 소개하는 사이트입니다.</p><br><br><br>
-            <h1>챌린저스</h1>
-            <p>팀원소개</p><br><br><br>
-            <h1>계기</h1>
-            <p>만들게 된 계기는 ~!</p><br><br><br>
-            <h1>Contact</h1>
-            <p>계정</p><br><br><br>
+    <div class="main">
+        <img src="../static/image/logogreen.png">
+        <h1>GREATS!</h1>
+        <div class="info">
+            <span>: 이화여대 근처 맛집 공유 플랫폼</span>
+            <br>&nbsp;<br>
+            01. 직접 추천하는 이화여자대학교 주변 맛집
+            <br>
+            02. 테마별 맛집 추천 서비스 제공
+            <br>
+            03. '비건 여부', '주차장 여부'등의 세세한 맞춤 정보 제공
+            <br><br>
+            <span>&nbsp;&nbsp;Greats를 통해 벗맛게를 한눈에! 신규, 영세 맛집까지!</span>
         </div>
+        <br><br>
+        <h2>챌린저스 팀원소개</h2>
+        <div class="info">
+            <table>
+                <tr>
+                    <td colspan=2>⭐프론트엔드⭐</td>
+                    <td colspan=3>🌙백엔드🌙</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><div class="profile">
+                <img src="../static/image/profile_HJH.jpg"><br>류성경<br>(captain)</div></td>
+                    <td><div class="profile">
+                <img src="../static/image/profile_HJH.jpg"><br>황주희<br>&nbsp;</div></td>
+                    <td><div class="profile">
+                <img src="../static/image/profile_HJH.jpg"><br>박혜진<br>&nbsp;</div></td>
+                    <td><div class="profile">
+                <img src="../static/image/profile_HJH.jpg"><br>조민주<br>&nbsp;</div></td>
+                    <td><div class="profile">
+                <img src="../static/image/profile_HJH.jpg"><br>최예원<br>&nbsp;</div></td>
+                </tr>
+            </table>
+        </div>
+        <br><br>
+        <h2>Contact US</h2>
+        <div class="info">
+            <span>e-mail:</span>
+            <br>
+            &nbsp;&nbsp;greats@ewhain.net
+            <br>
+            <span>github:</span>
+            <br>
+            &nbsp;&nbsp;@Challengers
+        </div>
+    </div>
 {% endblock section %}

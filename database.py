@@ -37,12 +37,9 @@ class DBhandler:
             "price_range": data['restaurant_price_range'],
             "site": data['restaurant_homepage'],
             "category": data['restaurant_category'],
+            "hashtag": data['hashtag[]'],
             "img_path": img_path 
         }   
-        self.db.child("restaurant").push(restaurant_info)
-        print(data,img_path)
-        return True
-        
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").push(restaurant_info)
             print(data,img_path)
@@ -63,7 +60,7 @@ class DBhandler:
             if value['name'] == name:
                 target_value=value
         return target_value
-
+    
     
     def get_food_byname(self, name):
         menus = self.db.child("menu").get()
@@ -114,6 +111,33 @@ class DBhandler:
             new_dict[k]=v
         
         return new_dict
+    
+    def get_restaurants_byhash(self, hashtag):
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for res in restaurants.each():
+            value = res.val()
+            
+            if value['hashtag'] == hashtag:
+                target_value.append(value)
+                
+        return target_value
+    
+    
+#    def get_restaurants_byhash(self, hashtag):
+#        restaurants = self.db.child("restaurant").get()
+#        target_value=[]
+#        for res in restaurants.each():
+#            value = res.val()
+            
+#            if value['hashtag'] == hashtag:
+#                target_value.append(value)
+#        print("######target_value",target_value)
+#        new_dict={}
+#        for k,v in enumerate(target_value):
+#            new_dict[k]=v
+        
+#        return new_dict
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={

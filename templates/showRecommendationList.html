@@ -1,0 +1,44 @@
+{% extends "navbar.html" %}
+{% block head %}
+  {{ super() }}
+    <title>테마별 추천맛집</title>
+ 
+    <link rel="stylesheet" href="{{ url_for('static', filename='showAllRestaurantList.css') }}">
+{% endblock %}
+      
+{% block section %} 
+<!--<script>
+    $(document).ready(function () {
+        alert("{{hashtag}}");
+        $('#hashtag option:contains("{{hashtag}}")').prop("selected", true);
+    });
+</script>-->
+
+{% if total > 0 %}
+<p> 맛집 리스트 -- 현재까지 {{total}}개 등록됨</p>
+{% for data in datas %}
+<br>
+<br>
+<div>
+    <p>맛집이름: {{data[1].name}}</p>
+    <a href="/view_detail/{{data[1].name}}/"><img src="../static/image/{{data[1].img_path}}/" width=300px></a>
+</div>
+{% endfor %}
+
+<!-- 페이지네이션을 위한 코드 시작 -->
+<div class="page-wrap">
+    <div class="page-nation">
+        <ul>
+            <li>
+                {% for i in range(page_count)%}
+                <a href="{{url_for('list_hashtag_restaurants', page=i)}}" color="black">{{i+1}}</a>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+</div>
+{% else %}
+<p>등록된 맛집이 없습니다. </p>
+{% endif %}
+
+{% endblock section %}
