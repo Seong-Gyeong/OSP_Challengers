@@ -20,56 +20,48 @@
 <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 {% endblock %} {% block section %}
 
-<div class="subject">
-  <h1>#Best Menu</h1>
-</div>
+    <div class="subject">
+      <h1>#Best Menu</h1>
+    </div>
 
-{% if total > 0 %}
+    {% if total > 0 %}
 
-<p>대표메뉴 리스트 -- 현재까지 {{total}}개 등록됨</p>
-{% for data in datas %}
-
-        
-
-        <div class="main">
-            <h1>대표메뉴</h1>
-            <hr>
-            <h2><span id="rrname">{{data.menu_name}}</span>  |  <span id="location">{{data.menu_introduce}}</span></h2>
-        <div class="bestmenu">
-            <div class="menu">
+    <div class="main">
+        <div class="right_element">
+            <div>현재 {{total}}개의 대표 메뉴 추천 중 ‥</div><br>
+            <div class="back">
+                <a href="">⬅ &nbsp; 돌아가기</a>
+            </div>
+        </div>
+        <h1>대표메뉴</h1>
+        <hr>
+    </div>
+       
+        {% for data in datas %}
+    <div class="main">
+        <div class="menubox-total">
                 <div class="menugroup">
-                    <div class="menuimg">
-                        <img src="/static/image/{{data.img_path}}" height="150px"></div>
+                    <div class="menuimg"><img src="/static/image/{{data.img_path}}" height="200px"></div>
                     <div class="content">
                         <div id="메뉴명">{{data.menu_name}}</div>
                         <div id="가격">{{data.menu_price}}</div>
                         <div id="비건여부">{{data.menu_vegan}}</div>
                     </div>
                 </div>
-            </div>
-            <!--<div class="menu">
+                <div class="menu">
+                    <div id="rrname">{{data.menu_name}}</div>
+                    <div id="location">{{data.menu_introduce}}</div>
+                    <div class="about">
+                        <span id="가격">{{data.menu_price}}</span>ㅣ
+                        <span id="비건여부">{{data.menu_vegan}}</span>
+                    </div>
+                </div>
+        </div>
+    </div>
 
-                <div class="menugroup">
-                    <div class="menuimg">
-                        <img src="{{image_path}}" alt="Menu Image" height="270px"></div>
-                    <div class="content">
-                        <div id="메뉴명">{{data.menu__name}}</div>
-                        <div id="가격">{{data.menu__price}}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu">
-                <div class="menugroup">
-                    <div class="menuimg">
-                        <img src="{{image_path}}" alt="Menu Image" width="270px"></div>
-                    <div class="content">
-                        <div id="메뉴명">{{data.menu__name}}</div>
-                        <div id="가격">{{data.menu__price}}</div>
-                    </div>
-                </div>
-            </div>-->
-  </div>
-</div>
-{% endfor %} {% else %}
-<p>등록된 메뉴가 없습니다.</p>
-{% endif %} {% endblock section %}
+    {% endfor %} {% else %}
+    <h3>등록된 메뉴가 없습니다.</h3>
+    {% endif %}
+
+    <br><br><br><br><br><br><br>
+{% endblock section %}
