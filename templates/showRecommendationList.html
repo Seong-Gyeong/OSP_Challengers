@@ -20,8 +20,8 @@
 <br>
 <br>
 <div>
-    <p>맛집이름: {{data[1].name}}</p>
-    <a href="/view_detail/{{data[1].name}}/"><img src="../static/image/{{data[1].img_path}}/" width=300px></a>
+    <p>맛집이름: {{data.name}}</p>
+    <a href="/view_detail/{{data.name}}/"><img src="../static/image/{{data.img_path}}/" width=300px></a>
 </div>
 {% endfor %}
 
@@ -30,9 +30,8 @@
     <div class="page-nation">
         <ul>
             <li>
-                {% for i in range(page_count)%}
-                <a href="{{url_for('list_hashtag_restaurants', page=i)}}" color="black">{{i+1}}</a>
-                {% endfor %}
+             
+
             </li>
         </ul>
     </div>
