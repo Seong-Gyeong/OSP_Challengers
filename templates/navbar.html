@@ -31,9 +31,9 @@
             <li><a href="/showAboutUs">About Us</a></li>
             
             {% if session['id'] %}
-            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li>
+            <li class="log"><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li>
             {% else %}
-            <li><a href="/login">login</a></li>
+            <li class="log"><a href="/login">login</a></li>
             {% endif %}
         </ul>
 
