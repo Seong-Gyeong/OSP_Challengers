@@ -4,11 +4,9 @@
     {% block head %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-    
-    <!--위의 링크는 변수 선언 시 문제생김-->
-    <script src={{url3}} crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
@@ -25,7 +23,7 @@
             <a href="/">GREATS</a>
         </div>
         <ul class="navbar-menu">
-            <li><a href="/showRestaurantList">Restaurants</a></li>
+            <li><a href="/showAllRestaurantList">Restaurants</a></li>
             <li><a href="/addRestaurant">Register</a></li>
             <li><a href="/showRecommendation">Recommendation</a></li>
             <li><a href="/showAboutUs">About Us</a></li>

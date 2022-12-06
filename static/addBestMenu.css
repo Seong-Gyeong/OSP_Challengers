@@ -27,6 +27,10 @@ div {
   margin: 30px;
 }
 
+.navbar {
+    margin: 0px;
+}
+
 .subject {
     margin-top: 0px;
     margin-left: 0px;

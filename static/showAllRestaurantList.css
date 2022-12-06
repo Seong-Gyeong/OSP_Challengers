@@ -80,7 +80,7 @@ select {
 .restaurants{
     width: 295px;
     height: 195px;
-    border: solid 1px;
+    border: solid 1px lightgray;
     background-color: #FAFAFA;
     border-radius: 10px;
     display: inline-block;
