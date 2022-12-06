@@ -3,45 +3,39 @@
   {{ super() }}
     <title>Review</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='showReview.css') }}">
 {% endblock %}
-    
+
 {% block section %}
+
     <div class="subject">
-        <h1>#Reviews</h1>
+      <h1>#Reviews</h1>
     </div>
 
-{% if total > 0 %}
-
-<p>리뷰 리스트 -- 현재까지 {{total}}개 등록됨</p>
-
+    {% if total > 0 %}
     <div class="main">
         <h1><span id="rvname">{{data.name}}</span> ⭐<span id="totalstar">{{avg_rate}}</span><span id="return">
             <a href="/view_detail/{{data.name}}/">맛집 보러가기</a></span></h1><hr>
-        <h2>리뷰(<span id="totalreview">{{total}}</span>)</h2>
-        
-{% for data in datas %}
-
-        <div class="reviewboxlist">
-            <div class="reviewbox">
-                <div class="date" name="date"></div>
-                <img src="/static/image/{{data.img_path}}/" width=300px> 
-                <div class="reviewcontents">
-                <div id="star">{{data.rating}}</div>
-                <h2>{{data.nickname}}</h2>
-                <div id="reviewtext">{{data.comment}}</div><br>
-                <!--<span id="keyword">혼밥하기 좋아요</span>
-                <span id="keyword">친절해요</span>-->
+        <h2>리뷰 (<span id="totalreview">{{total}}</span>)</h2>
+    </div>
+       
+        {% for data in datas %}
+    <div class="main">
+        <div class="reviewbox">
+                <div class="reviewimg"><img src="/static/image/{{data.img_path}}/" height="200px"></div>
+                <div class="reivew">
+                    <div class="user">
+                       <span class="nick">{{data.nickname}}</span> ㅣ <span id="star">⭐{{data.rating}}</span>
+                    </div>
+                    <div id="reviewtext">{{data.comment}}</div>
                 </div>
-            </div>
         </div>
     </div>
-{% endfor %}
-{% else %}
-<p>등록된 리뷰가 없습니다. </p>
-{% endif %}
 
+    {% endfor %} {% else %}
+    <h3>등록된 리뷰가 없습니다.</h3>
+    {% endif %}
+
+    <br><br><br><br><br><br><br>
 {% endblock section %}
