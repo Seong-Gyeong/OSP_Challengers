@@ -26,9 +26,10 @@ div {
   margin: 30px;
 }
 
-div .subject {
-    margin: 0px;
-    margin-bottom: 50px;
+.subject {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 input {
