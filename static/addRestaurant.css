@@ -26,6 +26,11 @@ div {
   margin: 30px;
 }
 
+div .subject {
+    margin: 0px;
+    margin-bottom: 50px;
+}
+
 input {
   width: 400px;
   height: 40px;
@@ -129,7 +134,7 @@ button {
 
   position: absolute;
   top: 5rem;
-  left: 0.3rem;
+  left: 0rem;
 
   z-index: 2;
 }
