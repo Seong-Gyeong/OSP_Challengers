@@ -1,0 +1,51 @@
+h2{
+    font-size: 20px;
+}
+
+.signup{
+    text-align: center;
+    font-size: 20px;
+}
+
+form div{
+    padding-top: 15px;
+}
+
+.id{
+    margin-left: 35px;
+    font-size: 20px;
+}
+
+.pw{
+    margin-left: 27px;
+    font-size: 20px;
+}
+
+.nick{
+    margin-left: 12px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.btn{
+    font-size: 15px;
+    margin-left: 10px;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: #D9D9D9;
+}
+
+.btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+    background-color: #00462a;
+}
+
+.btn:active {
+    transform: scale(1.5);
+}
