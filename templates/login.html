@@ -5,10 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Greats!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='homeView.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}"/>
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}"/>
    
 {% endblock %}
 
@@ -19,15 +17,23 @@
 {% endif %}
 {% endwith %}
 
-<form action = "/login_confirm" method="post">
-<p>ID : <input type="text" name = "id"></p>
-<p>password : <input type="password" name = "pw"></p>
-<p>아이디와 비밀번호를 입력하고 로그인버튼을 누르세요.<br><br>
-    <input type = "submit" value = "로그인"/> </p>
-</form>
+<div class="subject">
+    <h1>#Login</h1>
+</div>
 
-<a href="/signup"><button onclick="/signup">
-    회원가입
-    </button></a>
+<div class="main">
+    <div class="login">
+        <h2>아이디와 비밀번호를 입력하고 로그인버튼을 누르세요.</h2>
+        <form action = "/login_confirm" method="post">
+            <div>ID<input type="text" name = "id" class="id"></div>
+            <div>PW<input type="password" name = "pw" class="pw"></div>
+            <div><input type = "submit" value = "로그인" class="btn"/></div>
+        </form>
+    </div>
+    <div class="signup">
+        <p>처음 방문하셨다면,
+    <a href="/signup"><button onclick="/signup" class="btn">회원가입</button></a></p>
+    </div>
+</div>
 
 {% endblock section %}
