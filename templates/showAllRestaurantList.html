@@ -29,12 +29,12 @@
             <option value="{{url_for('list_all_restaurants', page=i, category='한식')}}">한식</option>
             <option value="{{url_for('list_all_restaurants', page=i, category='양식')}}">양식</option>
             <option value="{{url_for('list_all_restaurants', page=i, category='일식')}}">일식</option>
-            <option value="{{url_for('list_all_restaurants', page=i, category='카페/디저트')}}">카페/디저트</option>
+            <option value="{{url_for('list_all_restaurants', page=i, category='카페/디저트')}}">디저트</option>
             <option value="{{url_for('list_all_restaurants', page=i, category='기타')}}">기타</option>
-        </select> 
-        <br>
-        {% if total > 0 %}
-        <div>현재 {{total}}개의 맛집 추천 중 ‥</div>
+            </select> 
+            <br>
+            {% if total > 0 %}
+            <div>현재 {{total}}개의 맛집 추천 중 ‥</div>
         </div>
         
         <h2>
@@ -46,7 +46,7 @@
         <div class="restaurants">
             <a href="/view_detail/{{data[1].name}}/"><img class="rest_img" src="../static/image/{{data[1].img_path}}/"></a>
             <div class="info">
-                {{data[1].name}} ⭐<span class="star">4.5<b>{{avg_rate}}</b></span> <!-- 별점 데이터 연결해주세요! -->
+                {{data[1].name}} ⭐<span class="star"><b>{{data[1].avg_rate}}</b></span> <!-- 별점 데이터 연결해주세요! -->
             </div>
             </div>
         {% endfor %}

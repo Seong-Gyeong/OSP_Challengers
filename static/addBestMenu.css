@@ -27,6 +27,12 @@ div {
   margin: 30px;
 }
 
+.subject {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 label {
   width: 100px;
 
