@@ -3,10 +3,6 @@
   {{ super() }}
     <title>About Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='showAboutUs.css') }}"/>
     
 {% endblock %}
@@ -64,11 +60,11 @@
         <div class="info">
             <span>e-mail:</span>
             <br>
-            &nbsp;&nbsp;greats@ewhain.net
+             <a href="mailto:greats@ewhain.net"> &nbsp;&nbsp;greats@ewhain.net </a>
             <br>
             <span>github:</span>
             <br>
-            &nbsp;&nbsp;@Challengers
+            <a href="https://github.com/Seong-Gyeong/OSP_Challengers"> &nbsp;&nbsp;@Challengers </a>
         </div>
     </div>
 {% endblock section %}

@@ -177,54 +177,34 @@
       />
     </label>
   </div>
-
+    
+    <div class="category">
+        <label>카테고리</label>
+        <select name="restaurant_category" id="restaurant_category">
+            <option value="한식">한식</option>
+            <option value="양식">양식</option>
+            <option value="일식">일식</option>
+            <option value="카페/디저트">카페/디저트</option>
+            <option value="기타">기타</option>
+        </select>
+        </div>
+    
+    <form
+  action="/result"
+  enctype="multipart/form-data"
+  method="post"
+  id="restaurant"
+>
   <!--카테고리 코드 작성중-->
-  <div class="category">
-    <label>카테고리 </label>
-    <button type="button" class="category_btn">
-      카테고리
-      <span class="material-symbols-outlined"> arrow_drop_down </span>
-    </button>
-    <ul class="category_dropdown">
-      <li>
-        <button type="button" class="category_dropdown_option">한식</button>
-      </li>
-      <li>
-        <button type="button" class="category_dropdown_option selected">
-          양식
-        </button>
-      </li>
-      <li>
-        <button type="button" class="category_dropdown_option">일식</button>
-      </li>
-      <li>
-        <button type="button" class="category_dropdown_option">
-          카페/디저트
-        </button>
-      </li>
-      <li>
-        <button type="button" class="category_dropdown_option">기타</button>
-      </li>
-    </ul>
-  </div>
-
-  <!--주차 가능 여부 코드 작성중-->
+ 
 
   <div class="parking">
-    <label> 주차 가능 여부 </label>
-    <button type="button" class="parking_btn">
-      주차 가능 여부
-      <span class="material-symbols-outlined"> arrow_drop_down </span>
-    </button>
-    <ul class="parking_dropdown">
-      <li>
-        <button type="button" class="parking_dropdown_option">가능</button>
-      </li>
-      <li>
-        <button type="button" class="parking_dropdown_option">불가능</button>
-      </li>
-    </ul>
-  </div>
+        <label>주차 가능 여부</label>
+        <select name="restaurant_parking" id="restaurant_parking">
+            <option value="가능">가능</option>
+        <option value="불가능">불가능</option>
+      </select>
+      </div>
 
   <div>
     <label class="runningTime"
@@ -280,7 +260,8 @@
     </ul>
   </div>
 
-  <!--<div>
+
+  <div>
     
        <div class="hashtag">
         <p><label>식당을 대표하는 #해쉬태그 한 가지를 골라주세요!</label></p>
@@ -297,7 +278,7 @@
         <label for="img">Representative Image upload : </label>
         <input type="file" name="file" /><br><br>
       </div>
-        
+    <!--    
       <div class="submit">
         <input type="submit" value="step2. 대표 메뉴 등록하러 가기"><br><br>
       </div>
@@ -322,12 +303,13 @@
       >한줄소개
       <input
         type="text"
-        name="restaurant_homepage"
+        name="restaurant_introduce"
         placeholder="가게를 소개할 문장을 써주세요"
       />
     </label>
   </div>
-
+<br>
+<br>
   <div class="submit">
     <input type="submit" value="step2. 대표 메뉴 등록하러 가기" /><br /><br />
   </div>

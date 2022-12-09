@@ -37,8 +37,9 @@ class DBhandler:
             "price_range": data['restaurant_price_range'],
             "site": data['restaurant_homepage'],
             "category": data['restaurant_category'],
-            "hashtag": data['hashtag[]'],
-            "img_path": img_path 
+            "hashtag": data['hashtag'],
+            "introduce": data['restaurant_introduce'],
+            "img_path": img_path
         }   
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").push(restaurant_info)
@@ -50,6 +51,33 @@ class DBhandler:
     def get_restaurants(self):
         restaurants = self.db.child("restaurant").get().val()
         return restaurants
+    
+    def get_reviews(self):
+        reviews = self.db.child("review").get()
+        rates=[]
+        for rev in reviews.each():
+            value = rev.val()
+            rates.append(float(value['rating']))
+                            
+        return float(sum(rates)/len(rates))
+        
+#    def get_avgrate_byname(self,name):
+#        reviews = self.db.child("review").get()
+#        rates=[]
+#        for rev in reviews.each():
+#            value = rev.val()
+#            if value['res_name'] == name:
+#                rates.append(float(value['rating']))
+                
+#        if len(rates)==0:
+#            return 0
+#        else:
+#            return float(sum(rates)/len(rates))
+        
+        
+        
+        reviews = self.db.child("review").get().val()
+        return reviews
     
     def get_restaurant_byname(self, name):
         restaurants = self.db.child("restaurant").get()
@@ -171,3 +199,41 @@ class DBhandler:
         self.db.child("review").child(name).set(review_info)
         print(data,img_path)
         return True
+
+    def user_duplicate_check(self, id_string):
+        users = self.db.child("user").get()
+        
+        print("users###",users.val())
+        if str(users.val()) == "None": # first registration
+            return True
+        else:
+            for res in users.each():
+                value = res.val()
+                
+                if value['id'] == id_string:
+                    return False
+            return True    
+        
+    def insert_user(self, data, pw):
+        user_info ={
+        "id": data['id'],
+        "pw": pw,
+        "nickname": data['nickname']
+        }
+        if self.user_duplicate_check(str(data['id'])):
+            self.db.child("user").push(user_info)
+            print(data)
+            return True
+        else:
+            return False
+
+    def find_user(self, id_, pw_):
+        users = self.db.child("user").get()
+        target_value=[]
+        for res in users.each():
+            value = res.val()
+        
+        if value['id'] == id_ and value['pw'] == pw_:
+            return True
+        
+        return False

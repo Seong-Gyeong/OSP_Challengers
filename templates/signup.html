@@ -1,0 +1,36 @@
+{% extends "navbar.html" %}
+
+{% block head %}
+  {{ super() }}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}"/>
+   
+{% endblock %}
+{% block section %}
+
+{% with mesg = get_flashed_messages() %}
+{% if mesg !=[] %}
+<script>alert("{{ mesg[0] }}")</script>
+{% endif %}
+{% endwith %}
+
+<div class="subject">
+    <h1>#SignUp</h1>
+</div>
+
+<div class="main">
+    <div class="signup">
+        <h2>아이디와 비밀번호를 입력하고 계정 생성버튼을 누르세요.</h2>
+        <form method="post" action="/signup_post">
+            <div>ID&nbsp;<input type="text" name = "id" required class="id"></div>
+            <div>PW&nbsp;<input type="password" name = "pw" required class="pw"></div>
+            <div>Name<input type="text" name = "nickname" class="nick"></div>
+            <div><input type = "submit" value = "생성" class="btn"/></div>
+        </form>
+    </div>
+</div>
+    
+{% endblock section %}

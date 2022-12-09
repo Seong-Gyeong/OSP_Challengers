@@ -14,7 +14,7 @@ const options = document.querySelectorAll(".category_dropdown_option");
 const options2 = document.querySelectorAll(".parking_dropdown_option");
 const options3 = document.querySelectorAll(".price_dropdown_option");
 
-dropDownBtn.addEventListener("click", () => {
+dropDownBtn.addEventListener("click", () =>
   dropDownMenu.classList.toggle("show");
 });
 
@@ -67,3 +67,11 @@ options3.forEach((option) => {
     }
   });
 });
+
+
+//function submit() {
+//    restaurant.selectedValue.value= $(".selected").val();
+//   restaurant.selectedVlue.val=restaurant_category.val();
+    
+//    document.restaurant.submit();
+//}

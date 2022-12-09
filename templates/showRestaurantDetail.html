@@ -60,19 +60,20 @@
       <div class="left-info">
         <div class="left-btn">
           <!--리뷰 쓰러가기 버튼-->  
-          <a href="/add_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/addreview_btn.PNG" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br> <!--addreview_btn.PNG-->
+          <a href="/add_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/addReviewBtn.png" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br>
           <!--리뷰 보러가기 버튼-->    
-          <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showreview_btn.PNG" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
+          <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showReviewBtn.png" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
           <!--대표메뉴 보러가기 버튼-->   
-          <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showbestmenu_btn.PNG" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
+          <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showBestmenuBtn.png" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
           <!--대표메뉴 등록하기 버튼-->   
-          <a href="/add_menus/{{data.name}}/" color="black" style="color:black">눌러서 대표메뉴 등록</a><br><br>
+          <a href="/add_menus/{{data.name}}/" color="black"><img class="side-button" src="/static/image/addBestmenuBtn.png" alt='대표메뉴 등록하기 버튼' width=150 height=45></a><br><br>
             
 
         </div>
 
         <div class="detail-info">
         <!-- 카테고리, 주차, 가격대는 구현예정 -->
+          <div class="introduce">{{data.introduce}}</div>
           <div class="category">{{data.category}}</div>
           <div class="address">{{data.addr}}</div>
           <div class="parking">주차여부: {{data.parking}}</div>
@@ -83,8 +84,38 @@
       </div>
 
       <aside class="right-info">
-        <!-- 지도 들어갈 자리 일단 이미지로 대체 -->
-        <img alt="지도" src="/static/image/map.png" />
+        <div id="map" style="width:70%;height:400px;"></div>
+          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=689845438e88c81f5ab832962d0e8d10"></script>
+          <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                mapOption = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                    level: 3 // 지도의 확대 레벨
+                };  
+   
+            var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            geocoder.addressSearch({{data.addr}}, function(result, status) {
+ 
+                if (status === kakao.maps.services.Status.OK) {
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
+
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                    });
+                    infowindow.open(map, marker);
+
+                    map.setCenter(coords);
+                } 
+            }); 
+          </script>
 
         <div class="detail-info">
           <div class="detail-addr">
@@ -105,10 +136,7 @@
 
         <!-- 해쉬태그 입력 구현예정 -->
         <div class="hashtag_wrap">
-          <div class="hashtag">#혼밥하기좋은</div>
-          <div class="hashtag">#편안한분위기</div>
-          <div class="hashtag">#가성비가좋아요</div>
-          <div class="hashtag">#식사부터디저트까지</div>
+          <div class="hashtag">#{{data.hashtag}}</div>
         </div>
       </aside>
     </div>
