@@ -9,7 +9,7 @@ h1 {
 }
 
 h3 {
-  margin: 50px;
+  margin: 30px;
 }
 
 input {
@@ -33,7 +33,8 @@ input {
   padding: 0;
 }
 
-.comment {
+.comment,
+.img-upload {
   display: flex;
 
   width: 70vw;
@@ -67,6 +68,16 @@ input {
   height: 200px;
   border-radius: 10px;
 
+  margin: 10px;
+}
+
+.img-upload {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-input {
+  width: 300px;
   margin: 10px;
 }
 
@@ -135,6 +146,7 @@ input {
   color: #fff;
 
   margin-left: 25px;
+  margin-top: 20px;
 
   cursor: pointer;
 }
