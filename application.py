@@ -54,6 +54,19 @@ def login_user():
 def reg_restaurant():
     return render_template("addRestaurant.html")
 
+@application.route("/submit_restaurant_post", methods=['POST'])
+def reg_restaurant_submit_post():
+    global idx
+    image_file=request.files["file"]
+    image_file.save("static/image/{}".format(image_file.filename))
+    data=request.form
+    #data['img_path']=image_file.filename
+    if DB.insert_restaurant(data['name'], data, image_file.filename):
+        return render_template("result.html", data=data, image_path="static/image/"+image_file.filename)
+    else:
+        flash("No image!")
+        return redirect(url_for('addRestaurant'))
+
 @application.route("/showRestaurantList")
 def view_list():
     return render_template("showRestaurantList.html")
@@ -170,13 +183,8 @@ def list_all_restaurants():
     
     if category=="전체":
         data = DB.get_restaurants()
-        
     else:
         data = DB.get_restaurants_bycategory(category)
-    
-    
-    rev_data = DB.get_reviews()
-
  #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("category",category,tot_count)
@@ -185,6 +193,8 @@ def list_all_restaurants():
     else:
         data = dict(list(data.items())[start_idx:end_idx])
     data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
+    #---------------avg_rate받아오기------------
+    avg_rate = DB.get_avgrate_byname(str())
     print(data)
     
     page_count = len(data)
@@ -192,7 +202,7 @@ def list_all_restaurants():
     return render_template(
         "showAllRestaurantList.html",
         datas=data.items(),
-        rev_data=rev_data,
+        avg_rate=avg_rate,
         total=tot_count,
         limit=limit,
         page=page,
@@ -212,13 +222,14 @@ def view_restaurant_detail(name):
 
 @application.route("/list_foods/<res_name>/")
 def view_foods(res_name):
-    
+    res_data= DB.get_restaurant_byname(str(res_name))
     data = DB.get_food_byname(str(res_name))
     tot_count = len(data)
     page_count = len(data)
     
     return render_template(
         "showBestMenu.html",
+        res_data=res_data,
         datas=data,
         total=tot_count)
 
@@ -288,4 +299,3 @@ def list_hashtag_restaurants(hashtag):
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0', debug=True)     
-    
