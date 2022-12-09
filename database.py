@@ -38,7 +38,8 @@ class DBhandler:
             "site": data['restaurant_homepage'],
             "category": data['restaurant_category'],
             "hashtag": data['hashtag'],
-            "img_path": img_path 
+            "introduce": data['restaurant_introduce'],
+            "img_path": img_path
         }   
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").push(restaurant_info)
