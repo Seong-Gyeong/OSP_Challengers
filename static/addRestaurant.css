@@ -33,10 +33,10 @@ input {
   margin: 20px;
 }
 
-input[type=radio] {
-    border: 0px;
-    width: 50%;
-    height: 2em;
+input[type="radio"] {
+  border: 0px;
+  width: 50%;
+  height: 2em;
 }
 
 button {
@@ -87,8 +87,7 @@ button {
 
 .category,
 .parking,
-.price
-.hashtag {
+.price.hashtag {
   position: relative;
   width: 12rem;
 
@@ -98,7 +97,7 @@ button {
 
 .category label,
 .price label,
-.parking label 
+.parking label,
 .hashtag label {
   align-self: flex-start;
 }

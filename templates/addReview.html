@@ -1,89 +1,88 @@
-{% extends "navbar.html" %}
-{% block head %}
-    {{ super() }}
-    <title>리뷰를 등록해주세요</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% extends "navbar.html" %} {% block head %} {{ super() }}
+<title>리뷰를 등록해주세요</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap"
+  rel="stylesheet"
+/>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='addReview.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='addReview.css') }}"/> -->
+<link rel="stylesheet" href="../static/addReview.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 
-    <script
-      src="https://kit.fontawesome.com/42ed29bed1.js"
-      crossorigin="anonymous"
-    ></script>
+<script
+  src="https://kit.fontawesome.com/42ed29bed1.js"
+  crossorigin="anonymous"
+></script>
 
-    <script src="{{ url_for('static', filename='addReview.js') }}"></script>
-    <script type="text/javascript" src="../static/addReview.js"></script>
+<script src="{{ url_for('static', filename='addReview.js') }}"></script>
+<script type="text/javascript" src="../static/addReview.js"></script>
 
+<body>
+  {% endblock %} {% block section %}
+  <div class="subject">
+    <h1>#Leave your review</h1>
+  </div>
 
-    <body>
-{% endblock %}
-      
-    {% block section %}
-    <div class="subject">
-      <h1>#Leave your review</h1>
-    </div>
+  <h3>{{data.name}}에 대한 솔직한 리뷰를 등록해주세요</h3>
 
-    <h1></h1>
+  <form
+    action="/addReviewResult"
+    enctype="multipart/form-data"
+    method="post"
+    class="review"
+  >
+    <input type="hidden" name="res_name" value="{{data.name}}" />
 
-    <h3>{{data.name}}에 대한 솔직한 리뷰를 등록해주세요</h3>
-
-    <form action="/addReviewResult" enctype="multipart/form-data" method="post" class="review">
-    <input type="hidden" name="res_name" value="{{data.name}}">
-
-        <div class="review-top">
-         
-          
-        <div class="nickname">
-          <div class="label-wrap">
-              
-            <label>닉네임
-              <input
-                type="text"
-                name="review_reviewer"
-                placeholder="닉네임을 입력해주세요"
-              />
-            </label>
-            </div>
-            </div>
-
-        <div class="rating">
-          <div class="label-wrap">
-            <label>평점
-              <input
-                type="text"
-                name="rating"
-                placeholder="평점을 입력해주세요"
-              />
-            </label>
-            </div>
-          </div>
-
-      <div class="comment">
+    <div class="review-top">
+      <div class="nickname">
         <div class="label-wrap">
-          <label>리뷰
-            <input
-              type="text"
-              name="review_content"
-              placeholder="리뷰를 남겨주세요"
-            />
-          </label>
-     </div></div>
+          <div class="label-name">닉네임</div>
+          <input
+            type="text"
+            name="review_reviewer"
+            placeholder="닉네임을 입력해주세요"
+            class="nickname-input"
+          />
+        </div>
+      </div>
 
+      <div class="rating">
+        <div class="label-wrap">
+          <div class="label-name">평점</div>
+          <input
+            type="text"
+            name="rating"
+            placeholder="평점을 입력해주세요"
+            class="rating-input"
+          />
+        </div>
+      </div>
     </div>
 
-            <div>
-        <label for="img">Representative Image upload : </label>
-        <input type="file" name="file" /><br><br>
+    <div class="comment">
+      <div class="label-wrap">
+        <div class="label-name">리뷰</div>
+        <input
+          type="text"
+          name="review_content"
+          placeholder="리뷰를 남겨주세요"
+          class="comment-input"
+        />
       </div>
-        
+    </div>
+
+    <div>
+      <label for="img">Representative Image upload : </label>
+      <input type="file" name="file" />
+    </div>
+
     <button class="submitBtn">리뷰 등록하기</button>
-        
-    </form>
-    {% endblock section %}
+  </form>
+  {% endblock section %}
+</body>

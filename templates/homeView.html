@@ -2,9 +2,10 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>Greats</title>
 
 <!-- <link rel="stylesheet" href="{{ url_for('static', filename='homeView.css') }}"> -->
+<link rel="stylesheet" href="../static/style.css" />
 <link rel="stylesheet" href="../static/homeView.css" />
 <link rel="stylesheet" href="../static/reset.css" />
 {% endblock %} {% block section %}
@@ -62,32 +63,27 @@
   <div class="themaWrap">
     <h1 class="themaTitle">테마별 식당 추천 리스트를 만나보세요</h1>
     <div class="themaItemTotalWrap">
-      <div class="themaItemWrap">
-        <div class="themaItem">
-          <img class="themaItem-img" src="../static/image/themaItem1.png" />
-          <a href="/showRecommendationList/TV_출연_맛집/"
-            ><button type="button" class="themaItem-btn">
-              TV 출연 맛집
-            </button></a
-          >
-        </div>
+      <div class="themaItem">
+        <img class="themaItem-img" src="../static/image/themaItem1.png" />
+        <a href="/showRecommendationList/TV_출연_맛집/"
+          ><button type="button" class="themaItem-btn">TV 출연 맛집</button></a
+        >
       </div>
-      <div class="themaItemWrap">
-        <div class="themaItem">
-          <img class="themaItem-img" src="../static/image/themaItem2.png" />
-          <a href="/showRecommendationList/첫_밥약/"
-            ><button type="button" class="themaItem-btn">첫 밥약</button></a
-          >
-        </div>
+
+      <div class="themaItem">
+        <img class="themaItem-img" src="../static/image/themaItem2.png" />
+        <a href="/showRecommendationList/첫_밥약/"
+          ><button type="button" class="themaItem-btn">첫 밥약</button></a
+        >
       </div>
-      <div class="themaItemWrap">
-        <div class="themaItem">
-          <img class="themaItem-img" src="../static/image/themaItem3.png" />
-          <a href="/showRecommendationList/가성비_맛집/"
-            ><button type="button" class="themaItem-btn">가성비 맛집</button></a
-          >
-        </div>
+
+      <div class="themaItem">
+        <img class="themaItem-img" src="../static/image/themaItem3.png" />
+        <a href="/showRecommendationList/가성비_맛집/"
+          ><button type="button" class="themaItem-btn">가성비 맛집</button></a
+        >
       </div>
+
       <div class="themaItem">
         <div>
           <img class="themaItem-img" src="../static/image/themaItem4.png" />

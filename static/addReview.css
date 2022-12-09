@@ -17,7 +17,7 @@ input {
 }
 
 .review {
-  padding-left: 50px;
+  margin-left: 50px;
 
   display: flex;
   flex-direction: column;
@@ -27,13 +27,16 @@ input {
   display: flex;
   justify-content: space-between;
 
+  width: 73.5vw;
+
   margin: 0;
   padding: 0;
 }
 
 .comment {
   display: flex;
-  justify-content: space-between;
+
+  width: 70vw;
 
   margin-left: 25px;
   padding: 0;
@@ -49,9 +52,9 @@ input {
   margin-left: 25px;
 }
 
-.nickname input,
-.rating input {
-  width: 32vw;
+.nickname-input,
+.rating-input {
+  width: 30vw;
   height: 50px;
 
   border-radius: 10px;
@@ -59,7 +62,7 @@ input {
   margin: 10px;
 }
 
-.comment input {
+.comment-input {
   width: 70vw;
   height: 200px;
   border-radius: 10px;
@@ -68,10 +71,6 @@ input {
 }
 
 .label-wrap {
-  width: 70px;
-
-  text-align: center;
-
   line-height: 70px;
 }
 
