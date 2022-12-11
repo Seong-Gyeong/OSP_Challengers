@@ -1,4 +1,6 @@
 {% extends "navbar.html" %} {% block head %} {{ super() }}
+
+
 <title>맛집을 등록해주세요</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link
@@ -113,7 +115,11 @@
     <link rel="stylesheet" href="../css/addRestaurant.css" />
     <script src="../js/nav.js" defer></script>-->
 
-{% endblock %} {% block section %}
+{% endblock %}
+{% block section %}
+{% for mesg in get_flashed_messages() %}
+    <script> alert("{{ mesg }}") </script>
+{% endfor %}
 
 <div class="subject">
   <br /><br /><br /><br /><br />
@@ -239,7 +245,7 @@
         </select>
         </div>
 
-  <div>
+
     
        <div class="hashtag">
         <p><label>식당을 대표하는 #해쉬태그 한 가지를 골라주세요!</label></p>
@@ -253,7 +259,7 @@
         </div>
            
       <div>
-        <label for="img">Representative Image upload : </label>
+        <label for="img">식당 이미지 업로드 : </label>
         <input type="file" name="file" /><br><br>
       </div>
     <!--    
