@@ -24,15 +24,15 @@
   transition: all 1s ease-out;
   display: block;
   min-height: 330px;
-  width: calc(100% - 100px);
+  /* width: calc(100% - 100px); */
   margin: 0 auto;
-    -webkit-transform: translate(100%, 0px);
+  -webkit-transform: translate(100%, 0px);
   cursor: pointer;
   -ms-transform: translate(100%, 0px);
   transform: translate(100%, 0px);
 }
 
-.carousel-open:checked + .carousel-item  {
+.carousel-open:checked + .carousel-item {
   -webkit-transform: translate(0px, 0px);
   cursor: pointer;
   -ms-transform: translate(0px, 0px);
@@ -96,20 +96,37 @@
   font-weight: 300;
 }
 
-#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet,
-#carousel-4:checked ~ .control-4 ~ .carousel-indicators li:nth-child(4) .carousel-bullet {
-  color: #00462A;
+#carousel-1:checked
+  ~ .control-1
+  ~ .carousel-indicators
+  li:nth-child(1)
+  .carousel-bullet,
+#carousel-2:checked
+  ~ .control-2
+  ~ .carousel-indicators
+  li:nth-child(2)
+  .carousel-bullet,
+#carousel-3:checked
+  ~ .control-3
+  ~ .carousel-indicators
+  li:nth-child(3)
+  .carousel-bullet,
+#carousel-4:checked
+  ~ .control-4
+  ~ .carousel-indicators
+  li:nth-child(4)
+  .carousel-bullet {
+  color: #00462a;
 }
 .carousel-item {
+  background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
   padding-bottom: 10px;
   text-align: center;
 }
 
-.recom img{
+.recom img {
   height: 200px;
   width: 200px;
   margin-left: 30px;

@@ -1,104 +1,184 @@
-{% extends "navbar.html" %}
-{% block head %}
-  {{ super() }}
-    <title>테마별 맛집추천</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='showRecommendation.css') }}">
-    <script src="{{ url_for('static', filename='showRecommendation.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
-{% endblock %}
+{% extends "navbar.html" %} {% block head %} {{ super() }}
+<title>테마별 맛집추천</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap"
+  rel="stylesheet"
+/>
+<script
+  src="https://kit.fontawesome.com/42ed29bed1.js"
+  crossorigin="anonymous"
+></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='showRecommendation.css') }}"
+/>
 
-{% block section %}
+<script
+  src="{{ url_for('static', filename='showRecommendation.js') }}"
+  defer
+></script>
+<script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 
-        <div class="subject">
-        <h1>메뉴 결정이 어려우신가요?</h1>
-        
+{% endblock %} {% block section %}
 
-        
-        </div>
-        <br><br>
-        <div class="main"><h1>
-            Greats의 테마별 추천 메뉴</h1></div>
-        <br><br>
-        <div class="carousel">
-            <div class="carousel-inner" id="carousel-inner">
-              <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+<div class="subject">
+  <h1>메뉴 결정이 어려우신가요?</h1>
+</div>
+<br /><br />
+<div class="main"><h1>Greats의 테마별 추천 메뉴</h1></div>
+<br /><br />
+<div class="carousel">
+  <div class="carousel-inner" id="carousel-inner">
+    <input
+      class="carousel-open"
+      type="radio"
+      id="carousel-1"
+      name="carousel"
+      aria-hidden="true"
+      hidden=""
+      checked="checked"
+    />
 
-                <div class="carousel-item">
-                    <h1>#TV 출연 맛집 🎥</h1>
-                    <br>
-                    <span class="recom">
-                      <a href="/view_detail/까이식당/"><img src="../static/image/까이식당_치킨라이스.jpeg" alt="까이식당"></a>
-                      <a href="/view_detail/유야케도쿄/"><img src="../static/image/유야케도쿄.jpg" alt="유야케도쿄"></a>
-                      <a href="/view_detail/모센즈스위트/"><img src="../static/image/모센즈스위트_카이막.jpg" alt="모센즈스위트"></a>
-                      <a href="/view_detail/연어초밥/"><img src="../static/image/salmon.jpg" alt="연어초밥"></a>
-                    </span>
-                </div>  
-              <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+    <div class="carousel-item">
+      <h1>#TV 출연 맛집 🎥</h1>
+      <br />
+      <span class="recom">
+        <a href="/view_detail/까이식당/"
+          ><img src="../static/image/까이식당_치킨라이스.jpeg" alt="까이식당"
+        /></a>
+        <a href="/view_detail/유야케도쿄/"
+          ><img src="../static/image/유야케도쿄.jpg" alt="유야케도쿄"
+        /></a>
+        <a href="/view_detail/모센즈스위트/"
+          ><img
+            src="../static/image/모센즈스위트_카이막.jpg"
+            alt="모센즈스위트"
+        /></a>
+        <a href="/view_detail/연어초밥/"
+          ><img src="../static/image/salmon.jpg" alt="연어초밥"
+        /></a>
+      </span>
+    </div>
+    <input
+      class="carousel-open"
+      type="radio"
+      id="carousel-2"
+      name="carousel"
+      aria-hidden="true"
+      hidden=""
+    />
 
-                <div class="carousel-item">
-                    <h1>#첫 밥약 😆</h1>
-                    <br>
-                    <span class="recom">
-                      <a href="/view_detail/모미지식당/"><img src="../static/image/momiji.jpg" alt="모미지식당"></a>
-                      <a href="/view_detail/호밀밭/"><img src="../static/image/ho.jpg" alt="호밀밭"></a>
-                      <a href="/view_detail/리화인와플/"><img src="../static/image/리화인와플_아이스크림와플.jpg" alt="리화인와플"></a>
-                      <a href="/view_detail/비아37/"><img src="../static/image/비아37_바질페스토크림뇨끼.jpeg" alt="비아37"></a>
-                    </span>
-                </div>
-                <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+    <div class="carousel-item">
+      <h1>#첫 밥약 😆</h1>
+      <br />
+      <span class="recom">
+        <a href="/view_detail/모미지식당/"
+          ><img src="../static/image/momiji.jpg" alt="모미지식당"
+        /></a>
+        <a href="/view_detail/호밀밭/"
+          ><img src="../static/image/ho.jpg" alt="호밀밭"
+        /></a>
+        <a href="/view_detail/리화인와플/"
+          ><img
+            src="../static/image/리화인와플_아이스크림와플.jpg"
+            alt="리화인와플"
+        /></a>
+        <a href="/view_detail/비아37/"
+          ><img
+            src="../static/image/비아37_바질페스토크림뇨끼.jpeg"
+            alt="비아37"
+        /></a>
+      </span>
+    </div>
+    <input
+      class="carousel-open"
+      type="radio"
+      id="carousel-3"
+      name="carousel"
+      aria-hidden="true"
+      hidden=""
+    />
 
-                <div class="carousel-item">
-                    <h1>#가성비 맛집 🤑</h1>
-                    <br>
-                    <span class="recom">
-                      <a href="/view_detail/아콘스톨/"><img src="../static/image/acon.jpg" alt="아콘스톨"></a>
-                      <a href="/view_detail/그릭데이/"><img src="../static/image/그릭데이_정글그린.jpeg" alt="그릭데이"></a>
-                      <a href="/view_detail/가미분식/"><img src="../static/image/가미분식_가미우동.jpeg" alt="가미분식"></a>
-                      <a href="/view_detail/사장님돈까스/"><img src="../static/image/사장님돈까스_고구마치즈돈까스.jpg" alt="사장님돈까스"></a>
-                    </span>
-                </div>
-                <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
+    <div class="carousel-item">
+      <h1>#가성비 맛집 🤑</h1>
+      <br />
+      <span class="recom">
+        <a href="/view_detail/아콘스톨/"
+          ><img src="../static/image/acon.jpg" alt="아콘스톨"
+        /></a>
+        <a href="/view_detail/그릭데이/"
+          ><img src="../static/image/그릭데이_정글그린.jpeg" alt="그릭데이"
+        /></a>
+        <a href="/view_detail/가미분식/"
+          ><img src="../static/image/가미분식_가미우동.jpeg" alt="가미분식"
+        /></a>
+        <a href="/view_detail/사장님돈까스/"
+          ><img
+            src="../static/image/사장님돈까스_고구마치즈돈까스.jpg"
+            alt="사장님돈까스"
+        /></a>
+      </span>
+    </div>
+    <input
+      class="carousel-open"
+      type="radio"
+      id="carousel-4"
+      name="carousel"
+      aria-hidden="true"
+      hidden=""
+    />
 
-                <div class="carousel-item">
-                    <h1>#매운 음식 땡길 때 🔥</h1>
-                    <br>
-                    <span class="recom">
-                      <a href="/view_detail/신룽푸마라탕/"><img src="../static/image/mara.jpg" alt="신룽푸마라탕"></a>
-                      <a href="/view_detail/고냉지/"><img src="../static/image/go.jpg" alt="고냉지"></a>
-                      <a href="/view_detail/불밥/"><img src="../static/image/bulbab.jpg" alt="불밥"></a>
-                      <a href="/view_detail/삭/"><img src="../static/image/sak.jpeg" alt="삭"></a>
-                    </span>
-                </div>
+    <div class="carousel-item">
+      <h1>#매운 음식 땡길 때 🔥</h1>
+      <br />
+      <span class="recom">
+        <a href="/view_detail/신룽푸마라탕/"
+          ><img src="../static/image/mara.jpg" alt="신룽푸마라탕"
+        /></a>
+        <a href="/view_detail/고냉지/"
+          ><img src="../static/image/go.jpg" alt="고냉지"
+        /></a>
+        <a href="/view_detail/불밥/"
+          ><img src="../static/image/bulbab.jpg" alt="불밥"
+        /></a>
+        <a href="/view_detail/삭/"
+          ><img src="../static/image/sak.jpeg" alt="삭"
+        /></a>
+      </span>
+    </div>
 
-                <label for="carousel-4" class="carousel-control prev control-1">‹</label>
-                <label for="carousel-2" class="carousel-control next control-1">›</label>
-                <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-                <label for="carousel-3" class="carousel-control next control-2">›</label>
-                <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-                <label for="carousel-4" class="carousel-control next control-3">›</label>
-                <label for="carousel-3" class="carousel-control prev control-4">‹</label>
-                <label for="carousel-1" class="carousel-control next control-4">›</label>
-                <ol class="carousel-indicators">
-                    <li>
-                        <label for="carousel-1" class="carousel-bullet">&#9679;</label>
-                    </li>
-                    <li>
-                        <label for="carousel-2" class="carousel-bullet">&#9679;</label>
-                    </li>
-                    <li>
-                        <label for="carousel-3" class="carousel-bullet">&#9679;</label>
-                    </li>
-                    <li>
-                        <label for="carousel-4" class="carousel-bullet">&#9679;</label>
-                    </li>
-                </ol>
-            </div>
-        </div>
-        <br><br><br><br><br><br>
+    <button type="button" class="carousel_left_btn">◀️</button>
+    <button type="button" class="carousel_right_btn">▶️</button>
+
+    <label for="carousel-4" class="carousel-control prev control-1">‹</label>
+    <label for="carousel-2" class="carousel-control next control-1">›</label>
+    <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+    <label for="carousel-3" class="carousel-control next control-2">›</label>
+    <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+    <label for="carousel-4" class="carousel-control next control-3">›</label>
+    <label for="carousel-3" class="carousel-control prev control-4">‹</label>
+    <label for="carousel-1" class="carousel-control next control-4">›</label>
+
+    <ol class="carousel-indicators">
+      <li>
+        <label for="carousel-1" class="carousel-bullet">&#9679;</label>
+      </li>
+      <li>
+        <label for="carousel-2" class="carousel-bullet">&#9679;</label>
+      </li>
+      <li>
+        <label for="carousel-3" class="carousel-bullet">&#9679;</label>
+      </li>
+      <li>
+        <label for="carousel-4" class="carousel-bullet">&#9679;</label>
+      </li>
+    </ol>
+  </div>
+</div>
+<br /><br /><br /><br /><br /><br />
+<script src="../static/showRecommendation.js"></script>
 {% endblock section %}
