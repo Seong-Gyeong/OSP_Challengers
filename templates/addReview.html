@@ -82,12 +82,20 @@
 
     </div>
 
-            <div>
-        <label for="img">리뷰 이미지 업로드 : </label>
-        <input type="file" name="file" /><br><br>
+    <div class="img-upload">
+      <div class="label-wrap">
+        <div class="label-name">사진 업로드</div>
+        <input type="file" name="file" class="upload-input" />
       </div>
-        
-    <button class="submitBtn">리뷰 등록하기</button>
-        
+    </div>
+    
+        <button class="submitBtn">리뷰 등록하기</button>
+
+        <div class="submit">
+            <input type="submit" value="리뷰 등록하기"><br><br>
+    </div>
+                
     </form>
     {% endblock section %}
+        </body>
+
