@@ -1,43 +1,51 @@
 {% extends "navbar.html" %}
 {% block head %}
   {{ super() }}
-    <title>테마별 추천맛집</title>
- 
+    <title>테마별 추천 맛집</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='showAllRestaurantList.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet"/>
 {% endblock %}
       
 {% block section %} 
-<!--<script>
-    $(document).ready(function () {
-        alert("{{hashtag}}");
-        $('#hashtag option:contains("{{hashtag}}")').prop("selected", true);
-    });
-</script>-->
-
-{% if total > 0 %}
-<p> 맛집 리스트 -- 현재까지 {{total}}개 등록됨</p>
-{% for data in datas %}
-<br>
-<br>
-<div>
-    <p>맛집이름: {{data.name}}</p>
-    <a href="/view_detail/{{data.name}}/"><img src="/static/image/{{data.img_path}}/" width=300px></a>
-</div>
-{% endfor %}
-
-<!-- 페이지네이션을 위한 코드 시작 -->
-<div class="page-wrap">
-    <div class="page-nation">
-        <ul>
-            <li>
+    <div class="subject">
+        <h1>
+            #테마별_맛집을_추천해드립니다
+        </h1>
+    </div>
+    <div class="main">
+        <div class="right_element">
+            {% if total > 0 %}
+            <div>현재 {{total}}개의 맛집 추천 중 ‥</div>
+        </div>
+        
+        <h2>
+            <span class="green">#hashtag</span> &nbsp;&nbsp;관련 맛집을 둘러보세요
+        </h2>
+        <br>
+        <div class="all_rest">
+        {% for data in datas %}
+        <div class="restaurants">
+            <a href="/view_detail/{{data.name}}/"><img class="rest_img" src="/static/image/{{data.img_path}}/"></a>
+            <div class="info">
+                {{data.name}}
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+        
+        <!-- 페이지네이션을 위한 코드 시작 -->
+        <div class="page-wrap">
+            <div class="page-nation">
+                <ul>
+                    <li>
              
 
-            </li>
-        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% else %}
+        <p>등록된 맛집이 없습니다. </p>
+        {% endif %}
     </div>
-</div>
-{% else %}
-<p>등록된 맛집이 없습니다. </p>
-{% endif %}
-
 {% endblock section %}
