@@ -43,3 +43,15 @@ table{
   float: right;
   width: 200px;
 }
+
+a{
+    color: #00462A;
+}
+
+.greats{
+    font-size: 35px;
+}
+
+.link{
+    margin: 10px;
+}
