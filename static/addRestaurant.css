@@ -26,6 +26,12 @@ div {
   margin: 30px;
 }
 
+.subject {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 input {
   width: 400px;
   height: 40px;
