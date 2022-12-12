@@ -6,19 +6,25 @@
     font-size: 15px;
 }
 
+#return a:hover{
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
 .main h1 {
     font-size: 30px;
 }
 
 .reviewbox{
-    width: 100%;
-    display: inline-block;
+    width: 550px;
     margin-top: 10px;
-    margin-left: 40px;
     margin-bottom: 10px;
     padding-right: 40px;
+    padding: 10px;
     background-color: #FAFAFA;
     border: solid 0.5px lightgray;
+    border-radius: 7px;
+    overflow: hidden;
 }
 .reviewbox img{
     width: auto;
@@ -28,7 +34,7 @@
 
 .review {
     padding-left: 50px;
-    padding-top: 30px;
+    padding-top: 20px;
     font-size: 15px;
     float: left;
 }
@@ -42,7 +48,8 @@
     font-weight: bold;
 }
 
-.nick {
-    padding-bottom: 20px;
+.user {
     font-weight: bold;
+    font-size: 20px;
 }
+
