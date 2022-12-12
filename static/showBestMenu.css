@@ -51,18 +51,20 @@
 }
 
 .right_element {
-    float: right;
-    width: 100%;
     font-size: 15px;
     text-align: right;
 }
 
-.back a{
-    font-size: 15px;
-    color: #00462A;
-}
-
-.back a:hover{
+#return a:hover{
     letter-spacing: 2px;
     cursor: pointer;
+}
+
+#return {
+    float: right;
+    background-color: #003d19;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
 }
