@@ -233,15 +233,37 @@
     <br />
   </div>
 
- <div class="price">
-        <label>가격대</label>
-        <select name="restaurant_price_range" id="restaurant_price_range">
-            <option value="10,000원 미만">10,000원 미만</option>
-            <option value="10,000원 이상 ~15000원 미만">10,000원 이상 ~15,000원 미만</option>
-            <option value="15,000원 이상 ~20,000원 미만">15,000원 이상 ~20,000원 미만</option>
-            <option value="20,000원 이상">20,000원 이상</option>
-        </select>
-        </div>
+  <div class="price">
+    <label> 가격대 </label>
+    <button type="button" class="price_btn">
+      가격대를 선택해주세요
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+    </button>
+
+    <ul class="price_dropdown">
+      <li>
+        <button type="button" class="price_dropdown_option">
+          10000원 미만
+        </button>
+      </li>
+      <li>
+        <button type="button" class="price_dropdown_option">
+          10000원 이상 ~15000원 미만
+        </button>
+      </li>
+      <li>
+        <button type="button" class="price_dropdown_option">
+          15000원 이상 ~20000원 미만
+        </button>
+      </li>
+      <li>
+        <button type="button" class="price_dropdown_option">
+          20000원 이상
+        </button>
+      </li>
+    </ul>
+  </div>
+
 
 
     
