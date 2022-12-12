@@ -29,6 +29,54 @@
     <h1>#Leave your review</h1>
   </div>
 
+    <body>
+{% endblock %}
+      
+    {% block section %}
+    <div class="subject">
+      <h1>#Leave your review</h1>
+    </div>
+        {% if session['id'] %}
+
+        <h3>{{session['id']}}님, {{data.name}}에 대한 솔직한 리뷰를 등록해주세요! </h3>
+        {% else %}
+        <!--login 안 했을시에는 어떻게 뜨게 할지 넣어야됨 --> 
+        {% endif %}
+    <h1></h1>
+    
+    <form action="/addReviewResult" enctype="multipart/form-data" method="post" class="review">
+    <input type="hidden" name="res_name" value="{{data.name}}">
+    <input type="hidden" name="review_reviewer" value="{{session['id']}}">
+        <div class="review-top">
+         
+<!--  
+        <div class="nickname">
+          <div class="label-wrap">
+
+            <label>닉네임
+              <input
+                type="text"
+                name="review_reviewer"
+                placeholder="닉네임을 입력해주세요"
+              />
+            </label>
+            </div>
+            </div>
+-->
+            
+        <div class="rating">
+          <div class="label-wrap">
+            <label>평점
+              <input
+                type="text"
+                name="rating"
+                placeholder="평점을 입력해주세요"
+              />
+            </label>
+            </div>
+          </div>
+          
+<!-- 머지충돌 : 메인파트
   <h3>{{data.name}}에 대한 솔직한 리뷰를 등록해주세요</h3>
 
   <form
@@ -51,6 +99,8 @@
           />
         </div>
       </div>
+ -->
+
 
       <div class="rating">
         <div class="label-wrap">
@@ -83,8 +133,20 @@
         <input type="file" name="file" class="upload-input" />
       </div>
     </div>
+        <button class="submitBtn">리뷰 등록하기</button>
 
+        <div class="submit">
+            <input type="submit" value="리뷰 등록하기"><br><br>
+    </div>
+                
+    </form>
+    {% endblock section %}
+        </body>
+
+<!--머지충돌 : 메인파트
     <button class="submitBtn">리뷰 등록하기</button>
   </form>
   {% endblock section %}
 </body>
+-->
+

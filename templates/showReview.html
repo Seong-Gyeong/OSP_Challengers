@@ -3,7 +3,6 @@
   {{ super() }}
     <title>Review</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='showReview.css') }}">
 {% endblock %}
 
@@ -23,11 +22,12 @@
         {% for data in datas %}
     <div class="main">
         <div class="reviewbox">
-                <div class="reviewimg"><img src="/static/image/{{data.img_path}}/" height="200px"></div>
-                <div class="reivew">
+                <div class="reviewimg" style="float:left;"><img src="/static/image/{{data.img_path}}/" height="200px"></div>
+                <div class="review">
                     <div class="user">
                        <span class="nick">{{data.nickname}}</span> ㅣ <span id="star">⭐{{data.rating}}</span>
                     </div>
+                    <br>
                     <div id="reviewtext">{{data.comment}}</div>
                 </div>
         </div>

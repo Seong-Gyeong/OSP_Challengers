@@ -94,6 +94,7 @@
   display: block;
   font-size: 24px;
   font-weight: 300;
+  padding-bottom: 20px;
 }
 
 #carousel-1:checked
@@ -119,6 +120,7 @@
   color: #00462a;
 }
 .carousel-item {
+  background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
   padding-bottom: 10px;

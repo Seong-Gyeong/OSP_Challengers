@@ -112,6 +112,7 @@ class DBhandler:
         if len(rates)==0:
             return 0
         else:
+#            avg_rate = float(sum(rates)/len(rates))
             return float(sum(rates)/len(rates))
     
     def get_review_byname(self, name):
@@ -150,22 +151,6 @@ class DBhandler:
                 target_value.append(value)
                 
         return target_value
-    
-    
-#    def get_restaurants_byhash(self, hashtag):
-#        restaurants = self.db.child("restaurant").get()
-#        target_value=[]
-#        for res in restaurants.each():
-#            value = res.val()
-            
-#            if value['hashtag'] == hashtag:
-#                target_value.append(value)
-#        print("######target_value",target_value)
-#        new_dict={}
-#        for k,v in enumerate(target_value):
-#            new_dict[k]=v
-        
-#        return new_dict
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={
@@ -234,6 +219,18 @@ class DBhandler:
             value = res.val()
         
         if value['id'] == id_ and value['pw'] == pw_:
-            return True
-        
+            return True    
         return False
+    
+#    def login_check(self, id__, pw__):
+#        user_id = request.args.get('id')
+#        user_pw = request.args.get('pw')
+#        
+#        if user_id == 'id__' and user_pw == 'pw__':
+#            return True
+#        else:
+#            return False
+    
+    
+    
+#    def 

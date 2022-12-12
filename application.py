@@ -1,12 +1,19 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from database import DBhandler
+from flask_login import login_required, current_user, LoginManager     #로그인 구현 위해서 달아봄
 import hashlib
 import sys, math
 
 application = Flask(__name__)
 application.config["SECRET_KEY"] = "anything-you-want"
 
+login_manager = LoginManager()
+login_manager.init_app(application)
 DB = DBhandler()
+
+@login_manager.user_loader
+def load_user(id):
+    return user.get(id)
 
 @application.route("/")
 def hello():
@@ -63,9 +70,10 @@ def reg_restaurant_submit_post():
     #data['img_path']=image_file.filename
     if DB.insert_restaurant(data['name'], data, image_file.filename):
         return render_template("result.html", data=data, image_path="static/image/"+image_file.filename)
-    else:
-        flash("No image!")
-        return redirect(url_for('addRestaurant'))
+    #그 외의 상황 구현 중...
+    #else:
+        #flash("No image!")
+        #return redirect(url_for('addRestaurant'))
 
 @application.route("/showRestaurantList")
 def view_list():
@@ -131,18 +139,28 @@ def reg_review_submit():
     
     
 @application.route("/add_reviews/<res_name>/")
+#@login_required
+@login_manager.user_loader
 def add_reviews(res_name):
     res_data = DB.get_restaurant_byname(str(res_name))
-        
+
+#    if current_user.is_authenticated:
     return render_template(
         "addReview.html",
         data=res_data
         )
+#    else:
+#        return render_template("login.html")
+@login_manager.unauthorized_handler
+def unauthorized(res_name): 
+    res_data = DB.get_restaurant_byname(str(res_name))
+    return render_template("login.html")
 
+    
+    
 #@application.route("/addReview")
 #def reg_review():
 #    return render_template("addReview.html")
-    
     
 #@application.route("/addReview")
 #def reg_review():
@@ -169,7 +187,9 @@ def reg_restaurant_submit():
     if DB.insert_restaurant(data['restaurant_name'], data, image_file.filename):
         return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename) 
     else:
-        return "Restaurant name already exist!"
+        flash("Restaurant name already exist!")
+        return redirect(url_for('reg_restaurant'))
+        #return "Restaurant name already exist!"
     
 
 @application.route("/showAllRestaurantList")
@@ -185,6 +205,7 @@ def list_all_restaurants():
         data = DB.get_restaurants()
     else:
         data = DB.get_restaurants_bycategory(category)
+    
  #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("category",category,tot_count)
@@ -194,8 +215,9 @@ def list_all_restaurants():
         data = dict(list(data.items())[start_idx:end_idx])
     data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
     #---------------avg_rate받아오기------------
+    
     avg_rate = DB.get_avgrate_byname(str())
-    print(data)
+ #   print(data)
     
     page_count = len(data)
     print(tot_count,page_count)
