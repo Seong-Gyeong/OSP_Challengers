@@ -60,8 +60,12 @@
       <div class="left-info">
         <div class="left-btn">
           <!--리뷰 쓰러가기 버튼-->  
+          {% if session['id'] %}
           <a href="/add_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/addReviewBtn.png" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br>
-          <!--리뷰 보러가기 버튼-->    
+          {% else %}
+          <a href="/login" color="black"><img class="side-button" src="/static/image/addReviewBtn.png" alt='리뷰 쓰러가기 버튼' width=150 height=45></a>
+          {% endif %}
+            <!--리뷰 보러가기 버튼-->    
           <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showReviewBtn.png" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
           <!--대표메뉴 보러가기 버튼-->   
           <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showBestmenuBtn.png" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
