@@ -1,19 +1,12 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from database import DBhandler
-from flask_login import login_required, current_user, LoginManager     #로그인 구현 위해서 달아봄
 import hashlib
 import sys, math
 
 application = Flask(__name__)
 application.config["SECRET_KEY"] = "anything-you-want"
 
-login_manager = LoginManager()
-login_manager.init_app(application)
 DB = DBhandler()
-
-@login_manager.user_loader
-def load_user(id):
-    return user.get(id)
 
 @application.route("/")
 def hello():
@@ -137,34 +130,14 @@ def reg_review_submit():
     if DB.insert_review(data['review_reviewer'], data, image_file.filename):
         return render_template("addReviewResult.html", data=data, img_path="/static/image/"+image_file.filename) 
     
-    
 @application.route("/add_reviews/<res_name>/")
-#@login_required
-@login_manager.user_loader
 def add_reviews(res_name):
     res_data = DB.get_restaurant_byname(str(res_name))
-
-#    if current_user.is_authenticated:
+        
     return render_template(
         "addReview.html",
         data=res_data
         )
-#    else:
-#        return render_template("login.html")
-@login_manager.unauthorized_handler
-def unauthorized(res_name): 
-    res_data = DB.get_restaurant_byname(str(res_name))
-    return render_template("login.html")
-
-    
-    
-#@application.route("/addReview")
-#def reg_review():
-#    return render_template("addReview.html")
-    
-#@application.route("/addReview")
-#def reg_review():
-#    return render_template("addReview.html")
 
 #@application.route("/showReview", methods=['POST']) 
 #def reg_review_submit():
