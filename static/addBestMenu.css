@@ -13,6 +13,28 @@ h3 {
   margin: 20px 100px;
 }
 
+div {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+}
+
+.navbar {
+  margin: 0px;
+}
+
+.subject {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+label {
+  width: 100px;
+
+  font-size: 15px;
+}
+
 .content-title {
   width: 300px;
   height: 40px;
@@ -121,5 +143,4 @@ option {
   width: 300px;
 
   margin-left: 100px;
-
 }

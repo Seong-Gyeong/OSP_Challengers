@@ -18,6 +18,13 @@ label {
   justify-content: center;
 
   font-size: 15px;
+  font-weight: 700;
+}
+
+select {
+  margin: 20px;
+  width: 400px;
+  height: 40px;
 }
 
 form div {
@@ -65,18 +72,6 @@ button {
   align-self: flex-start;
 }
 
-.upload_img_input {
-  display: none;
-}
-
-.upload {
-  width: 200px;
-  height: 200px;
-
-  padding: 0;
-  background-image: url("../assets/img/uploadImg.png");
-}
-
 .img_preview {
   width: 550px;
   height: 200px;
@@ -89,7 +84,6 @@ button {
 .parking,
 .price,
 .hashtag {
-
   position: relative;
   width: 12rem;
 
@@ -101,63 +95,27 @@ button {
 .price label,
 .parking label,
 .hashtag label {
+  width: 500px;
   align-self: flex-start;
 }
 
-.category_btn,
-.parking_btn,
-.price_btn {
-  width: 12rem;
-  height: 2.5rem;
+.hashtag-name {
+  width: 150px;
+}
 
-  border: none;
-
-  margin: 20px 0px 0px 50px;
-
+.hashtag-itemWrap {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  border-bottom: 3px solid transparent;
-
-  cursor: pointer;
 }
 
-.category_dropdown,
-.parking_dropdown,
-.price_dropdown {
-  display: none;
-
-  position: absolute;
-  top: 5rem;
-  left: 0.3rem;
-
-  z-index: 2;
-}
-
-.show {
-  display: block;
-}
-
-.category_dropdown_option,
-.parking_dropdown_option,
-.price_dropdown_option {
-  width: 12rem;
-  height: 2.5rem;
-  border: none;
-  border-bottom: #f1f3f5 solid 1px;
-  text-align: center;
-  background-color: #ffffff;
-
-  margin-left: 20px;
-
-  cursor: pointer;
-
+.hashtag-item {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-.selected {
-  color: #12b886;
+.runningTime {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
 }
