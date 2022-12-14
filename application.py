@@ -63,9 +63,10 @@ def reg_restaurant_submit_post():
     #data['img_path']=image_file.filename
     if DB.insert_restaurant(data['name'], data, image_file.filename):
         return render_template("result.html", data=data, image_path="static/image/"+image_file.filename)
-    else:
-        flash("No image!")
-        return redirect(url_for('addRestaurant'))
+    #그 외의 상황 구현 중...
+    #else:
+        #flash("No image!")
+        #return redirect(url_for('addRestaurant'))
 
 @application.route("/showRestaurantList")
 def view_list():
@@ -129,7 +130,6 @@ def reg_review_submit():
     if DB.insert_review(data['review_reviewer'], data, image_file.filename):
         return render_template("addReviewResult.html", data=data, img_path="/static/image/"+image_file.filename) 
     
-    
 @application.route("/add_reviews/<res_name>/")
 def add_reviews(res_name):
     res_data = DB.get_restaurant_byname(str(res_name))
@@ -138,15 +138,6 @@ def add_reviews(res_name):
         "addReview.html",
         data=res_data
         )
-
-#@application.route("/addReview")
-#def reg_review():
-#    return render_template("addReview.html")
-    
-    
-#@application.route("/addReview")
-#def reg_review():
-#    return render_template("addReview.html")
 
 #@application.route("/showReview", methods=['POST']) 
 #def reg_review_submit():
@@ -169,7 +160,9 @@ def reg_restaurant_submit():
     if DB.insert_restaurant(data['restaurant_name'], data, image_file.filename):
         return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename) 
     else:
-        return "Restaurant name already exist!"
+        flash("Restaurant name already exist!")
+        return redirect(url_for('reg_restaurant'))
+        #return "Restaurant name already exist!"
     
 
 @application.route("/showAllRestaurantList")
@@ -181,10 +174,14 @@ def list_all_restaurants():
     start_idx=limit*page
     end_idx=limit*(page+1)
     
+    list_idx=range(start_idx, end_idx)
+    print(list_idx[2])
+    
     if category=="전체":
         data = DB.get_restaurants()
     else:
         data = DB.get_restaurants_bycategory(category)
+    
  #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("category",category,tot_count)
@@ -194,8 +191,13 @@ def list_all_restaurants():
         data = dict(list(data.items())[start_idx:end_idx])
     data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
     #---------------avg_rate받아오기------------
-    avg_rate = DB.get_avgrate_byname(str())
-    print(data)
+    
+    res_name = DB.get_resname()
+    avgrate_list=[]
+    for k in res_name:
+        avg_rate = DB.get_avgrate_byname(str(k))
+        avgrate_list.append(avg_rate)
+    print(avg_rate)
     
     page_count = len(data)
     print(tot_count,page_count)

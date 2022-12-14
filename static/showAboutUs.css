@@ -43,3 +43,11 @@ table{
   float: right;
   width: 200px;
 }
+
+.greats{
+    font-size: 35px;
+}
+
+.link{
+    margin: 10px;
+}

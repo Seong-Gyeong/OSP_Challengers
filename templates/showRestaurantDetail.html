@@ -10,6 +10,12 @@
       src="https://kit.fontawesome.com/42ed29bed1.js"
       crossorigin="anonymous"
     ></script>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+
+
     <link rel="stylesheet" href="{{ url_for('static', filename='showRestaurantDetail.css') }}">
 {% endblock %}
 
@@ -45,14 +51,8 @@
     </div>    
 <br>
 <br>
-        <!--실험 끝-->
         
-   <!-- <div class="food-pic"> 
-      <img src="/static/image/{{data.img_path}}">
-        <!--for문으로 사진 세 개 가져옴
-    </div>-->
-
-<!--    <h4 class="restaurant-desc">40년 전통 계란 풀어진 얼큰한 우동!</h4>-->
+ <h4 class="restaurant-desc">{{data.introduce}}</h4>
 
     <hr/>
 
@@ -60,8 +60,12 @@
       <div class="left-info">
         <div class="left-btn">
           <!--리뷰 쓰러가기 버튼-->  
+          {% if session['id'] %}
           <a href="/add_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/addReviewBtn.png" alt='리뷰 쓰러가기 버튼' width=150 height=45></a><br><br>
-          <!--리뷰 보러가기 버튼-->    
+          {% else %}
+          <a href="/login" color="black"><img class="side-button" src="/static/image/addReviewBtn.png" alt='리뷰 쓰러가기 버튼' width=150 height=45></a>
+          {% endif %}
+            <!--리뷰 보러가기 버튼-->    
           <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showReviewBtn.png" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
           <!--대표메뉴 보러가기 버튼-->   
           <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showBestmenuBtn.png" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
@@ -73,7 +77,6 @@
 
         <div class="detail-info">
         <!-- 카테고리, 주차, 가격대는 구현예정 -->
-          <div class="introduce">{{data.introduce}}</div>
           <div class="category">{{data.category}}</div>
           <div class="address">{{data.addr}}</div>
           <div class="parking">주차여부: {{data.parking}}</div>
@@ -85,37 +88,32 @@
 
       <aside class="right-info">
         <div id="map" style="width:70%;height:400px;"></div>
-          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=689845438e88c81f5ab832962d0e8d10"></script>
+          <!--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d4e67695110fbe8d5a975d3645b274e3"></script>-->
+          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d4e67695110fbe8d5a975d3645b274e3&libraries=services"></script>
           <script>
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                 mapOption = {
                     center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
                     level: 3 // 지도의 확대 레벨
                 };  
-   
             var map = new kakao.maps.Map(mapContainer, mapOption); 
-
             var geocoder = new kakao.maps.services.Geocoder();
-
-            geocoder.addressSearch({{data.addr}}, function(result, status) {
- 
+            geocoder.addressSearch('{{data.addr}}', function(result, status) {
                 if (status === kakao.maps.services.Status.OK) {
                     var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
                     var marker = new kakao.maps.Marker({
                         map: map,
                         position: coords
                     });
-
                     var infowindow = new kakao.maps.InfoWindow({
-                        content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">{{data.name}}</div>'
                     });
                     infowindow.open(map, marker);
-
                     map.setCenter(coords);
                 } 
             }); 
           </script>
+          
 
         <div class="detail-info">
           <div class="detail-addr">

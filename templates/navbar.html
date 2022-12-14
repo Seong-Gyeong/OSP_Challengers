@@ -9,7 +9,6 @@
     <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
 
     
@@ -29,7 +28,7 @@
             <li><a href="/showAboutUs">About Us</a></li>
             
             {% if session['id'] %}
-            <li class="log"><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li>
+            <li class="log"><a href="/logout"><b>@{{session['id']}}</b> logout</a></li>
             {% else %}
             <li class="log"><a href="/login">login</a></li>
             {% endif %}

@@ -20,7 +20,7 @@ label {
   font-size: 15px;
 }
 
-div {
+form div {
   display: flex;
   align-items: center;
   margin: 30px;

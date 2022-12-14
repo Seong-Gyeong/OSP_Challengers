@@ -37,4 +37,5 @@ autoSlide();
 //   position -= sliderSize;
 //   sliderWrap.style.transform = `translateX(${position}px)`;
 //   currentNum += 1;
+
 // });

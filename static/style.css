@@ -105,6 +105,9 @@ a {
   padding-top: 70px;
   padding-bottom: 50px;
   margin-bottom: 50px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
   background-color: #00462a;
   border-bottom-left-radius: 40%;
   border-bottom-right-radius: 40%;
