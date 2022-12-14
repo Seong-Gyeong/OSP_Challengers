@@ -61,20 +61,32 @@ class DBhandler:
                             
         return float(sum(rates)/len(rates))
         
-#    def get_avgrate_byname(self,name):
-#        reviews = self.db.child("review").get()
-#        rates=[]
-#        for rev in reviews.each():
-#            value = rev.val()
-#            if value['res_name'] == name:
-#                rates.append(float(value['rating']))
+        
+    def get_resname(self):
+        restaurants = self.db.child("restaurant").get()
+        res_name=[]
+        for res__name in restaurants.each():
+            value = res__name.val()
+            res_name.append(str(value['name']))
+        return res_name
+
+        
+    def get_avgrate_byname(self,name):
+        reviews = self.db.child("review").get()
+        rates=[]
+#        for rev in reviews.keys():
+#            data = dict(sorted(reviews.items(), key=lambda x: x[1]['res_name'], reverse=False)) 
+            
+        
+        for rev in reviews.each():
+            value = rev.val()
+            if value['res_name'] == name:
+                rates.append(float(value['rating']))
                 
-#        if len(rates)==0:
-#            return 0
-#        else:
-#            return float(sum(rates)/len(rates))
-        
-        
+        if len(rates)==0:
+            return 0
+        else:
+            return float(sum(rates)/len(rates))
         
         reviews = self.db.child("review").get().val()
         return reviews
@@ -151,6 +163,7 @@ class DBhandler:
                 target_value.append(value)
                 
         return target_value
+    
 
     def insert_menu(self, name, data, img_path):    #addMenu하는 부분 input값 해결해야함
         menu_info ={

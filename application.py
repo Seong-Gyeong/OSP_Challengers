@@ -174,6 +174,9 @@ def list_all_restaurants():
     start_idx=limit*page
     end_idx=limit*(page+1)
     
+    list_idx=range(start_idx, end_idx)
+    print(list_idx[2])
+    
     if category=="전체":
         data = DB.get_restaurants()
     else:
@@ -189,8 +192,12 @@ def list_all_restaurants():
     data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
     #---------------avg_rate받아오기------------
     
-    avg_rate = DB.get_avgrate_byname(str())
- #   print(data)
+    res_name = DB.get_resname()
+    avgrate_list=[]
+    for k in res_name:
+        avg_rate = DB.get_avgrate_byname(str(k))
+        avgrate_list.append(avg_rate)
+    print(avg_rate)
     
     page_count = len(data)
     print(tot_count,page_count)
