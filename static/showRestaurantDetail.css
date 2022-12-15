@@ -14,9 +14,14 @@
   height: 200px;
 
   margin: 20px;
+    
+    border-radius: 5px;
 }
 
-.title,
+.restaurant-name {
+    font-size: 30px;
+}
+
 .restaurant-name,
 .restaurant-desc {
   display: flex;
@@ -62,7 +67,7 @@
   margin: 30px;
   font-weight: 700;
 
-  width: 100px;
+  width: 300px;
 }
 
 .right-info {
@@ -77,6 +82,11 @@
 .right-info img {
   width: 400px;
   height: 150px;
+}
+
+#map {
+    width: 400px;
+    height: 400px;
 }
 
 .right-info .detail-info {

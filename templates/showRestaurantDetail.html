@@ -29,12 +29,10 @@
       <br /><br /><br /><br />
     </div>
 
-    <h1 class="title"></h1>
-
     <h3 class="restaurant-name">
       {{data.name}} <span>⭐️ <b>{{avg_rate}}</b></span>
     </h3>
-<!--실험 시작-->
+        
     <div class="food-pic"> 
         <img src="/static/image/{{data.img_path}}">
     {% if total > 3 %}
@@ -65,7 +63,7 @@
           {% else %}
           <a href="/login" color="black"><img class="side-button" src="/static/image/addReviewBtn.png" alt='리뷰 쓰러가기 버튼' width=150 height=45></a>
           {% endif %}
-            <!--리뷰 보러가기 버튼-->    
+          <!--리뷰 보러가기 버튼-->    
           <a href="/list_reviews/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showReviewBtn.png" alt='리뷰 보러가기 버튼' width=150 height=45></a><br><br> 
           <!--대표메뉴 보러가기 버튼-->   
           <a href="/list_foods/{{data.name}}/" color="black"><img class="side-button" src="/static/image/showBestmenuBtn.png" alt='대표메뉴 보러가기 버튼' width=150 height=45></a><br><br>
@@ -76,7 +74,6 @@
         </div>
 
         <div class="detail-info">
-        <!-- 카테고리, 주차, 가격대는 구현예정 -->
           <div class="category">{{data.category}}</div>
           <div class="address">{{data.addr}}</div>
           <div class="parking">주차여부: {{data.parking}}</div>
@@ -87,7 +84,7 @@
       </div>
 
       <aside class="right-info">
-        <div id="map" style="width:70%;height:400px;"></div>
+        <div id="map" style="width:400px;height:400px;"></div>
           <!--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d4e67695110fbe8d5a975d3645b274e3"></script>-->
           <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d4e67695110fbe8d5a975d3645b274e3&libraries=services"></script>
           <script>
@@ -132,7 +129,6 @@
           </div>
         </div>
 
-        <!-- 해쉬태그 입력 구현예정 -->
         <div class="hashtag_wrap">
           <div class="hashtag">#{{data.hashtag}}</div>
         </div>

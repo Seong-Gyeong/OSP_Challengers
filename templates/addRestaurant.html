@@ -1,6 +1,5 @@
 {% extends "navbar.html" %} {% block head %} {{ super() }}
 
-
 <title>맛집을 등록해주세요</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link
@@ -9,116 +8,29 @@
 />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='addRestaurant.css') }}"
-/> -->
-<link rel="stylesheet" href="../static/addRestaurant.css" />
 
 <script
   src="https://kit.fontawesome.com/42ed29bed1.js"
   crossorigin="anonymous"
 ></script>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='addRestaurant.css') }}"
+<link 
+      rel="stylesheet" 
+      href="{{url_for('static', filename='style.css') }}" 
 />
 
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='addRestaurant.css') }}"
+  href="{{url_for('static', filename='addRestaurant.css') }}"
 />
 
-<script>
-  window.onload = function () {
-    const dropDownSection = document.querySelector(".category");
-    const dropDownBtn = document.querySelector(".category_btn");
-    const dropDownMenu = document.querySelector(".category_dropdown");
 
-    const dropDownSection2 = document.querySelector(".parking");
-    const dropDownBtn2 = document.querySelector(".parking_btn");
-    const dropDownMenu2 = document.querySelector(".parking_dropdown");
-
-    const dropDownSection3 = document.querySelector(".price");
-    const dropDownBtn3 = document.querySelector(".price_btn");
-    const dropDownMenu3 = document.querySelector(".price_dropdown");
-
-    const options = document.querySelectorAll(".category_dropdown_option");
-    const options2 = document.querySelectorAll(".parking_dropdown_option");
-    const options3 = document.querySelectorAll(".price_dropdown_option");
-
-    dropDownBtn.addEventListener("click", () => {
-      dropDownMenu.classList.toggle("show");
-    });
-
-    dropDownBtn2.addEventListener("click", () => {
-      dropDownMenu2.classList.toggle("show");
-    });
-
-    dropDownBtn3.addEventListener("click", () => {
-      dropDownMenu3.classList.toggle("show");
-    });
-
-    options.forEach((option) => {
-      option.addEventListener("click", (event) => {
-        dropDownBtn.firstChild.data = event.currentTarget.textContent.trim();
-        event.currentTarget.classList.add("selected");
-        dropDownMenu.classList.remove("show");
-
-        for (let opt of options) {
-          if (opt !== event.currentTarget) {
-            opt.classList.remove("selected");
-          }
-        }
-      });
-    });
-
-    options2.forEach((option) => {
-      option.addEventListener("click", (event) => {
-        dropDownBtn2.firstChild.data = event.currentTarget.textContent.trim();
-        event.currentTarget.classList.add("selected");
-        dropDownMenu2.classList.remove("show");
-
-        for (let opt of options2) {
-          if (opt !== event.currentTarget) {
-            opt.classList.remove("selected");
-          }
-        }
-      });
-    });
-
-    options3.forEach((option) => {
-      option.addEventListener("click", (event) => {
-        dropDownBtn3.firstChild.data = event.currentTarget.textContent.trim();
-        event.currentTarget.classList.add("selected");
-        dropDownMenu3.classList.remove("show");
-
-        for (let opt of options3) {
-          if (opt !== event.currentTarget) {
-            opt.classList.remove("selected");
-          }
-        }
-      });
-    });
-  };
-</script>
 <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 
-<!--웹서버(과제)css, js 연결 위해 경로를 위와 같이 수정했습니다-->
-
-<!--기존 코드-->
-<!--<link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/addRestaurant.css" />
-    <script src="../js/nav.js" defer></script>-->
-
-{% endblock %}
-{% block section %}
-{% for mesg in get_flashed_messages() %}
-    <script> alert("{{ mesg }}") </script>
+{% endblock %} {% block section %} {% for mesg in get_flashed_messages() %}
+<script>
+  alert("{{ mesg }}");
+</script>
 {% endfor %}
 
 <div class="subject">
@@ -138,7 +50,6 @@
   <div>
     <label
       >이름
-
       <input
         type="text"
         name="restaurant_name"
@@ -181,104 +92,100 @@
       />
     </label>
   </div>
-    
-    <div class="category">
-        <label>카테고리</label>
-        <select name="restaurant_category" id="restaurant_category">
-            <option value="한식">한식</option>
-            <option value="양식">양식</option>
-            <option value="일식">일식</option>
-            <option value="카페/디저트">카페/디저트</option>
-            <option value="기타">기타</option>
-        </select>
-        </div>
-    </form>
-    <form
-  action="/result"
-  enctype="multipart/form-data"
-  method="post"
-  id="restaurant"
->
-  <!--카테고리 코드 작성중-->
- 
 
-  <div class="parking">
-        <label>주차 가능 여부</label>
-        <select name="restaurant_parking" id="restaurant_parking">
-            <option value="가능">가능</option>
-        <option value="불가능">불가능</option>
+  <div class="category">
+    <label
+      >카테고리
+      <select name="restaurant_category" id="restaurant_category">
+        <option value="한식">한식</option>
+        <option value="양식">양식</option>
+        <option value="일식">일식</option>
+        <option value="카페/디저트">카페/디저트</option>
+        <option value="기타">기타</option>
       </select>
-      </div>
-
-  <div>
-    <label class="runningTime"
-      >영업 시간
-      <input
-        type="text"
-        name="restaurant_open_time"
-        placeholder="오픈 시간을 입력해주세요"
-      />
-
-      <input
-        type="text"
-        name="restaurant_close_time"
-        placeholder="마감 시간을 입력해주세요"
-      />
     </label>
-
-    <!--백: 오픈 시간과 마감 시간의 id가 restaurant__time으로 동일하여 수정하였습니다. -->
-    <p style="display: inline; margin: auto 10px"><b></b></p>
-    <br />
-    <br />
-    <br />
   </div>
 
- <div class="price">
-        <label>가격대</label>
-        <select name="restaurant_price_range" id="restaurant_price_range">
-            <option value="10,000원 미만">10,000원 미만</option>
-            <option value="10,000원 이상 ~15000원 미만">10,000원 이상 ~15,000원 미만</option>
-            <option value="15,000원 이상 ~20,000원 미만">15,000원 이상 ~20,000원 미만</option>
-            <option value="20,000원 이상">20,000원 이상</option>
-        </select>
-        </div>
+  <div class="parking">
+    <label
+      >주차 가능 여부
+      <select name="restaurant_parking" id="restaurant_parking">
+        <option value="가능">가능</option>
+        <option value="불가능">불가능</option>
+      </select>
+    </label>
+  </div>
 
-
-    
-       <div class="hashtag">
-        <p><label>식당을 대표하는 #해쉬태그 한 가지를 골라주세요!</label></p>
-        <br>
-        <br>           
-           #TV_출연_맛집 🎥<input type='radio' name='hashtag' value='TV_출연_맛집' />
-           #첫_밥약 😆<input type='radio' name='hashtag' value='첫_밥약' />
-           #가성비_맛집 🤑<input type='radio' name='hashtag' value='가성비_맛집' />
-           #매운_음식_맛집 🔥<input type='radio' name='hashtag' value='매운_음식_맛집' />
-        <br>
-        </div>
-           
-      <div>
-        <label for="img">식당 이미지 업로드 : </label>
-        <input type="file" name="file" /><br><br>
-      </div>
-    <!--    
-      <div class="submit">
-        <input type="submit" value="step2. 대표 메뉴 등록하러 가기"><br><br>
-      </div>
-        
-      <div class="img">
+  <div>
+    <label
+      >영업 시간
+      <div class="runningTime">
         <input
-          class="upload_img_input"
-          type="file"
-          accept="image/*"
-          required
-          multiple
-          style="display: none"
+          type="time"
+          name="restaurant_open_time"
+          placeholder="오픈 시간을 입력해주세요"
         />
-        <div class="img_section">
-          <div class="upload"></div>
-          <div class="img_preview"></div>
+
+        <p>~</p>
+        <input
+          type="time"
+          name="restaurant_close_time"
+          placeholder="마감 시간을 입력해주세요"
+        />
+      </div>
+    </label>
+  </div>
+
+  <div class="price">
+    <label
+      >가격대
+      <select name="restaurant_price_range" id="restaurant_price_range">
+        <option value="10,000원 미만">10,000원 미만</option>
+        <option value="10,000원 이상 ~15000원 미만">
+          10,000원 이상 ~15,000원 미만
+        </option>
+        <option value="15,000원 이상 ~20,000원 미만">
+          15,000원 이상 ~20,000원 미만
+        </option>
+        <option value="20,000원 이상">20,000원 이상</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="hashtag">
+    <label
+      >식당을 대표하는 #해쉬태그 한 가지를 골라주세요!
+
+      <div class="hashtag-itemWrap">
+        <div class="hashtag-item">
+          <div class="hashtag-name">#TV_출연_맛집 🎥</div>
+          <input type="radio" name="hashtag" value="TV_출연_맛집" />
         </div>
-      </div>-->
+
+        <div class="hashtag-item">
+          <div class="hashtag-name">#첫_밥약 😆</div>
+          <input type="radio" name="hashtag" value="첫_밥약" />
+        </div>
+
+        <div class="hashtag-item">
+          <div class="hashtag-name">#가성비_맛집 🤑</div>
+          <input type="radio" name="hashtag" value="가성비_맛집" />
+        </div>
+
+        <div class="hashtag-item">
+          <div class="hashtag-name">#매운_음식_맛집 🔥</div>
+          <input type="radio" name="hashtag" value="매운_음식_맛집" />
+        </div>
+      </div>
+    </label>
+  </div>
+
+  <div>
+    <label for="img"
+      >식당 이미지를 업로드해주세요
+      <input type="file" name="file" />
+    </label>
+  </div>
 
   <div>
     <label
@@ -290,18 +197,10 @@
       />
     </label>
   </div>
-<br>
-<br>
+  <br />
+  <br />
   <div class="submit">
     <input type="submit" value="step2. 대표 메뉴 등록하러 가기" /><br /><br />
   </div>
-
-  <!--<div class="step2">
-        <input
-          class="step2_btn"
-          type="button"
-          value="step2. 대표 메뉴 등록하러 가기"
-        />
-      </div> -->
 </form>
 {% endblock section %}

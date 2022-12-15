@@ -60,36 +60,7 @@ class DBhandler:
             rates.append(float(value['rating']))
                             
         return float(sum(rates)/len(rates))
-        
-        
-    def get_resname(self):
-        restaurants = self.db.child("restaurant").get()
-        res_name=[]
-        for res__name in restaurants.each():
-            value = res__name.val()
-            res_name.append(str(value['name']))
-        return res_name
 
-        
-    def get_avgrate_byname(self,name):
-        reviews = self.db.child("review").get()
-        rates=[]
-#        for rev in reviews.keys():
-#            data = dict(sorted(reviews.items(), key=lambda x: x[1]['res_name'], reverse=False)) 
-            
-        
-        for rev in reviews.each():
-            value = rev.val()
-            if value['res_name'] == name:
-                rates.append(float(value['rating']))
-                
-        if len(rates)==0:
-            return 0
-        else:
-            return float(sum(rates)/len(rates))
-        
-        reviews = self.db.child("review").get().val()
-        return reviews
     
     def get_restaurant_byname(self, name):
         restaurants = self.db.child("restaurant").get()
@@ -124,7 +95,6 @@ class DBhandler:
         if len(rates)==0:
             return 0
         else:
-#            avg_rate = float(sum(rates)/len(rates))
             return float(sum(rates)/len(rates))
     
     def get_review_byname(self, name):
@@ -235,15 +205,3 @@ class DBhandler:
             return True    
         return False
     
-#    def login_check(self, id__, pw__):
-#        user_id = request.args.get('id')
-#        user_pw = request.args.get('pw')
-#        
-#        if user_id == 'id__' and user_pw == 'pw__':
-#            return True
-#        else:
-#            return False
-    
-    
-    
-#    def 
