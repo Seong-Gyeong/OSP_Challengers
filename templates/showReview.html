@@ -35,7 +35,12 @@
     </div>
 
     {% endfor %} {% else %}
-    <h3>등록된 리뷰가 없습니다.</h3>
+    <div class="main">
+        <h1><span id="rvname">{{data.name}}</span> ⭐<span id="totalstar">{{avg_rate}}</span><span id="return">
+            <a href="/view_detail/{{data.name}}/">맛집으로 돌아가기</a></span></h1><hr>
+        <h2>리뷰 (<span id="totalreview">{{total}}</span>)</h2>
+    </div>
+    <h3 style="text-align: center; font-size: 30px; margin-top: 100px;">등록된 리뷰가 없습니다.</h3>
     {% endif %}
 
     <br><br><br><br><br><br><br>
