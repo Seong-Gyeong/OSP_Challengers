@@ -1,50 +1,45 @@
-{% extends "navbar.html" %}
-{% block head %}
-  {{ super() }}
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Greats!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='homeView.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}"/>
-    <script src="https://kit.fontawesome.com/42ed29bed1.js" crossorigin="anonymous"></script>
-   
-{% endblock %}
-    {% block section %}
-    <img src="../static/image/home-banner.png" class="homeBanner" />
+{% extends "navbar.html" %} {% block head %} {{ super() }}
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Greats</title>
 
-    <div class="recommendWrap">
-      <h1 class="recommendTitle">Greats의 추천 식당을 만나보세요</h1>
-      <div class="recommendListWrap">
-        <div class="recommendItem">
-          <img class="recommendItem-img" src="../static/image/recommend1.png" />
-          <h2 class="recommendItem-name">까이식당</h2>
-          <h3 class="recommendItem-menu">치킨라이스</h3>
-          <p class="recommendItem-desc">
-            촉촉한 닭고기와 마늘에 볶은 밥, 까이식당만의 소스까지
-          </p>
-          <a href="/view_detail/까이식당/"><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn" /></a>
-        </div>
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='homeView.css') }}"> -->
+<link rel="stylesheet" href="../static/style.css" />
+<link rel="stylesheet" href="../static/homeView.css" />
+<link rel="stylesheet" href="../static/reset.css" />
+{% endblock %} {% block section %}
+<img src="../static/image/homeBanner.png" class="homeBanner" />
 
-        <div class="recommendItem">
-          <img class="recommendItem-img" src="../static/image/recommend2.png" />
-          <h2 class="recommendItem-name">모미지식당</h2>
-          <h3 class="recommendItem-menu">육회 덮밥</h3>
-          <p class="recommendItem-desc">
-            밥보다 육회가 많은 육회덮밥 <br />
-            노른자와 비벼먹으면 최상의 조합
-          </p>
-          <a href="/view_detail/모미지식당/"><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn" /></a>
-        </div>
+<div class="recommendWrap">
+  <h1 class="recommendTitle">Greats의 추천 식당을 만나보세요</h1>
+  <div class="recommendListWrap">
+    <div class="recommendItem">
+      <img class="recommendItem-img" src="../static/image/recommend1.png" />
+      <h2 class="recommendItem-name">까이식당</h2>
+      <h3 class="recommendItem-menu">치킨라이스</h3>
+      <p class="recommendItem-desc">
+        촉촉한 닭고기와 마늘에 볶은 밥, 까이식당만의 소스까지
+      </p>
+      <a href="/view_detail/까이식당/"
+        ><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn"
+      /></a>
+    </div>
 
-        <div class="recommendItem">
-          <img class="recommendItem-img" src="../static/image/recommend3.png" />
-          <h2 class="recommendItem-name">가미분식</h2>
-          <h3 class="recommendItem-menu">가미우동</h3>
-          <p class="recommendItem-desc">계란이 들어간 얼큰한 우동</p>
-            <a href="/view_detail/가미분식/"><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn" /></a>
-        </div>
+    <div class="recommendItem">
+      <img class="recommendItem-img" src="../static/image/recommend2.png" />
+      <h2 class="recommendItem-name">모미지식당</h2>
+      <h3 class="recommendItem-menu">육회 덮밥</h3>
+      <p class="recommendItem-desc">
+        밥보다 육회가 많은 육회덮밥 <br />
+        노른자와 비벼먹으면 최상의 조합
+      </p>
+      <a href="/view_detail/모미지식당/"
+        ><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn"
+      /></a>
+    </div>
 
+<!-- 머지 충돌 : main 반영 week15 파트 주석처리
         <div class="recommendItem">
           <img class="recommendItem-img" src="../static/image/recommend4.png" />
           <h2 class="recommendItem-name">연어초밥</h2>
@@ -94,16 +89,81 @@
           <h2>FeedBack</h2>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfN425e-uLk1iMmFVJCKQu8XxW1RMGZtyGZw-HGNZ9K1vDS7g/viewform">서비스 피드백</a>
         </div>
+-->
 
-        <div class="service">
-          <h2>Service</h2>
-          <a href="showAboutUs">서비스 소개</a>
-        </div>
+    <div class="recommendItem">
+      <img class="recommendItem-img" src="../static/image/recommend3.png" />
+      <h2 class="recommendItem-name">가미분식</h2>
+      <h3 class="recommendItem-menu">가미우동</h3>
+      <p class="recommendItem-desc">계란이 들어간 얼큰한 우동</p>
+      <a href="/view_detail/가미분식/"
+        ><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn"
+      /></a>
+    </div>
 
-        <div class="contact">
-          <h2>Contact Us</h2>
-          <p><a href="mailto:greats@ewhain.net">greats@ewhain.net</a></p>
+    <div class="recommendItem">
+      <img class="recommendItem-img" src="../static/image/recommend4.png" />
+      <h2 class="recommendItem-name">연어초밥</h2>
+      <h3 class="recommendItem-menu">연어초밥</h3>
+      <p class="recommendItem-desc">부드러우면서도 기름진 가성비 갑 연어초밥</p>
+      <a href="/view_detail/연어초밥/"
+        ><img src="../static/image/goToDetailBtn.png" class="goToDetailBtn"
+      /></a>
+    </div>
+  </div>
+
+  <div class="themaWrap">
+    <h1 class="themaTitle">테마별 식당 추천 리스트를 만나보세요</h1>
+    <div class="themaItemTotalWrap">
+      <div class="themaItem">
+        <img class="themaItem-img" src="../static/image/themaItem1.png" />
+        <a href="/showRecommendationList/TV_출연_맛집/"
+          ><button type="button" class="themaItem-btn">TV 출연 맛집</button></a
+        >
+      </div>
+
+      <div class="themaItem">
+        <img class="themaItem-img" src="../static/image/themaItem2.png" />
+        <a href="/showRecommendationList/첫_밥약/"
+          ><button type="button" class="themaItem-btn">첫 밥약</button></a
+        >
+      </div>
+
+      <div class="themaItem">
+        <img class="themaItem-img" src="../static/image/themaItem3.png" />
+        <a href="/showRecommendationList/가성비_맛집/"
+          ><button type="button" class="themaItem-btn">가성비 맛집</button></a
+        >
+      </div>
+
+      <div class="themaItem">
+        <div>
+          <img class="themaItem-img" src="../static/image/themaItem4.png" />
+          <a href="/showRecommendationList/매운_음식/"
+            ><button type="button" class="themaItem-btn">매운 음식</button></a
+          >
         </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</div>
+<footer class="homeFooter">
+  <img src="../static/image/footerLogo.png" />
+  <div class="footer-content">
+    <div class="feedback">
+      <h2>FeedBack</h2>
+      <a href="https://forms.gle/PhoeCWTCkw1qAG558">서비스 피드백</a>
+    </div>
+
+    <div class="service">
+      <h2>Service</h2>
+      <a href="showAboutUs">서비스 소개</a>
+    </div>
+
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p><a href="mailto:greats@ewhain.net">greats@ewhain.net</a></p>
+    </div>
+  </div>
+</footer>
 {% endblock section %}
