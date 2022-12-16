@@ -5,11 +5,93 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
 />
 
+    <h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
+    <br>
+    <h3>대표메뉴</h3>
+            
+    <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
+    <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
+
+      <div class="first">
+         <div>
+         
+        </div>
+        <br>
+        <br>
+        <div>
+          <label>메뉴 이름
+          <input
+            type="text"
+            name="menu_name"
+            placeholder="메뉴 이름을 입력해주세요"
+            isrequired="true"
+          /></label>
+        </div>
+        <br>
+        <br>
+        <div>
+          <label>가격<br/>
+          <input
+            type="number"
+            name="menu_price"
+            placeholder="가격을 입력해주세요"
+            isrequired="true"
+          /></label>
+        </div>
+      </div>
+
+           <div class="second">        
+      <label for="menu_vegan">비건 여부</label>
+        <select name="menu_vegan" id="menu_vegan">
+            <option value="vegan">Yes</option>
+            <option value="non-vegan">No</option>
+        </select>
+        </div>
+   <!-- <div class="second">
+      <button type="button" class="second_btn">
+      비건 여부
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+      </button>
+      <ul class="second_dropdown" name="menu_vegan">
+        <li>
+          <button type="button" class="second_dropdown_option" value="vegan">Yes</button>
+        </li>
+        <li>
+          <button type="button" class="second_dropdown_option selected" value="non-vegan">No</button>
+        </li>
+      </ul>
+    </div> -->
+          
+        <br>
+        <br>
+        <div>
+          <label>알러지 유발 가능 재료<br/>
+          <input
+            type="text"
+            name="menu_allergy"
+            placeholder="알러지를 일으키는 성분을 적어주세요"
+          /></label>
+        </div>
+        <br>
+        <br>
+      <div class="third">
+        <div>
+          <label>한 줄 소개<br/>
+          <input
+            type="text"
+            class="menu_introduce"
+            name="menu_introduce"
+            placeholder="메뉴에 대한 한 줄 소개를 적어주세요"
+            isrequired="true"
+          /></label>
+        </div>
+      </div>
+
+<!-- 머지 충돌 : main 파트
 <link
   rel="stylesheet"
   href="{{ url_for('static', filename='addBestMenu.css') }}"
 />
-<!--이 부분 css 안되고 있음-->
 <link rel="stylesheet" href="../static/addBestMenu.css" />
 
 <link
@@ -50,12 +132,6 @@
   };
 </script>
 
-<!-- <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='addBestMenu.css') }}"
-/> -->
-
-<!--<link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">-->
 {% endblock %} {% block section %}
 
 <div class="subject">
@@ -86,7 +162,9 @@
         <div class="upload"></div>
         <div class="img_preview"></div>
       </div>
-    </div>-->
+    </div>
+-->
+
         
     <div>
         <label for="img">메뉴 이미지 업로드 : </label>

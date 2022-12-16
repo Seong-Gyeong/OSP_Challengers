@@ -48,6 +48,7 @@ table{
     font-size: 35px;
 }
 
-.link{
-    margin: 10px;
+.link a{
+    padding: 10px;
+    color: #00462a;
 }

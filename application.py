@@ -190,21 +190,12 @@ def list_all_restaurants():
     else:
         data = dict(list(data.items())[start_idx:end_idx])
     data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
-    #---------------avg_rate받아오기------------
-    
-    res_name = DB.get_resname()
-    avgrate_list=[]
-    for k in res_name:
-        avg_rate = DB.get_avgrate_byname(str(k))
-        avgrate_list.append(avg_rate)
-    print(avg_rate)
     
     page_count = len(data)
     print(tot_count,page_count)
     return render_template(
         "showAllRestaurantList.html",
         datas=data.items(),
-        avg_rate=avg_rate,
         total=tot_count,
         limit=limit,
         page=page,
@@ -261,8 +252,6 @@ def add_menus(res_name):
         "addBestMenu.html",
         data=res_data
         )
-
-###############showRecommendationList 동적라우팅###################
 
 @application.route("/showRecommendationList/<hashtag>/")
 def list_hashtag_restaurants(hashtag):

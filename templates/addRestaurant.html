@@ -8,38 +8,23 @@
 />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='addRestaurant.css') }}"
-/> -->
-<link rel="stylesheet" href="../static/addRestaurant.css" />
 
 <script
   src="https://kit.fontawesome.com/42ed29bed1.js"
   crossorigin="anonymous"
 ></script>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='addRestaurant.css') }}"
+<link 
+      rel="stylesheet" 
+      href="{{url_for('static', filename='style.css') }}" 
 />
 
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='addRestaurant.css') }}"
+  href="{{url_for('static', filename='addRestaurant.css') }}"
 />
 
 <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
-
-<!--웹서버(과제)css, js 연결 위해 경로를 위와 같이 수정했습니다-->
-
-<!--기존 코드-->
-<!--<link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/addRestaurant.css" />
-    <script src="../js/nav.js" defer></script>-->
 
 {% endblock %} {% block section %} {% for mesg in get_flashed_messages() %}
 <script>
@@ -64,7 +49,6 @@
   <div>
     <label
       >이름
-
       <input
         type="text"
         name="restaurant_name"
@@ -120,14 +104,6 @@
       </select>
     </label>
   </div>
-</form>
-<form
-  action="/result"
-  enctype="multipart/form-data"
-  method="post"
-  id="restaurant"
->
-  <!--카테고리 코드 작성중-->
 
   <div class="parking">
     <label
@@ -144,14 +120,14 @@
       >영업 시간
       <div class="runningTime">
         <input
-          type="text"
+          type="time"
           name="restaurant_open_time"
           placeholder="오픈 시간을 입력해주세요"
         />
 
         <p>~</p>
         <input
-          type="text"
+          type="time"
           name="restaurant_close_time"
           placeholder="마감 시간을 입력해주세요"
         />
