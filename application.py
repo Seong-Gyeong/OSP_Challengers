@@ -139,6 +139,16 @@ def add_reviews(res_name):
         data=res_data
         )
 
+#@application.route("/showReview", methods=['POST']) 
+#def reg_review_submit():
+#    image_file=request.files["file"]
+#    image_file.save("static/image/{}".format(image_file.filename))
+#    data=request.form
+#    print(list(data.values()))
+    
+#    if DB.insert_review(data['review_reviewer'], data, image_file.filename):
+#        return render_template("showReview.html", data=data, image_path="/static/image/"+image_file.filename) 
+
 @application.route("/result", methods=['POST']) 
 def reg_restaurant_submit():
     image_file=request.files["file"]
@@ -180,7 +190,7 @@ def list_all_restaurants():
     else:
         data = dict(list(data.items())[start_idx:end_idx])
     data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
-
+    
     page_count = len(data)
     print(tot_count,page_count)
     return render_template(
@@ -231,6 +241,8 @@ def view_reviews(res_name):
         datas=data,
         total=tot_count,
         avg_rate=avg_rate)
+
+############################addBestMenu 동적라우팅######################
     
 @application.route("/add_menus/<res_name>/")
 def add_menus(res_name):
@@ -252,9 +264,15 @@ def list_hashtag_restaurants(hashtag):
     
     data = DB.get_restaurants_byhash(str(hashtag))
 
+ #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("hashtag",hashtag,tot_count)
-
+#    if tot_count<=limit:
+#        data = dict(list(data.items())[:tot_count])
+#    else:
+#        data = dict(list(data.items())[start_idx:end_idx])
+#    data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
+    #print(data)
     
     page_count = len(data)
     print(tot_count,page_count)
