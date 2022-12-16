@@ -63,10 +63,6 @@ def reg_restaurant_submit_post():
     #data['img_path']=image_file.filename
     if DB.insert_restaurant(data['name'], data, image_file.filename):
         return render_template("result.html", data=data, image_path="static/image/"+image_file.filename)
-    #그 외의 상황 구현 중...
-    #else:
-        #flash("No image!")
-        #return redirect(url_for('addRestaurant'))
 
 @application.route("/showRestaurantList")
 def view_list():
@@ -89,12 +85,6 @@ def reg_bestmenu():
     data=request.form
     print(list(data.values()))
     return render_template("addBestMenuFirst.html", data=data)
-
-#@application.route("/addBestMenu", methods=['POST'])
-#def reg_bestmenus():
-#    data=request.form
-#    print(list(data.values()))
-#    return render_template("addBestMenu.html", data=data)
 
 @application.route("/showBestMenu")
 def view_bestmenu():
@@ -139,16 +129,6 @@ def add_reviews(res_name):
         data=res_data
         )
 
-#@application.route("/showReview", methods=['POST']) 
-#def reg_review_submit():
-#    image_file=request.files["file"]
-#    image_file.save("static/image/{}".format(image_file.filename))
-#    data=request.form
-#    print(list(data.values()))
-    
-#    if DB.insert_review(data['review_reviewer'], data, image_file.filename):
-#        return render_template("showReview.html", data=data, image_path="/static/image/"+image_file.filename) 
-
 @application.route("/result", methods=['POST']) 
 def reg_restaurant_submit():
     image_file=request.files["file"]
@@ -161,9 +141,7 @@ def reg_restaurant_submit():
         return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename) 
     else:
         flash("Restaurant name already exist!")
-        return redirect(url_for('reg_restaurant'))
-        #return "Restaurant name already exist!"
-    
+        return redirect(url_for('reg_restaurant'))    
 
 @application.route("/showAllRestaurantList")
 def list_all_restaurants():
@@ -182,7 +160,6 @@ def list_all_restaurants():
     else:
         data = DB.get_restaurants_bycategory(category)
     
- #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("category",category,tot_count)
     if tot_count<=limit:
@@ -241,8 +218,6 @@ def view_reviews(res_name):
         datas=data,
         total=tot_count,
         avg_rate=avg_rate)
-
-############################addBestMenu 동적라우팅######################
     
 @application.route("/add_menus/<res_name>/")
 def add_menus(res_name):
@@ -264,15 +239,8 @@ def list_hashtag_restaurants(hashtag):
     
     data = DB.get_restaurants_byhash(str(hashtag))
 
- #   data = DB.get_restaurants() #read the table
     tot_count = len(data)
     print("hashtag",hashtag,tot_count)
-#    if tot_count<=limit:
-#        data = dict(list(data.items())[:tot_count])
-#    else:
-#        data = dict(list(data.items())[start_idx:end_idx])
-#    data = dict(sorted(data.items(), key=lambda x: x[1]['name'], reverse=False))
-    #print(data)
     
     page_count = len(data)
     print(tot_count,page_count)
@@ -284,9 +252,6 @@ def list_hashtag_restaurants(hashtag):
         page=page,
         page_count=math.ceil(tot_count/6),
         hashtag=hashtag)
-
-###############################################################
-
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0', debug=True)     
