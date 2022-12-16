@@ -126,9 +126,8 @@ a {
   display: block;
 }
 
-/* νΈν° */
 .homeFooter {
-  width: 1920px;
+  width: 100%;
   height: 180px;
 
   background: #f3f3f5;
@@ -141,9 +140,9 @@ a {
 .footer-content {
   display: flex;
 
-  margin-left: 270px;
+  justify-content: flex-end;
 
-  padding: 50px;
+  margin: 50px 10px 50px 50px;
 }
 
 .feedback,

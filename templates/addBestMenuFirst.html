@@ -1,30 +1,9 @@
-{% extends "navbar.html" %}
-{% block head %}
-  {{ super() }}
-  <title>대표 메뉴를 등록해주세요</title>
-  <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/42ed29bed1.js"
-      crossorigin="anonymous"
-    ></script>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='addBestMenu.css') }}">    <!--이 부분 css 안되고 있음-->
-    <!--<link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">-->
-{% endblock %}
-    
-{% block section %}
-    <div class="subject">
-      <h1>#Best Menu</h1>
-    </div>
+{% extends "navbar.html" %} {% block head %} {{ super() }}
+<title>대표 메뉴를 등록해주세요</title>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+/>
 
     <h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
     <br>
@@ -107,15 +86,151 @@
           /></label>
         </div>
       </div>
+
+<!-- 머지 충돌 : main 파트
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='addBestMenu.css') }}"
+/>
+<link rel="stylesheet" href="../static/addBestMenu.css" />
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap"
+  rel="stylesheet"
+/>
+<script
+  src="https://kit.fontawesome.com/42ed29bed1.js"
+  crossorigin="anonymous"
+></script>
+
+<script type="text/javascript">
+  window.onload = function () {
+    const dropDownSection = document.querySelector(".second");
+    const dropDownBtn = document.querySelector(".second_btn");
+    const dropDownMenu = document.querySelector(".second_dropdown");
+
+    const options = document.querySelectorAll(".second_dropdown_option");
+
+    dropDownBtn.addEventListener("click", () => {
+      dropDownMenu.classList.toggle("show");
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        // dropDownBtn.firstChild.data = event.currentTarget.innerText;
+        dropDownBtn.firstChild.data = event.currentTarget.textContent.trim();
+        event.currentTarget.classList.add("selected");
+        dropDownMenu.classList.remove("show");
+
+        for (let opt of options) {
+          if (opt !== event.currentTarget) {
+            opt.classList.remove("selected");
+          }
+        }
+      });
+    });
+  };
+</script>
+
+{% endblock %} {% block section %}
+
+<div class="subject">
+  <h1>#Best Menu</h1>
+</div>
+
+<h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
+
+<form
+  action="/addBestMenuResult"
+  method="post"
+  enctype="multipart/form-data"
+  id="menu"
+>
+  <input type="hidden" name="restaurant_name" value="{{data.name}}" />
+
+  <div class="first">
+    <div>
+      <h2 class="content-title">메뉴 이름</h2>
+      <input
+        type="text"
+        class="menu_name"
+        placeholder="메뉴 이름을 입력해주세요"
+        isrequired="true"
+      />
+      
+      <div class="img_section">
+        <div class="upload"></div>
+        <div class="img_preview"></div>
+      </div>
+    </div>
+-->
+
         
     <div>
         <label for="img">메뉴 이미지 업로드 : </label>
         <input type="file" name="file" /><br><br>
     </div>
-        
-    <div class="submit">
-        <input type="submit" value="메뉴 등록하기"><br><br>
-    </div>
 
-  </form>
+    <div>
+      <h2 class="content-title">가격</h2>
+      <input
+        type="text"
+        class="menu_price"
+        placeholder="가격을 입력해주세요"
+        isrequired="true"
+      />
+    </div>
+  </div>
+
+  <div>
+    <h2 class="content-title">비건 여부</h2>
+    <select name="menu_vegan" id="menu_vegan">
+      <option value="vegan">Yes</option>
+      <option value="non-vegan">No</option>
+    </select>
+  </div>
+
+  <!--    <button type="button" class="second_btn">
+      비건 여부
+      <span class="material-symbols-outlined"> arrow_drop_down </span>
+    </button>
+    <ul class="second_dropdown" name="menu_vegan">
+      <li>
+        <button type="button" class="second_dropdown_option" value="vegan">Yes</button>
+      </li>
+      <li>
+        <button type="button" class="second_dropdown_option selected" value="non-vegan">No</button>
+      </li>
+    </ul>
+  </div> -->
+
+  <div>
+    <h2 class="content-title">알러지 유발 가능 재료</h2>
+    <input
+      type="text"
+      name="menu_allergy"
+      placeholder="알러지를 일으키는 성분을 적어주세요"
+    />
+  </div>
+
+  <div>
+    <h2 class="content-title">한 줄 소개</h2>
+    <input
+      type="text"
+      name="menu_introduce"
+      placeholder="메뉴에 대한 한 줄 소개를 적어주세요"
+      isrequired="true"
+    />
+  </div>
+
+  <!-- 이미지 클릭하면 파일 업로드 되도록 하는 부분  -->
+
+  <div>
+    <h2 class="content-title" for="img">사진 업로드</h2>
+    <input type="file" name="file" />
+  </div>
+</form>
+
+<img class="registerMenuBtn" src="../static/image/registerMenuBtn.png" />
+
 {% endblock section %}
