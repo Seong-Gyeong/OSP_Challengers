@@ -1,15 +1,16 @@
+.content-wrap{
+    position:relative;
+}
+
 .content {
+  transform: translate(0%, 30%);
+
   display: flex;
   flex-direction: column;
 
   align-items: center;
 
   margin: 30px;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .viewReviewBtn {

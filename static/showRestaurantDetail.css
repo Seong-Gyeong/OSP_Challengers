@@ -28,6 +28,11 @@
   justify-content: center;
 }
 
+.restaurant-desc {
+    font-size: 25px;
+    font-weight: 500;
+}
+
 .left-btn {
   width: 100%;
   display: flex;
