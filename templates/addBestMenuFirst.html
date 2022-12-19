@@ -22,86 +22,72 @@
 {% endblock %}
     
 {% block section %}
-    <div class="subject">
-      <h1>#Best Menu</h1>
-    </div>
+   <div class="subject">
+  <h1>#Best Menu</h1>
+</div>
 
-    <h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
-    <br>
-    <h3>대표메뉴</h3>
-            
-    <form action="/addBestMenuResult" method="post" enctype="multipart/form-data" id="menu">
-    <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
+<h3><b>{{data.restaurant_name}}의 대표 메뉴를 등록해주세요</b></h3>
 
-      <div class="first">
-         <div>
-         
-        </div>
-        <br>
-        <br>
-        <div>
-          <label>메뉴 이름
-          <input
-            type="text"
-            name="menu_name"
-            placeholder="메뉴 이름을 입력해주세요"
-            isrequired="true"
-          /></label>
-        </div>
-        <br>
-        <br>
-        <div>
-          <label>가격<br/>
-          <input
-            type="number"
-            name="menu_price"
-            placeholder="가격을 입력해주세요"
-            isrequired="true"
-          /></label>
-        </div>
-      </div>
+<form
+  action="/addBestMenuResult"
+  method="post"
+  enctype="multipart/form-data"
+  id="menu"
+>
+  <input type="hidden" name="restaurant_name" value="{{data.restaurant_name}}">
 
-           <div class="second">        
-      <label for="menu_vegan">비건 여부</label>
-        <select name="menu_vegan" id="menu_vegan">
-            <option value="vegan">Yes</option>
-            <option value="non-vegan">No</option>
-        </select>
-        </div>
-          
-        <br>
-        <br>
-        <div>
-          <label>알러지 유발 가능 재료<br/>
-          <input
-            type="text"
-            name="menu_allergy"
-            placeholder="알러지를 일으키는 성분을 적어주세요"
-          /></label>
-        </div>
-        <br>
-        <br>
-      <div class="third">
-        <div>
-          <label>한 줄 소개<br/>
-          <input
-            type="text"
-            class="menu_introduce"
-            name="menu_introduce"
-            placeholder="메뉴에 대한 한 줄 소개를 적어주세요"
-            isrequired="true"
-          /></label>
-        </div>
-      </div>
-        
-    <div>
-        <label for="img">메뉴 이미지 업로드 : </label>
-        <input type="file" name="file" /><br><br>
-    </div>
-        
-    <div class="submit">
-        <input type="submit" value="메뉴 등록하기"><br><br>
-    </div>
+  <div>
+    <h2 class="content-title">메뉴 이름</h2>
+    <input
+      type="text"
+      name="menu_name"
+      placeholder="메뉴 이름을 입력해주세요"
+      isrequired="true"
+    />
+  </div>
 
-  </form>
+  <div>
+    <h2 class="content-title">가격</h2>
+    <input
+      type="number"
+      name="menu_price"
+      placeholder="가격을 입력해주세요"
+      isrequired="true"
+    />
+  </div>
+
+  <div>
+    <h2 class="content-title">비건 여부</h2>
+    <select name="menu_vegan" id="menu_vegan">
+      <option value="vegan">Yes</option>
+      <option value="non-vegan">No</option>
+    </select>
+  </div>
+
+  <div>
+    <h2 class="content-title">알러지 유발 가능 재료</h2>
+    <input
+      type="text"
+      name="menu_allergy"
+      placeholder="알러지를 일으키는 성분을 적어주세요"
+    />
+  </div>
+
+  <div>
+    <h2 class="content-title">한 줄 소개</h2>
+    <input
+      type="text"
+      name="menu_introduce"
+      placeholder="메뉴에 대한 한 줄 소개를 적어주세요"
+      isrequired="true"
+    />
+  </div>
+
+  <div>
+    <h2 class="content-title" for="img">메뉴 이미지 업로드</h2>
+    <input type="file" name="file" /><br /><br />
+  </div>
+
+  <button class="registerMenuBtn"></button>
+</form>
 {% endblock section %}

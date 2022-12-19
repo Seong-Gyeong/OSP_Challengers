@@ -12,7 +12,9 @@ h3 {
   margin: 30px;
 }
 
-input {
+.input {
+  width: 400px;
+  height: 40px;
   border: 1px solid gray;
 }
 
@@ -21,6 +23,8 @@ input {
 
   display: flex;
   flex-direction: column;
+
+  gap: 24px;
 }
 
 .review-top {
@@ -53,27 +57,8 @@ input {
   margin-left: 25px;
 }
 
-.nickname-input,
-.rating-input {
-  width: 30vw;
-  height: 50px;
-
-  border-radius: 10px;
-
-  margin: 10px;
-}
-
-.comment-input {
-  width: 70vw;
-  height: 200px;
-  border-radius: 10px;
-
-  margin: 10px;
-}
-
 .img-upload {
   display: flex;
-  flex-direction: column;
 }
 
 .upload-input {
@@ -81,59 +66,13 @@ input {
   margin: 10px;
 }
 
-.label-wrap {
-  line-height: 70px;
-}
-
-.add-btn {
-  width: 400px;
+.content-title {
+  width: 300px;
   height: 40px;
-
-  background-color: rgb(0, 70, 22);
-  color: #fff;
-
-  border: none;
-  border-radius: 66px;
-}
-
-.img {
-  width: 180px;
-  height: 180px;
-
-  margin-left: 300px;
-
-  align-self: flex-start;
-}
-
-.imgInput {
-  display: none;
-}
-
-.img_section {
-  display: flex;
-}
-
-.upload {
-  width: 200px;
-  height: 200px;
-
-  padding: 0;
-  cursor: pointer;
-
-  margin: 25px;
-}
-
-.img_preview {
-  width: 550px;
-  height: 200px;
-  gap: 20px;
+  font-size: 15px;
 
   display: flex;
-}
-
-.previewItem {
-  width: 180px;
-  height: 180px;
+  align-items: center;
 }
 
 .submitBtn {
@@ -149,4 +88,9 @@ input {
   margin-top: 20px;
 
   cursor: pointer;
+}
+
+.fileWrap {
+  display: flex;
+  align-items: center;
 }

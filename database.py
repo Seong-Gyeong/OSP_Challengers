@@ -111,7 +111,7 @@ class DBhandler:
         if len(rates)==0:
             return 0
         else:
-            return float(sum(rates)/len(rates))
+            return round(float(sum(rates)/len(rates)),2)
     
     def get_review_byname(self, name):
         reviews = self.db.child("review").get()

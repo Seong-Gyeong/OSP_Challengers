@@ -6,6 +6,8 @@
 
 h3 {
   margin-left: 40px;
+
+  margin-bottom: 100px;
   font-size: 25px;
 }
 
@@ -62,85 +64,15 @@ option {
   display: none;
 }
 
-.upload {
-  width: 200px;
-  height: 200px;
-
-  padding: 0;
-  background-image: url("../static/image/uploadImg.png");
-}
-
-.img_preview {
-  width: 550px;
-  height: 200px;
-  gap: 20px;
-
-  display: flex;
-}
-
-/* 비건 여부 관련 css */
-
-.second {
-  display: flex;
-  align-items: center;
-
-  width: 6rem;
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.second_btn {
-  width: 12rem;
-  height: 2.5rem;
-  border: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  border-bottom: 3px solid transparent;
-
-  cursor: pointer;
-}
-
-.second_dropdown {
-  display: none;
-
-  position: absolute;
-  top: 2.5rem;
-  left: 0rem;
-
-  z-index: 2;
-}
-
-.show {
-  display: block;
-}
-
-.second_dropdown_option {
-  width: 12rem;
-  height: 2.5rem;
-  border: none;
-  border-bottom: #f1f3f5 solid 1px;
-  line-height: 2rem;
-  text-align: center;
-  background-color: #ffffff;
-
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.selected {
-  color: #12b886;
-}
-
 .registerMenuBtn {
-  width: 300px;
+  width: 426px;
+  height: 56px;
 
-  margin-left: 100px;
+  border: none;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  background-image: url("../static/image/registerMenuBtn.png");
 }
+

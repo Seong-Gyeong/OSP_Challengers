@@ -21,34 +21,6 @@
   crossorigin="anonymous"
 ></script>
 
-<script type="text/javascript">
-  window.onload = function () {
-    const dropDownSection = document.querySelector(".second");
-    const dropDownBtn = document.querySelector(".second_btn");
-    const dropDownMenu = document.querySelector(".second_dropdown");
-
-    const options = document.querySelectorAll(".second_dropdown_option");
-
-    dropDownBtn.addEventListener("click", () => {
-      dropDownMenu.classList.toggle("show");
-    });
-
-    options.forEach((option) => {
-      option.addEventListener("click", (event) => {
-        // dropDownBtn.firstChild.data = event.currentTarget.innerText;
-        dropDownBtn.firstChild.data = event.currentTarget.textContent.trim();
-        event.currentTarget.classList.add("selected");
-        dropDownMenu.classList.remove("show");
-
-        for (let opt of options) {
-          if (opt !== event.currentTarget) {
-            opt.classList.remove("selected");
-          }
-        }
-      });
-    });
-  };
-</script>
 
 {% endblock %} 
 {% block section %}
@@ -67,26 +39,24 @@
 >
   <input type="hidden" name="restaurant_name" value="{{data.name}}" />
 
-  <div class="first">
-    <div>
-      <h2 class="content-title">메뉴 이름</h2>
-      <input
-        type="text"
-        name="menu_name"
-        placeholder="메뉴 이름을 입력해주세요"
-        isrequired="true"
-      />
-    </div>
+  <div>
+    <h2 class="content-title">메뉴 이름</h2>
+    <input
+      type="text"
+      name="menu_name"
+      placeholder="메뉴 이름을 입력해주세요"
+      isrequired="true"
+    />
+  </div>
 
   <div>
-      <h2 class="content-title">가격</h2>
-      <input
-        type="number"
-        name="menu_price"
-        placeholder="가격을 입력해주세요"
-        isrequired="true"
-      />
-    </div>
+    <h2 class="content-title">가격</h2>
+    <input
+      type="number"
+      name="menu_price"
+      placeholder="가격을 입력해주세요"
+      isrequired="true"
+    />
   </div>
 
   <div>
@@ -96,7 +66,7 @@
       <option value="non-vegan">No</option>
     </select>
   </div>
- 
+
   <div>
     <h2 class="content-title">알러지 유발 가능 재료</h2>
     <input
@@ -117,22 +87,13 @@
   </div>
 
   <div>
-
-    <label for="img">메뉴 이미지 업로드 : </label>
+    <h2 class="content-title" for="img">메뉴 이미지 업로드</h2>
     <input type="file" name="file" /><br /><br />
   </div>
 
-  <div class="submit">
-    <input type="submit" value="메뉴 등록하기" /><br /><br />
-<!-- 머지충돌 : 메인파트
-    <h2 class="content-title" for="img">사진 업로드</h2>
-    <input type="file" name="file" />
--->
-  </div>
-    
-</form>
+  <button class="registerMenuBtn">
 
-<!--머지충돌 : main 으로 업데이트 - 확인필요 -->
-<img class="registerMenuBtn" src="../static/image/registerMenuBtn.png" />
+  </button>
+</form>
 
 {% endblock section %}

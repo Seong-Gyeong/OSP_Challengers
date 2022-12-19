@@ -12,20 +12,17 @@
 <script
   src="https://kit.fontawesome.com/42ed29bed1.js"
   crossorigin="anonymous"
-></script>
-
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-<link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='showBestMenu.css') }}"
+></script>}"
 />
 <script src="{{ url_for('static', filename='nav.js') }}" defer></script>
 {% endblock %} {% block section %}
-<div class="content">
-  <img src="../static/image/logogreen.png" />
+<div class="content-wrap">
+    <div class="content">
+      <img src="../static/image/logogreen.png" />
 
-  <h1>리뷰가 성공적으로 추가되었습니다.</h1>
-  <a href="/list_reviews/{{data.res_name}}/"><img src="../static/image/viewReviewBtn.png" class="viewReviewBtn" /></a>
+      <h1>리뷰가 성공적으로 추가되었습니다.</h1>
+      <a href="/list_reviews/{{data.res_name}}/"><img src="../static/image/viewReviewBtn.png" class="viewReviewBtn" /></a>
+    </div>
 </div>
 
 {% endblock section %}
