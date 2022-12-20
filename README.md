@@ -1,3 +1,4 @@
+<h1><b>Greats!</b></h1>
 <h4 data-ke-size="size20"><b>서비스명과 로고&nbsp;</b></h4>
 <p data-ke-size="size16">이화여대를 상징하는 색깔인 이화그린과, 식당 추천 서비스라는 의미를 담은 eat을 더해 Greats라는 이름이 탄생하였습니다.&nbsp;</p>
 <p data-ke-size="size16">great이라는 영어 단어가 자연스레 떠올라 좋은 식당만을 골라 추천해준다는 의미도 담겨있습니다.</p>
